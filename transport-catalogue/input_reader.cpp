@@ -2,13 +2,16 @@
 
 
 namespace Input {
+    using namespace std::string_literals;
+    using namespace Transport;
+
     int ReadLineWithNumber() {
         int result;
         std::cin >> result;
         return result;
     }
 
-    bool IsCorrect(std::string_view str) {
+    bool IsValidStopName(std::string_view str) {
         bool out = false;
         for (const char &c: str) {
             if (std::isspace(c) || std::isalnum(c)) out = true;
@@ -85,21 +88,16 @@ namespace Input {
         return std::string(vector_word.substr(0, vector_word.find_first_of(':')));
     }
 
-    std::pair<double, double> Coords(const std::vector<std::string> &vector_word) {
+    std::pair<double, double> ParseCoords(const std::vector<std::string> &vector_word) {
         std::pair<double, double> coords;
-        for (int i = 0; i < vector_word.size(); ++i) {
-            if (i == 0) {
-                std::string s = vector_word[i];
-                s.pop_back();
-                coords.first = std::stod(s);
-            }
-            if (i == 1) {
-                std::string s = vector_word[i];
-                s.pop_back();
-                coords.second = std::stod(vector_word[i]);
-                break;
-            }
-        }
+
+        std::string s = vector_word[0];
+        s.pop_back();
+        coords.first = std::stod(s);
+
+        std::string s_second = vector_word[1];
+        s_second.pop_back();
+        coords.second = std::stod(vector_word[1]);
 
         return coords;
     }
@@ -126,7 +124,7 @@ namespace Input {
         std::vector<const Stop *> route;
 
         for (const auto &stop_: request) {
-            if (IsCorrect(stop_)) {
+            if (IsValidStopName(stop_)) {
                 route.push_back(&catalogue.FindStop(stop_));
             }
         }
@@ -168,14 +166,10 @@ namespace Input {
             }
         }
 
-//    for (const auto& [name, dist] : distances) {
-//        std::cout << "Name- "s << name << "\t dist- "s << dist << std::endl;
-//    }
-
         return distances;
     }
 
-    std::unordered_map<std::string, Path> ParseStrings(Catalogue &catalogue) {
+    std::unordered_map<std::string, Path> ParseRequestStrings(Catalogue &catalogue) {
         const auto requests = ReadData();
         std::unordered_map<std::string, Path> paths;
 
@@ -183,9 +177,9 @@ namespace Input {
             if (req.type == Type::Stop) {
                 const std::string name = FindName(req.request);
                 const auto reqs_ = SplitIntoWordsStop(req.request);
-                auto coords = Coords(reqs_);
+                auto coords = ParseCoords(reqs_);
 
-                if (IsCorrect(name)) catalogue.AddStop(name, coords.first, coords.second);
+                if (IsValidStopName(name)) catalogue.AddStop(name, coords.first, coords.second);
             }
         }
 

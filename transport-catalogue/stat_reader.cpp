@@ -4,6 +4,9 @@ using namespace std::string_literals;
 
 
 namespace ReadStat {
+    using namespace Transport;
+    using namespace Input;
+
     int ReadLineWithNumber() {
         int result;
         std::cin >> result;
@@ -61,11 +64,11 @@ namespace ReadStat {
     int DistanceRouteCycle(const Catalogue& catalogue, const Bus& bus) {
         int sum = 0;
         for (int i = 0; i != bus.bus_route_.size() - 1; ++i) {
-            if (catalogue.GetDistance(bus.bus_route_[i]->stop_, bus.bus_route_[i + 1]->stop_) == 0) {
-                sum += catalogue.GetDistance(bus.bus_route_[i + 1]->stop_, bus.bus_route_[i]->stop_);
+            if (catalogue.GetDistance(bus.bus_route_[i]->stop_name, bus.bus_route_[i + 1]->stop_name) == 0) {
+                sum += catalogue.GetDistance(bus.bus_route_[i + 1]->stop_name, bus.bus_route_[i]->stop_name);
                 continue;
             }
-            sum += catalogue.GetDistance(bus.bus_route_[i]->stop_, bus.bus_route_[i + 1]->stop_);
+            sum += catalogue.GetDistance(bus.bus_route_[i]->stop_name, bus.bus_route_[i + 1]->stop_name);
         }
         return sum;
     }
@@ -75,19 +78,19 @@ namespace ReadStat {
         std::reverse_copy(bus.bus_route_.begin(), bus.bus_route_.end(), route_reverse.begin());
         int sum = 0;
         for (int i = 0; i != bus.bus_route_.size() - 1; ++i) {
-            if (catalogue.GetDistance(bus.bus_route_[i]->stop_, bus.bus_route_[i + 1]->stop_) == 0) {
-                sum += catalogue.GetDistance(bus.bus_route_[i + 1]->stop_, bus.bus_route_[i]->stop_);
+            if (catalogue.GetDistance(bus.bus_route_[i]->stop_name, bus.bus_route_[i + 1]->stop_name) == 0) {
+                sum += catalogue.GetDistance(bus.bus_route_[i + 1]->stop_name, bus.bus_route_[i]->stop_name);
                 continue;
             }
-            sum += catalogue.GetDistance(bus.bus_route_[i]->stop_, bus.bus_route_[i + 1]->stop_);
+            sum += catalogue.GetDistance(bus.bus_route_[i]->stop_name, bus.bus_route_[i + 1]->stop_name);
         }
 
         for (int i = 0; i != route_reverse.size() - 1; ++i) {
-            if (catalogue.GetDistance(route_reverse[i]->stop_, route_reverse[i + 1]->stop_) == 0) {
-                sum += catalogue.GetDistance(route_reverse[i + 1]->stop_, route_reverse[i]->stop_);
+            if (catalogue.GetDistance(route_reverse[i]->stop_name, route_reverse[i + 1]->stop_name) == 0) {
+                sum += catalogue.GetDistance(route_reverse[i + 1]->stop_name, route_reverse[i]->stop_name);
                 continue;
             }
-            sum += catalogue.GetDistance(route_reverse[i]->stop_, route_reverse[i + 1]->stop_);
+            sum += catalogue.GetDistance(route_reverse[i]->stop_name, route_reverse[i + 1]->stop_name);
         }
 
         return sum;
@@ -111,23 +114,23 @@ namespace ReadStat {
                     if (paths.at(bus_name.bus_name_) == Path::Cycle) dist += DistanceRouteCycle(catalogue, bus_name);
                     for (int i = 0; i < all_stops.size() + 1; ++i) {
                         if (paths.at(bus_name.bus_name_) == Path::Seq) {
-                            stops_unique.insert(all_stops[i]->stop_);
+                            stops_unique.insert(all_stops[i]->stop_name);
                             if (i == all_stops.size() - 1) {
-                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_);
+                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
                                 std::cout << "Bus "s << requests[j].req_name_ << ": " << (all_stops.size() * 2) - 1;
                                 break;
                             }
-                            sum += 2 * ComputeDistance({all_stops[i]->lat_de_, all_stops[i]->long_de_},
-                                                       {all_stops[i + 1]->lat_de_, all_stops[i + 1]->long_de_});
+                            sum += 2 * ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
+                                                       {all_stops[i + 1]->latitude, all_stops[i + 1]->longitude});
                         } else if (paths.at(bus_name.bus_name_) == Path::Cycle) {
-                            stops_unique.insert(all_stops[i]->stop_);
+                            stops_unique.insert(all_stops[i]->stop_name);
                             if (i == all_stops.size() - 1) {
-                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_);
+                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
                                 std::cout << "Bus "s << requests[j].req_name_ << ": " << all_stops.size();
                                 break;
                             }
-                            sum += ComputeDistance({all_stops[i]->lat_de_, all_stops[i]->long_de_},
-                                                   {all_stops[i + 1]->lat_de_, all_stops[i + 1]->long_de_});
+                            sum += ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
+                                                   {all_stops[i + 1]->latitude, all_stops[i + 1]->longitude});
                         }
                     }
                     std::cout << " stops on route, "s << stops_unique.size() << " unique stops, "s

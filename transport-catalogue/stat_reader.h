@@ -10,9 +10,7 @@
 #include "input_reader.h"
 
 namespace ReadStat {
-    using namespace Transport;
-    using namespace Input;
-
+    using Input::Path;
     enum class TypeInput {
         Bus,
         Stop
@@ -24,16 +22,10 @@ namespace ReadStat {
     };
 
     std::string FindName(std::string_view vector_word);
-
     int ReadLineWithNumber();
-
     std::vector<Input> ReadData();
-
-    void FindAllStopsRequired(Catalogue& catalogue, const std::vector<const Stop*>& route);
-
-    int DistanceRouteCycle(const Catalogue& catalogue, const Bus& bus);
-
-    int DistanceRouteSeq(const Catalogue& catalogue, const Bus& bus);
-
-    void StatOut(Catalogue& catalogue, const std::unordered_map<std::string, Path>& paths);
+    void FindAllStopsRequired(Transport::Catalogue& catalogue, const std::vector<const Transport::Stop*>& route);
+    int DistanceRouteCycle(const Transport::Catalogue& catalogue, const Transport::Bus& bus);
+    int DistanceRouteSeq(const Transport::Catalogue& catalogue, const Transport::Bus& bus);
+    void StatOut(Transport::Catalogue& catalogue, const std::unordered_map<std::string, Path>& paths);
 }

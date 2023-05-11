@@ -12,7 +12,7 @@ int main() {
     
     Catalogue catalogue;
 
-    const auto paths = ParseStrings(catalogue);
+    const auto paths = ParseRequestStrings(catalogue);
 
     ReadStat::StatOut(catalogue, paths);
     
