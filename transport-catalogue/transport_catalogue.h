@@ -8,6 +8,7 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <optional>
 
 namespace Transport {
     struct Stop {
@@ -51,12 +52,12 @@ namespace Transport {
         Catalogue() = default;
 
         void AddStop(std::string_view stop, double latitude, double longitude);
-        const Stop& FindStop(std::string_view stop) const;
+        const Stop* FindStop(std::string_view stop) const;
         void AddBus(std::string_view bus, std::vector<const Stop *> route);
-        const Bus& FindBus(std::string_view bus) const;
+        const Bus* FindBus(std::string_view bus) const;
         void AddDistance(const Stop &stop1, const Stop &stop2, int dist);
         int GetDistance(std::string_view stop1, std::string stop2) const;
-        const std::vector<const Stop *>& GetBusInfo(std::string_view bus) const;
+        const std::vector<const Stop *>* GetBusInfo(std::string_view bus) const;
         std::set<std::string> GetStopInfo(std::string_view str);
 
     private:
@@ -64,7 +65,7 @@ namespace Transport {
         std::unordered_map<std::string_view, const Stop *, detail::StopBusHash> stopname_to_stop_;
         std::deque<Bus> buses_;
         std::unordered_map<std::string_view, const Bus *, detail::StopBusHash> busname_to_bus_;
-        std::unordered_map<std::string, std::set<std::string>, detail::StopBusHash> buses_to_stop;
+        std::unordered_map<std::string_view, std::set<std::string>, detail::StopBusHash> buses_to_stop;
         std::unordered_map<std::pair<const Stop *, const Stop *>, int, detail::DistanceHash> distances_;
     };
 }

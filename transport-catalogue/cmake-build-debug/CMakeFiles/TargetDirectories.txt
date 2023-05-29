@@ -1,0 +1,3 @@
+/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug/CMakeFiles/part_1.dir
+/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

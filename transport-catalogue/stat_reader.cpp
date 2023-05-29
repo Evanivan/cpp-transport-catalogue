@@ -3,24 +3,16 @@
 using namespace std::string_literals;
 
 
-namespace ReadStat {
+namespace Stat {
     using namespace Transport;
-    using namespace Input;
 
-    int ReadLineWithNumber() {
-        int result;
-        std::cin >> result;
-        return result;
-    }
-
-
-    std::string FindName(std::string_view vector_word) {
+    std::string FindNameStat(std::string_view vector_word) {
         vector_word.remove_prefix(std::min(vector_word.size(), vector_word.find_first_of(" "s) + 1));
 
         return std::string(vector_word.substr(0, vector_word.find_first_of('\n')));
     }
 
-    std::vector<Input> ReadData() {
+    std::vector<Input> ReadDataInput() {
         int count_input = ReadLineWithNumber();
         std::vector<Input> result;
         Input el;
@@ -31,10 +23,10 @@ namespace ReadStat {
 
             if (!line.empty()) {
                 if (line[0] == 'B') {
-                    result.push_back({TypeInput::Bus, FindName(line)});
+                    result.push_back({TypeInput::Bus, FindNameStat(line)});
                 }
                 if (line[0] == 'S') {
-                    result.push_back({TypeInput::Stop, FindName(line)});
+                    result.push_back({TypeInput::Stop, FindNameStat(line)});
                 }
             }
             --count_input;
@@ -97,47 +89,53 @@ namespace ReadStat {
     }
 
     void StatOut(Catalogue& catalogue, const std::unordered_map<std::string, Path>& paths) {
-        const auto requests = ReadData();
+        const auto requests = ReadDataInput();
 
         for (int j = 0; j < requests.size(); ++j) {
             double sum = 0;
             double dist = 0;
             try {
-                const auto& all_stops = catalogue.GetBusInfo(requests[j].req_name_);
+                const auto& all_stops = *catalogue.GetBusInfo(requests[j].req_name_);
                 const auto& bus_name = catalogue.FindBus(requests[j].req_name_);
 
                 std::set<std::string> stops_unique;
                 if (requests[j].type_ == TypeInput::Stop) {
                     FindAllStopsRequired(catalogue, requests[j].req_name_);
                 } else {
-                    if (paths.at(bus_name.bus_name_) == Path::Seq) dist += DistanceRouteSeq(catalogue, bus_name);
-                    if (paths.at(bus_name.bus_name_) == Path::Cycle) dist += DistanceRouteCycle(catalogue, bus_name);
-                    for (int i = 0; i < all_stops.size() + 1; ++i) {
-                        if (paths.at(bus_name.bus_name_) == Path::Seq) {
-                            stops_unique.insert(all_stops[i]->stop_name);
-                            if (i == all_stops.size() - 1) {
-                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
-                                std::cout << "Bus "s << requests[j].req_name_ << ": " << (all_stops.size() * 2) - 1;
-                                break;
-                            }
-                            sum += 2 * ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
+                    if (bus_name) {
+                        if (paths.at(bus_name->bus_name_) == Path::Seq) dist += DistanceRouteSeq(catalogue, *bus_name);
+                        if (paths.at(bus_name->bus_name_) == Path::Cycle)
+                            dist += DistanceRouteCycle(catalogue, *bus_name);
+                        for (int i = 0; i < all_stops.size() + 1; ++i) {
+                            if (paths.at(bus_name->bus_name_) == Path::Seq) {
+                                stops_unique.insert(all_stops[i]->stop_name);
+                                if (i == all_stops.size() - 1) {
+                                    stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
+                                    std::cout << "Bus "s << requests[j].req_name_ << ": " << (all_stops.size() * 2) - 1;
+                                    break;
+                                }
+                                sum += 2 * ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
+                                                           {all_stops[i + 1]->latitude, all_stops[i + 1]->longitude});
+                            } else if (paths.at(bus_name->bus_name_) == Path::Cycle) {
+                                stops_unique.insert(all_stops[i]->stop_name);
+                                if (i == all_stops.size() - 1) {
+                                    stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
+                                    std::cout << "Bus "s << requests[j].req_name_ << ": " << all_stops.size();
+                                    break;
+                                }
+                                sum += ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
                                                        {all_stops[i + 1]->latitude, all_stops[i + 1]->longitude});
-                        } else if (paths.at(bus_name.bus_name_) == Path::Cycle) {
-                            stops_unique.insert(all_stops[i]->stop_name);
-                            if (i == all_stops.size() - 1) {
-                                stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
-                                std::cout << "Bus "s << requests[j].req_name_ << ": " << all_stops.size();
-                                break;
                             }
-                            sum += ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
-                                                   {all_stops[i + 1]->latitude, all_stops[i + 1]->longitude});
                         }
+                        std::cout << " stops on route, "s << stops_unique.size() << " unique stops, "s
+                                  << std::defaultfloat << dist;
+                        std::cout << " route length, "s << std::defaultfloat << dist / sum << " curvature\n"s;
+                    } else {
+                        throw std::out_of_range("");
                     }
-                    std::cout << " stops on route, "s << stops_unique.size() << " unique stops, "s
-                               << std::defaultfloat << dist;
-                    std::cout << " route length, "s << std::defaultfloat << dist / sum << " curvature\n"s;
                 }
             } catch (std::out_of_range&){
+//                std::cout << "\nHere\n"s;
                 std::cout << "Bus "s << requests[j].req_name_ << ": not found\n"s;
             }
         }

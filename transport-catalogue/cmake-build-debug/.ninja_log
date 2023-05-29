@@ -1,0 +1,11 @@
+# ninja log v5
+0	72	1683803732565091745	build.ninja	df91d1b6fa09959e
+2	1041	1681392100256332119	CMakeFiles/part_1.dir/stat_reader.cpp.o	6cf896bcfbea95cd
+3	2245	1681392006894387065	CMakeFiles/part_1.dir/input_reader.cpp.o	42ac10c313f20748
+1	1051	1681392100270716219	CMakeFiles/part_1.dir/main.cpp.o	ade11a1e868b33c1
+1052	1126	1681392100345699182	part_1	37c2838e30700acc
+3	2257	1681392006919977163	CMakeFiles/part_1.dir/transport_catalogue.cpp.o	ba76e5aed8f22bc4
+5	1934	1683807515408726295	CMakeFiles/part_1.dir/Users/jgloria/Desktop/Транспортный_справочник/cpp_transport_catalogue/transport-catalogue/main.cpp.o	f38f0793f05cb5a5
+3	1934	1683807515412591014	CMakeFiles/part_1.dir/Users/jgloria/Desktop/Транспортный_справочник/cpp_transport_catalogue/transport-catalogue/stat_reader.cpp.o	71be6521d2dc68a4
+4	2018	1683807515496684647	CMakeFiles/part_1.dir/Users/jgloria/Desktop/Транспортный_справочник/cpp_transport_catalogue/transport-catalogue/input_reader.cpp.o	d1f7931ade750dda
+4	2045	1683807515523907806	CMakeFiles/part_1.dir/Users/jgloria/Desktop/Транспортный_справочник/cpp_transport_catalogue/transport-catalogue/transport_catalogue.cpp.o	c50ee219a6cefc82

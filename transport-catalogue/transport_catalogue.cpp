@@ -3,9 +3,9 @@
 using namespace std::string_literals;
 
 namespace Transport {
-    const Stop& CONST_STOPNAME = {};
-    const Bus& CONST_BUSNAME ={};
-    const std::vector<const Stop*> CONST_BUS_ROUTE = {};
+    const Stop* CONST_STOPNAME = {};
+    const Bus* CONST_BUSNAME = {};
+    const std::vector<const Stop*>* CONST_BUS_ROUTE = {};
     const std::set<std::string> CONST_BUSES_ = {};
 
 
@@ -13,11 +13,11 @@ namespace Transport {
         Stop stp = {std::string(stop), latitude, longitude};
         stops_.push_back(std::move(stp));
         stopname_to_stop_[stops_.back().stop_name] = &stops_.back();
-        buses_to_stop[std::string(stop)] = {};
+        buses_to_stop[stops_.back().stop_name] = {};
     }
 
-    const Stop& Catalogue::FindStop(std::string_view stop) const {
-        if (stopname_to_stop_.count(stop) != 0) return *stopname_to_stop_.at(stop);
+    const Stop* Catalogue::FindStop(std::string_view stop) const {
+        if (stopname_to_stop_.count(stop) != 0) return stopname_to_stop_.at(stop);
         return CONST_STOPNAME;
     }
 
@@ -27,8 +27,8 @@ namespace Transport {
         busname_to_bus_[buses_.back().bus_name_] = &buses_.back();
     }
 
-    const Bus& Catalogue::FindBus(std::string_view bus) const {
-        if (busname_to_bus_.count(bus) != 0) return *busname_to_bus_.at(bus);
+    const Bus* Catalogue::FindBus(std::string_view bus) const {
+        if (busname_to_bus_.count(bus) != 0) return busname_to_bus_.at(bus);
         return CONST_BUSNAME;
     }
 
@@ -38,8 +38,8 @@ namespace Transport {
     }
 
     int Catalogue::GetDistance(std::string_view stop1, std::string stop2) const {
-        const Stop &stp_p1 = FindStop(stop1);
-        const Stop &stp_p2 = FindStop(stop2);
+        const Stop &stp_p1 = *FindStop(stop1);
+        const Stop &stp_p2 = *FindStop(stop2);
         if (distances_.count({&stp_p1, &stp_p2}) != 0) {
             return distances_.at({&stp_p1, &stp_p2});
         }
@@ -47,8 +47,8 @@ namespace Transport {
         return 0;
     }
 
-    const std::vector<const Stop *>& Catalogue::GetBusInfo(std::string_view bus) const {
-        if (busname_to_bus_.count(bus) != 0) return busname_to_bus_.at(bus)->bus_route_;
+    const std::vector<const Stop *>* Catalogue::GetBusInfo(std::string_view bus) const {
+        if (busname_to_bus_.count(bus) != 0) return &busname_to_bus_.at(bus)->bus_route_;
         return CONST_BUS_ROUTE;
     }
 

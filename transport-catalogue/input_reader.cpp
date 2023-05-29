@@ -1,7 +1,7 @@
 #include "input_reader.h"
 
 
-namespace Input {
+namespace Stat {
     using namespace std::string_literals;
     using namespace Transport;
 
@@ -14,7 +14,11 @@ namespace Input {
     bool IsValidStopName(std::string_view str) {
         bool out = false;
         for (const char &c: str) {
-            if (std::isspace(c) || std::isalnum(c)) out = true;
+            if (std::isspace(c) || std::isalnum(c)) {
+                out = true;
+                continue;
+            }
+            out = false;
         }
         return out;
     }
@@ -125,7 +129,10 @@ namespace Input {
 
         for (const auto &stop_: request) {
             if (IsValidStopName(stop_)) {
-                route.push_back(&catalogue.FindStop(stop_));
+                const auto& find_stp = catalogue.FindStop(stop_);
+                if (find_stp) {
+                    route.push_back(find_stp);
+                }
             }
         }
 
@@ -179,7 +186,9 @@ namespace Input {
                 const auto reqs_ = SplitIntoWordsStop(req.request);
                 auto coords = ParseCoords(reqs_);
 
-                if (IsValidStopName(name)) catalogue.AddStop(name, coords.first, coords.second);
+                if (IsValidStopName(name)) {
+                    catalogue.AddStop(name, coords.first, coords.second);
+                }
             }
         }
 
@@ -188,9 +197,11 @@ namespace Input {
                 const std::string name = FindName(req.request);
                 const auto reqs_ = ParseDistance(req.request);
                 for (const auto &[stp, distance]: reqs_) {
-                    catalogue.AddDistance(catalogue.FindStop(name),
-                                          catalogue.FindStop(stp),
-                                          distance);
+                    if (catalogue.FindStop(name) && catalogue.FindStop(stp)) {
+                        catalogue.AddDistance(*catalogue.FindStop(name),
+                                              *catalogue.FindStop(stp),
+                                              distance);
+                    }
                 }
             }
         }
