@@ -5,16 +5,15 @@
 #include <iostream>
 
 using namespace std::literals::string_literals;
-using namespace Transport;
-using namespace Stat;
+using namespace Catalogue;
 
 int main() {
 
-    Catalogue catalogue;
+    Transport::Catalogue catalogue;
 
-    const auto paths = ParseRequestStrings(catalogue);
+    const auto paths = Reader::ParseRequestStrings(catalogue);
 
-    StatOut(catalogue, paths);
+    Stat::StatOut(catalogue, paths);
 
     return 0;
 }
