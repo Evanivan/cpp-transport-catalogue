@@ -23,6 +23,11 @@ namespace Catalogue {
             std::vector<const Stop *> bus_route_;
         };
 
+        enum class Path{
+            Cycle,
+            Seq
+        };
+
         namespace detail {
             struct DistanceHash {
                 size_t operator()(std::pair<const Stop *, const Stop *> stop) const {
@@ -68,6 +73,10 @@ namespace Catalogue {
 
             std::set<std::string> GetStopInfo(std::string_view str);
 
+            void SetRouteType(std::string_view str, Path path);
+
+            const std::unordered_map<std::string, Path>& GetRouteType() const;
+
         private:
             std::deque<Stop> stops_;
             std::unordered_map<std::string_view, const Stop *, detail::StopBusHash> stopname_to_stop_;
@@ -75,6 +84,7 @@ namespace Catalogue {
             std::unordered_map<std::string_view, const Bus *, detail::StopBusHash> busname_to_bus_;
             std::unordered_map<std::string_view, std::set<std::string>, detail::StopBusHash> buses_to_stop;
             std::unordered_map<std::pair<const Stop *, const Stop *>, int, detail::DistanceHash> distances_;
+            std::unordered_map<std::string, Path> route_type;
         };
     }
 }

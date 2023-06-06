@@ -70,5 +70,16 @@ namespace Catalogue {
 
             return {};
         }
+
+        void Catalogue::SetRouteType(std::string_view str, Path path) {
+            if (!str.empty()) {
+                route_type[std::string(str)] = path;
+            }
+        }
+
+        const std::unordered_map<std::string, Path>& Catalogue::GetRouteType() const {
+            return route_type;
+        }
+
     }
 }

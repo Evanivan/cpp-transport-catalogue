@@ -32,6 +32,6 @@ namespace Catalogue {
 
         int DistanceRouteSeq(const Transport::Catalogue &catalogue, const Transport::Bus &bus);
 
-        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Path> &paths);
+        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Transport::Path> &paths);
     }
 }

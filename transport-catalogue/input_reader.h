@@ -16,10 +16,10 @@ namespace Catalogue {
             Stop
         };
 
-        enum class Path {
-            Cycle,
-            Seq
-        };
+//        enum class Path {
+//            Cycle,
+//            Seq
+//        };
 
         struct Request {
             Type type;
@@ -28,7 +28,7 @@ namespace Catalogue {
 
         std::vector<std::string> SplitIntoWords(std::string_view text);
 
-        std::pair<Path, std::vector<std::string>> SplitIntoWordsRoute(std::string_view text);
+        std::pair<Transport::Path, std::vector<std::string>> SplitIntoWordsRoute(std::string_view text);
 
         std::vector<std::string> SplitIntoWordsStop(std::string_view text);
 
@@ -38,7 +38,7 @@ namespace Catalogue {
 
         std::vector<Request> ReadData();
 
-        std::unordered_map<std::string, Path> ParseRequestStrings(Transport::Catalogue &catalogue);
+        std::unordered_map<std::string, Transport::Path> ParseRequestStrings(Transport::Catalogue &catalogue);
 
         std::vector<const Transport::Stop *>
         ParseRoute(Transport::Catalogue &catalogue, const std::vector<std::string> &request);

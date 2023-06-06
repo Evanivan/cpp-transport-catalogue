@@ -88,7 +88,7 @@ namespace Catalogue {
             return sum;
         }
 
-        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Path> &paths) {
+        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Transport::Path> &paths) {
             const auto requests = ReadDataInput();
 
             for (int j = 0; j < requests.size(); ++j) {
@@ -103,12 +103,12 @@ namespace Catalogue {
                         FindAllStopsRequired(catalogue, requests[j].req_name_);
                     } else {
                         if (bus_name) {
-                            if (paths.at(bus_name->bus_name_) == Path::Seq)
+                            if (paths.at(bus_name->bus_name_) == Transport::Path::Seq)
                                 dist += DistanceRouteSeq(catalogue, *bus_name);
-                            if (paths.at(bus_name->bus_name_) == Path::Cycle)
+                            if (paths.at(bus_name->bus_name_) == Transport::Path::Cycle)
                                 dist += DistanceRouteCycle(catalogue, *bus_name);
                             for (int i = 0; i < all_stops.size() + 1; ++i) {
-                                if (paths.at(bus_name->bus_name_) == Path::Seq) {
+                                if (paths.at(bus_name->bus_name_) == Transport::Path::Seq) {
                                     stops_unique.insert(all_stops[i]->stop_name);
                                     if (i == all_stops.size() - 1) {
                                         stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);
@@ -119,7 +119,7 @@ namespace Catalogue {
                                     sum += 2 * ComputeDistance({all_stops[i]->latitude, all_stops[i]->longitude},
                                                                {all_stops[i + 1]->latitude,
                                                                 all_stops[i + 1]->longitude});
-                                } else if (paths.at(bus_name->bus_name_) == Path::Cycle) {
+                                } else if (paths.at(bus_name->bus_name_) == Transport::Path::Cycle) {
                                     stops_unique.insert(all_stops[i]->stop_name);
                                     if (i == all_stops.size() - 1) {
                                         stops_unique.insert(all_stops[all_stops.size() - 1]->stop_name);

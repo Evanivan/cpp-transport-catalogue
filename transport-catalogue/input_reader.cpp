@@ -19,6 +19,7 @@ namespace Catalogue {
                     continue;
                 }
                 out = false;
+                break;
             }
             return out;
         }
@@ -213,12 +214,13 @@ namespace Catalogue {
                     const auto reqs_ = SplitIntoWordsRoute(requests[i].request);
                     const auto route = ParseRoute(catalogue, reqs_.second);
 
-                    paths[name] = (reqs_.first);
+//                    paths[name] = (reqs_.first);
+                    catalogue.SetRouteType(name, reqs_.first);
                     catalogue.AddBus(name, route);
                 }
             }
 
-            return paths;
+            return catalogue.GetRouteType();
         }
 
         std::ostream &operator<<(std::ostream &os, const Type &tp) {
