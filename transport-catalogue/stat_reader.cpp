@@ -88,7 +88,7 @@ namespace Catalogue {
             return sum;
         }
 
-        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Transport::Path> &paths) {
+        void StatOut(Transport::Catalogue &catalogue) {
             const auto requests = ReadDataInput();
 
             for (int j = 0; j < requests.size(); ++j) {
@@ -103,6 +103,7 @@ namespace Catalogue {
                         FindAllStopsRequired(catalogue, requests[j].req_name_);
                     } else {
                         if (bus_name) {
+                            auto paths = catalogue.GetRouteType();
                             if (paths.at(bus_name->bus_name_) == Transport::Path::Seq)
                                 dist += DistanceRouteSeq(catalogue, *bus_name);
                             if (paths.at(bus_name->bus_name_) == Transport::Path::Cycle)

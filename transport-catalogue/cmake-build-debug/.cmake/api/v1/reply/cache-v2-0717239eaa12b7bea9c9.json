@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug"
+			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -571,7 +571,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1"
+			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -851,7 +851,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "part_1"
+			"value" : "Sprint10_final_remake"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1134,7 +1134,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "part_1_BINARY_DIR",
+			"name" : "Sprint10_final_remake_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1143,10 +1143,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1/cmake-build-debug"
+			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug"
 		},
 		{
-			"name" : "part_1_IS_TOP_LEVEL",
+			"name" : "Sprint10_final_remake_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1158,7 +1158,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "part_1_SOURCE_DIR",
+			"name" : "Sprint10_final_remake_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint10/Names/Ex8_Transport_Handbook/part_1"
+			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake"
 		}
 	],
 	"kind" : "cache",

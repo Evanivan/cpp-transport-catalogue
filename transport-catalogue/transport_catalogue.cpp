@@ -4,12 +4,6 @@ using namespace std::string_literals;
 
 namespace Catalogue {
     namespace Transport {
-//        const Stop *CONST_STOPNAME = {};
-//        const Bus *CONST_BUSNAME = {};
-//        const std::vector<const Stop *> *CONST_BUS_ROUTE = {};
-//        const std::set<std::string> CONST_BUSES_ = {};
-
-
         void Catalogue::AddStop(std::string_view stop, double latitude, double longitude) {
             Stop stp = {std::string(stop), latitude, longitude};
             stops_.push_back(std::move(stp));
@@ -22,14 +16,16 @@ namespace Catalogue {
             return nullptr;
         }
 
-        void Catalogue::AddBus(std::string_view bus, std::vector<const Stop *> route) {
+        void Catalogue::AddBus(std::string_view bus, std::vector<const Stop *> route, Path path) {
             Bus bus_add = {std::string(bus), std::move(route)};
             buses_.push_back(std::move(bus_add));
-            busname_to_bus_[buses_.back().bus_name_] = &buses_.back();
+            if (!bus.empty()) {
+                busname_to_bus_[buses_.back().bus_name_] = {&buses_.back(), path};
+            }
         }
 
-        const Bus *Catalogue::FindBus(std::string_view bus) const {
-            if (busname_to_bus_.count(bus) != 0) return busname_to_bus_.at(bus);
+        const Bus* Catalogue::FindBus(std::string_view bus) const {
+            if (busname_to_bus_.count(bus) != 0) return busname_to_bus_.at(bus).first;
             return nullptr;
         }
 
@@ -49,7 +45,7 @@ namespace Catalogue {
         }
 
         const std::vector<const Stop *> *Catalogue::GetBusInfo(std::string_view bus) const {
-            if (busname_to_bus_.count(bus) != 0) return &busname_to_bus_.at(bus)->bus_route_;
+            if (busname_to_bus_.count(bus) != 0) return &busname_to_bus_.at(bus).first->bus_route_;
             return {};
         }
 
@@ -71,14 +67,12 @@ namespace Catalogue {
             return {};
         }
 
-        void Catalogue::SetRouteType(std::string_view str, Path path) {
-            if (!str.empty()) {
-                route_type[std::string(str)] = path;
+        std::unordered_map<std::string, Path> Catalogue::GetRouteType() const {
+            std::unordered_map<std::string, Path> map_of_types;
+            for (const auto& [name, pair_of_type]  : busname_to_bus_) {
+                map_of_types[std::string(name)] = pair_of_type.second;
             }
-        }
-
-        const std::unordered_map<std::string, Path>& Catalogue::GetRouteType() const {
-            return route_type;
+            return map_of_types;
         }
 
     }

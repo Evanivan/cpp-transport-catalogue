@@ -177,9 +177,8 @@ namespace Catalogue {
             return distances;
         }
 
-        std::unordered_map<std::string, Path> ParseRequestStrings(Catalogue &catalogue) {
+        void ParseRequestStrings(Catalogue &catalogue) {
             const auto requests = ReadData();
-            std::unordered_map<std::string, Path> paths;
 
             for (auto &req: requests) {
                 if (req.type == Type::Stop) {
@@ -213,14 +212,9 @@ namespace Catalogue {
 
                     const auto reqs_ = SplitIntoWordsRoute(requests[i].request);
                     const auto route = ParseRoute(catalogue, reqs_.second);
-
-//                    paths[name] = (reqs_.first);
-                    catalogue.SetRouteType(name, reqs_.first);
-                    catalogue.AddBus(name, route);
+                    catalogue.AddBus(name, route, reqs_.first);
                 }
             }
-
-            return catalogue.GetRouteType();
         }
 
         std::ostream &operator<<(std::ostream &os, const Type &tp) {

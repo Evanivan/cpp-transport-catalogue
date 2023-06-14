@@ -23,15 +23,10 @@ namespace Catalogue {
         };
 
         std::string FindNameStat(std::string_view vector_word);
-
         std::vector<Input> ReadDataInput();
-
         void FindAllStopsRequired(Transport::Catalogue &catalogue, const std::vector<const Transport::Stop *> &route);
-
         int DistanceRouteCycle(const Transport::Catalogue &catalogue, const Transport::Bus &bus);
-
         int DistanceRouteSeq(const Transport::Catalogue &catalogue, const Transport::Bus &bus);
-
-        void StatOut(Transport::Catalogue &catalogue, const std::unordered_map<std::string, Transport::Path> &paths);
+        void StatOut(Transport::Catalogue &catalogue);
     }
 }
