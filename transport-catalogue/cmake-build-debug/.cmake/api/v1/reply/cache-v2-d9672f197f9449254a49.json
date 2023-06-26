@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -571,7 +571,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -851,7 +851,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Sprint10_final_remake"
+			"value" : "Ex15_1"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1134,7 +1134,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Sprint10_final_remake_BINARY_DIR",
+			"name" : "Ex15_1_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1143,10 +1143,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake/cmake-build-debug"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
 		},
 		{
-			"name" : "Sprint10_final_remake_IS_TOP_LEVEL",
+			"name" : "Ex15_1_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1158,7 +1158,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Sprint10_final_remake_SOURCE_DIR",
+			"name" : "Ex15_1_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/Desktop/Sprint10_final_remake"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1"
 		}
 	],
 	"kind" : "cache",
