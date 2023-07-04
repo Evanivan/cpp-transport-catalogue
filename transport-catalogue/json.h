@@ -51,14 +51,11 @@ namespace json {
         using Value = std::variant<std::nullptr_t, Array, Dict, bool, int, double, std::string>;
 
         Node() = default;
-        Node(nullptr_t);
-        Node(Array array);
-        Node(Dict map);
-        Node(int value);
-        Node(double value);
-//        Node(float value);
-        Node(bool value);
-        Node(std::string value);
+
+        template<typename T>
+        Node(T value)
+                : value_(value){
+        }
 
         const Value& GetValue() const;
         bool IsInt() const;

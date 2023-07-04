@@ -228,9 +228,7 @@ namespace json {
                 if (holds_alternative<int>(value)) {
                     return {get<int>(value)};
                 }
-//                auto res = std::trunc(get<double>(value) * 1000000) / 1000000;
                 return {get<double>(value)};
-//                return {res};
             }
             throw ParsingError("Not a node");
         }
@@ -240,21 +238,8 @@ namespace json {
         if (lhs.GetValue().index() != rhs.GetValue().index()) {
             res = false;
         } else {
-            switch (lhs.GetValue().index()) {
-                case 0:
-                    return true;
-                case 1:
-                    return get<Array>(lhs.GetValue()) == get<Array>(rhs.GetValue());
-                case 2:
-                    return get<Dict>(lhs.GetValue()) == get<Dict>(rhs.GetValue());
-                case 3:
-                    return get<bool>(lhs.GetValue()) == get<bool>(rhs.GetValue());
-                case 4:
-                    return get<int>(lhs.GetValue()) == get<int>(rhs.GetValue());
-                case 5:
-                    return get<double>(lhs.GetValue()) == get<double>(rhs.GetValue());
-                case 6:
-                    return get<std::string>(lhs.GetValue()) == get<std::string>(rhs.GetValue());
+            if (rhs.GetValue().index() == 6) {
+                return get<std::string>(lhs.GetValue()) == get<std::string>(rhs.GetValue());
             }
         }
         return res;
@@ -278,34 +263,6 @@ namespace json {
 
     const Node::Value& Node::GetValue() const {
         return value_;
-    }
-
-    Node::Node(nullptr_t)
-            : value_(std::nullptr_t()) {
-    }
-
-    Node::Node(Array array)
-            : value_(std::move(array)) {
-    }
-
-    Node::Node(Dict map)
-            : value_(std::move(map)) {
-    }
-
-    Node::Node(int value)
-            : value_(value) {
-    }
-
-    Node::Node(string value)
-            : value_(std::move(value)) {
-    }
-
-    Node::Node(double value)
-            : value_(value) {
-    }
-
-    Node::Node(bool value)
-            : value_(value) {
     }
 
     bool Node::IsInt() const {

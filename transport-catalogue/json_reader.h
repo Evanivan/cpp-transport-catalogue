@@ -59,11 +59,17 @@ namespace json_reader {
     std::ostream& operator<<(std::ostream& out, const BaseRequestTypeBus& bus_request);
     std::ostream& operator<<(std::ostream& out, const BaseRequestTypeStop& stop_request);
 
+    int Stops_Uniq(const std::vector<const Transport::Stop *>& stops);
+    int DistanceRouteCycle(const Transport::Catalogue& catalogue, const Transport::Bus& bus);
+    int DistanceRouteSeq(const Transport::Catalogue& catalogue, const Transport::Bus& bus);
+    double CurvationCalc(const Transport::Catalogue& catalogue, const Transport::Bus& bus);
+
     json::Document LoadJSON(const std::string &s);
     std::string Print(const json::Node &node);
     StopsNBuses ReadBase(const json::Array& arr);
     std::vector<StatReqs> ReadStat(const json::Array& req);
     renderer::MapSettings ReadMapSettings(const json::Dict & req);
+    svg::Color ParseColor(const json::Node& type);
 
     class GetJson {
     public:

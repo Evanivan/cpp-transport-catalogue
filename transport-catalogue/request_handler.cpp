@@ -16,7 +16,7 @@ namespace req_handler {
                 return *found_bus;
             }
         } catch (...) {
-            throw ("smth is going wrong");
+            return std::nullopt;
         }
         return {};
     }

@@ -19,8 +19,6 @@
  */
 
 namespace renderer {
-    using namespace svg;
-
     template <typename DrawableIterator>
     void DrawPicture(DrawableIterator begin, DrawableIterator end, svg::ObjectContainer& target) {
         for (auto it = begin; it != end; ++it) {
@@ -160,9 +158,9 @@ namespace renderer {
 
                 for (const auto& p : points_) {
                     container.Add(svg::Circle()
-                        .SetCenter({p.x, p.y})
-                        .SetRadius(settings_.stop_radius)
-                        .SetFillColor("white"));
+                                          .SetCenter({p.x, p.y})
+                                          .SetRadius(settings_.stop_radius)
+                                          .SetFillColor("white"));
 
                 }
             }
@@ -178,7 +176,7 @@ namespace renderer {
         MapRenderer() = default;
 
         explicit MapRenderer(MapSettings& settings)
-            : settings_(std::move(settings)) {
+                : settings_(std::move(settings)) {
         }
 
         void SetProjCoords(std::vector<geo::Coordinates> points);
