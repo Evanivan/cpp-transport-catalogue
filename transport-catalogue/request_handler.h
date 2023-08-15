@@ -35,10 +35,10 @@ namespace req_handler {
         }
 
         // Возвращает информацию о маршруте (запрос Bus)
-        std::optional<Bus> GetBusStat(const std::string_view &bus_name) const;
+        std::optional<domain::Bus> GetBusStat(const std::string_view &bus_name) const;
 
         // Возвращает маршруты, проходящие через
-        std::unordered_set<const Bus *> GetBusesByStop(const std::string_view &stop_name);
+        std::unordered_set<const domain::Bus *> GetBusesByStop(const std::string_view &stop_name);
 
         void GetAllBuses();
 
@@ -48,7 +48,7 @@ namespace req_handler {
     private:
         // RequestHandler использует агрегацию объектов "Транспортный Справочник" и "Визуализатор Карты"
         Transport::Catalogue &db_;
-        std::unordered_set<const Bus *> buses;
+        std::unordered_set<const domain::Bus *> buses;
         renderer::MapRenderer &renderer_;
     };
 }

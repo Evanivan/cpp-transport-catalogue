@@ -21,8 +21,8 @@ namespace json {
         using runtime_error::runtime_error;
     };
 
-    bool operator==(const Node& lhs, const Node& rhs);
-    bool operator!=(const Node& lhs, const Node& rhs);
+//    bool operator==(const Node& lhs, const Node& rhs);
+//    bool operator!=(const Node& lhs, const Node& rhs);
 
     using Number = std::variant<int, double>;
 
@@ -54,7 +54,10 @@ namespace json {
 
         template<typename T>
         Node(T value)
-                : value_(value){
+                : value_(std::move(value)){
+        }
+        bool operator==(const Node& rhs) const {
+            return GetValue() == rhs.GetValue();
         }
 
         const Value& GetValue() const;

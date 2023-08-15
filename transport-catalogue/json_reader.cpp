@@ -6,7 +6,7 @@ namespace json_reader {
     using namespace std::literals;
     using namespace req_handler;
 
-    int Stops_Uniq(const std::vector<const Stop *>& stops) {
+    int Stops_Uniq(const std::vector<const domain::Stop *>& stops) {
         std::set<std::string> stops_unique;
         for (auto el : stops) {
             stops_unique.insert(el->stop_name);
@@ -14,7 +14,7 @@ namespace json_reader {
         return static_cast<int>(stops_unique.size());
     }
 
-    int DistanceRouteCycle(const Catalogue& catalogue, const Bus& bus) {
+    int DistanceRouteCycle(const Catalogue& catalogue, const domain::Bus& bus) {
         int sum = 0;
         for (size_t i = 0; i != bus.bus_route_.size() - 1; ++i) {
             if (catalogue.GetDistance(bus.bus_route_[i]->stop_name, bus.bus_route_[i + 1]->stop_name) == 0) {
@@ -26,8 +26,8 @@ namespace json_reader {
         return sum;
     }
 
-    int DistanceRouteSeq(const Catalogue& catalogue, const Bus& bus) {
-        std::vector<const Stop*> route_reverse(bus.bus_route_.size());
+    int DistanceRouteSeq(const Catalogue& catalogue, const domain::Bus& bus) {
+        std::vector<const domain::Stop*> route_reverse(bus.bus_route_.size());
         std::reverse_copy(bus.bus_route_.begin(), bus.bus_route_.end(), route_reverse.begin());
         int sum = 0;
         for (size_t i = 0; i != bus.bus_route_.size() - 1; ++i) {
@@ -49,7 +49,7 @@ namespace json_reader {
         return sum;
     }
 
-    double CurvationCalc(const Transport::Catalogue& catalogue, const Transport::Bus& bus) {
+    double CurvationCalc(const Transport::Catalogue& catalogue, const domain::Bus& bus) {
         double sum = 0.0;
         const auto& all_stops = catalogue.GetBusInfo(bus.bus_name_);
         if (bus.is_route_round) {
@@ -258,7 +258,7 @@ namespace json_reader {
 
     void BuildBase::BuildBuses() {
         for (const auto& bus : stp_n_base_stat_.deque_of_buses) {
-            std::vector<const Stop*> route;
+            std::vector<const domain::Stop*> route;
             for (const auto& stop_ptr : bus.stops_) {
                 route.emplace_back(catalogue_.FindStop(stop_ptr));
             }
@@ -266,7 +266,7 @@ namespace json_reader {
         }
     }
 
-    std::set<std::string> BusesInRoute(const std::unordered_set<const Bus*>& buses_struct) {
+    std::set<std::string> BusesInRoute(const std::unordered_set<const domain::Bus*>& buses_struct) {
         std::set<std::string> buses;
         for (auto el : buses_struct) {
             auto el_ptr = *el;
@@ -275,7 +275,7 @@ namespace json_reader {
         return buses;
     }
 
-    RouteInfo CollectStatRoute(const Transport::Catalogue& catalogue, const std::optional<Bus>& bus, int id) {
+    RouteInfo CollectStatRoute(const Transport::Catalogue& catalogue, const std::optional<domain::Bus>& bus, int id) {
         double curvation = 0.0;
         int dist = 0;
         int unique_stps = 0;

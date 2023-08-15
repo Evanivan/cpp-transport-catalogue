@@ -9,21 +9,17 @@
  */
 
 namespace req_handler {
-    std::optional<Bus> RequestHandler::GetBusStat(const std::string_view &bus_name) const {
-        try {
-            auto found_bus = db_.FindBus(bus_name);
-            if (found_bus) {
-                return *found_bus;
-            }
-        } catch (...) {
-            return std::nullopt;
+    std::optional<domain::Bus> RequestHandler::GetBusStat(const std::string_view &bus_name) const {
+        auto found_bus = db_.FindBus(bus_name);
+        if (found_bus) {
+            return *found_bus;
         }
-        return {};
+        return std::nullopt;
     }
 
 // Возвращает маршруты, проходящие через
-    std::unordered_set<const Bus *> RequestHandler::GetBusesByStop(const std::string_view &stop_name) {
-        std::unordered_set<const Bus *> bss;
+    std::unordered_set<const domain::Bus *> RequestHandler::GetBusesByStop(const std::string_view &stop_name) {
+        std::unordered_set<const domain::Bus *> bss;
         try {
             const std::set<std::string> routes = db_.GetStopInfo(stop_name);
 

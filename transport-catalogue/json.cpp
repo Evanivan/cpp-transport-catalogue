@@ -233,17 +233,6 @@ namespace json {
             throw ParsingError("Not a node");
         }
     }  // namespace
-    bool operator==(const Node& lhs, const Node& rhs) {
-        bool res = true;
-        if (lhs.GetValue().index() != rhs.GetValue().index()) {
-            res = false;
-        } else {
-            if (rhs.GetValue().index() == 6) {
-                return get<std::string>(lhs.GetValue()) == get<std::string>(rhs.GetValue());
-            }
-        }
-        return res;
-    }
 
     bool operator!=(const Node& lhs, const Node& rhs) {
         return !(lhs == rhs);
