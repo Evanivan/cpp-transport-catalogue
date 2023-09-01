@@ -11,6 +11,7 @@
 #include <utility>
 #include <vector>
 #include <cmath>
+#include <unordered_map>
 
 /*
  * В этом файле вы можете разместить код, отвечающий за визуализацию карты маршрутов в формате SVG.
@@ -123,6 +124,7 @@ namespace renderer {
     namespace shapes {
         class RoutePath : public svg::Drawable {
         public:
+            RoutePath() = default;
             RoutePath(const std::vector<svg::Point>& points, svg::Color color, MapSettings  settings)
                     : points_(points),
                       color_(std::move(color)),
@@ -173,21 +175,23 @@ namespace renderer {
 
     class MapRenderer {
     public:
-        MapRenderer() = default;
-
         explicit MapRenderer(MapSettings& settings)
                 : settings_(std::move(settings)) {
         }
 
         void SetProjCoords(std::vector<geo::Coordinates> points);
-
         [[nodiscard]] std::vector<svg::Color> GetColorPallet() const;
-
         [[nodiscard]] const MapSettings& GetSettings() const;
-
         [[nodiscard]] const std::vector<svg::Point>& GetProjectedCoords() const;
+        void MakePathPicture(const std::vector<svg::Point>& tmp_vector_coords, size_t j);
+        void MakePointsPicture(const std::vector<svg::Point>& stp_coords);
+        void RenDrawPicture(svg::Document& doc_);
+        void RenderRoute(svg::Document& doc, const std::string& bus, size_t num_route, size_t color_num, const std::unordered_map<std::string, bool>& type_bus, const std::vector<const domain::Stop *>* route);
+        void RenderBusNames(const svg::Point& p, const std::string& stop, svg::Document& doc);
+
     private:
         MapSettings settings_;
         std::vector<svg::Point> points_;
+        std::vector<std::unique_ptr<svg::Drawable>> picture_;
     };
 }

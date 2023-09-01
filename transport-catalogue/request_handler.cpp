@@ -45,13 +45,10 @@ namespace req_handler {
     svg::Document RequestHandler::RenderMap() const {
         using namespace std::literals;
 
-        std::vector<std::unique_ptr<svg::Drawable>> picture;
         svg::Document doc;
         std::vector<geo::Coordinates> points;
-
         auto colors = renderer_.GetColorPallet();
         auto settings = renderer_.GetSettings();
-
         std::set<std::string> set_of_buses;
 
         for (auto bus : buses) {
@@ -94,12 +91,10 @@ namespace req_handler {
                     tmp_vector_coords.emplace_back(coord[(k - 1) - (i + 1)]);
                 }
             }
-            picture.emplace_back(std::make_unique<renderer::shapes::RoutePath>(
-                    tmp_vector_coords, colors[j], settings));
+            renderer_.MakePathPicture(tmp_vector_coords, j);
             ++j;
         }
-
-        renderer::DrawPicture(picture, doc);
+        renderer_.RenDrawPicture(doc);
 
         size_t num_route = 0;
         size_t color_num = 0;
@@ -111,64 +106,10 @@ namespace req_handler {
             }
             const auto type_bus = db_.GetRouteType();
 
-            if (type_bus.at(bus)) {
-                const svg::Text base_text =  //
-                        svg::Text()
-                                .SetPosition({coord[num_route].x, coord[num_route].y})
-                                .SetOffset({settings.bus_label_offset.first, settings.bus_label_offset.second})
-                                .SetFontSize(settings.bus_label_font_size)
-                                .SetFontFamily("Verdana"s)
-                                .SetFontWeight("bold"s)
-                                .SetData(bus);
-                doc.Add(svg::Text{base_text}
-                                .SetStrokeColor(settings.underlayer_color)
-                                .SetFillColor(settings.underlayer_color)
-                                .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                                .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
-                                .SetStrokeWidth(settings.underlayer_width));
-                doc.Add(svg::Text{base_text}.SetFillColor(colors[color_num]));
-            } else {
-                const svg::Text base_text =  //first stop
-                        svg::Text()
-                                .SetPosition({coord[num_route].x, coord[num_route].y})
-                                .SetOffset({settings.bus_label_offset.first, settings.bus_label_offset.second})
-                                .SetFontSize(settings.bus_label_font_size)
-                                .SetFontFamily("Verdana"s)
-                                .SetFontWeight("bold"s)
-                                .SetData(bus);
-                doc.Add(svg::Text{base_text}
-                                .SetStrokeColor(settings.underlayer_color)
-                                .SetFillColor(settings.underlayer_color)
-                                .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                                .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
-                                .SetStrokeWidth(settings.underlayer_width));
-                doc.Add(svg::Text{base_text}.SetFillColor(colors[color_num]));
-
-                if ((*route)[0]->stop_name != (*route)[route->size() - 1]->stop_name) {
-                    const svg::Text base_text_last =  //last stop
-                            svg::Text()
-                                    .SetPosition({coord[num_route + (route->size() - 1)].x,
-                                                  coord[num_route + (route->size() - 1)].y})
-                                    .SetOffset({settings.bus_label_offset.first, settings.bus_label_offset.second})
-                                    .SetFontSize(settings.bus_label_font_size)
-                                    .SetFontFamily("Verdana"s)
-                                    .SetFontWeight("bold"s)
-                                    .SetData(bus);
-
-                    doc.Add(svg::Text{base_text_last}
-                                    .SetStrokeColor(settings.underlayer_color)
-                                    .SetFillColor(settings.underlayer_color)
-                                    .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                                    .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
-                                    .SetStrokeWidth(settings.underlayer_width));
-                    doc.Add(svg::Text{base_text_last}.SetFillColor(colors[color_num]));
-                }
-            }
+            renderer_.RenderRoute(doc, bus, num_route, color_num, type_bus, route);
             num_route += route->size();
             ++color_num;
         }
-
-        std::vector<std::unique_ptr<svg::Drawable>> picture2;
 
         std::vector<svg::Point> stp_coords;
 
@@ -176,31 +117,14 @@ namespace req_handler {
             stp_coords.emplace_back(p);
         }
 
-        picture2.emplace_back(std::make_unique<renderer::shapes::BusPoints>(
-                stp_coords, settings));
-
-        renderer::DrawPicture(picture2, doc);
+        renderer_.MakePointsPicture(stp_coords);
+        renderer_.RenDrawPicture(doc);
 
         for (const auto& [stop, p] : stp_to_proj_coords) { //отрисовка названий остановок
             auto route = db_.GetStopInfo(stop);
             if (route.empty()) continue;
-
-            const svg::Text base_text_2 =  //
-                    svg::Text()
-                            .SetPosition({p.x, p.y})
-                            .SetOffset({settings.stop_label_offset.first, settings.stop_label_offset.second})
-                            .SetFontSize(settings.stop_label_font_size)
-                            .SetFontFamily("Verdana"s)
-                            .SetData(stop);
-            doc.Add(svg::Text{base_text_2}
-                            .SetStrokeColor(settings.underlayer_color)
-                            .SetFillColor(settings.underlayer_color)
-                            .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                            .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
-                            .SetStrokeWidth(settings.underlayer_width));
-            doc.Add(svg::Text{base_text_2}.SetFillColor("black"));
+            renderer_.RenderBusNames(p, stop, doc);
         }
-
         return doc;
     }
 }
