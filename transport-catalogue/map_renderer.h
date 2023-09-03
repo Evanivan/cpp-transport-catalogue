@@ -48,6 +48,12 @@ namespace renderer {
         std::vector<svg::Color> color_palette = {};
     };
 
+    struct RouteForRend{
+        const std::string& bus;
+        std::unordered_map<std::string, bool> type_bus;
+        const std::vector<const domain::Stop *> * route;
+    };
+
     inline const double EPSILON = 1e-6;
 
     bool IsZero(double value);
@@ -180,15 +186,9 @@ namespace renderer {
         }
 
         void SetProjCoords(std::vector<geo::Coordinates> points);
-        [[nodiscard]] std::vector<svg::Color> GetColorPallet() const;
-        [[nodiscard]] const MapSettings& GetSettings() const;
         [[nodiscard]] const std::vector<svg::Point>& GetProjectedCoords() const;
-        void MakePathPicture(const std::vector<svg::Point>& tmp_vector_coords, size_t j);
-        void MakePointsPicture(const std::vector<svg::Point>& stp_coords);
-        void RenDrawPicture(svg::Document& doc_);
-        void RenderRoute(svg::Document& doc, const std::string& bus, size_t num_route, size_t color_num, const std::unordered_map<std::string, bool>& type_bus, const std::vector<const domain::Stop *>* route);
-        void RenderBusNames(const svg::Point& p, const std::string& stop, svg::Document& doc);
-
+        svg::Document RenderMap(const std::vector<std::vector<svg::Point>>& vector_of_path_picture, const std::vector<RouteForRend>& route_picture,
+                                const std::vector<svg::Point>& stp_coords, const std::vector<std::pair<const svg::Point &, const std::string &>>& render_busnames);
     private:
         MapSettings settings_;
         std::vector<svg::Point> points_;

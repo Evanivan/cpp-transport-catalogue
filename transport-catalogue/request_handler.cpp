@@ -43,13 +43,11 @@ namespace req_handler {
     }
 
     svg::Document RequestHandler::RenderMap() const {
-        using namespace std::literals;
-
-        svg::Document doc;
         std::vector<geo::Coordinates> points;
-        auto colors = renderer_.GetColorPallet();
-        auto settings = renderer_.GetSettings();
         std::set<std::string> set_of_buses;
+        std::vector<std::vector<svg::Point>> vector_of_path_picture;
+        std::vector<renderer::RouteForRend> route_picture;
+        std::vector<std::pair<const svg::Point&, const std::string&>> render_busnames;
 
         for (auto bus : buses) {
             set_of_buses.insert(bus->bus_name_);
@@ -68,16 +66,12 @@ namespace req_handler {
         renderer_.SetProjCoords(points);
 
         const auto coord = renderer_.GetProjectedCoords();
-        size_t j = 0;
         int k = 0;
-
         std::map<std::string, svg::Point> stp_to_proj_coords;
+
         for (const auto& bus : set_of_buses) {
             auto route = db_.GetBusInfo(bus);
             if (route->empty()) continue;
-            if (j == colors.size()) {
-                j = 0;
-            }
             std::vector<svg::Point> tmp_vector_coords;
             const auto type_bus = db_.GetRouteType();
 
@@ -91,40 +85,25 @@ namespace req_handler {
                     tmp_vector_coords.emplace_back(coord[(k - 1) - (i + 1)]);
                 }
             }
-            renderer_.MakePathPicture(tmp_vector_coords, j);
-            ++j;
+            vector_of_path_picture.emplace_back(std::move(tmp_vector_coords));
         }
-        renderer_.RenDrawPicture(doc);
-
-        size_t num_route = 0;
-        size_t color_num = 0;
         for (const auto& bus : set_of_buses) { //отрисовка названий маршрута
             auto route = db_.GetBusInfo(bus);
-            if (route->empty()) continue;
-            if (color_num == colors.size()) {
-                color_num = 0;
-            }
             const auto type_bus = db_.GetRouteType();
-
-            renderer_.RenderRoute(doc, bus, num_route, color_num, type_bus, route);
-            num_route += route->size();
-            ++color_num;
+            renderer::RouteForRend r_f_r({bus, type_bus, route});
+            route_picture.emplace_back(r_f_r);
         }
-
         std::vector<svg::Point> stp_coords;
 
         for (const auto& [name, p] : stp_to_proj_coords) {
             stp_coords.emplace_back(p);
         }
 
-        renderer_.MakePointsPicture(stp_coords);
-        renderer_.RenDrawPicture(doc);
-
         for (const auto& [stop, p] : stp_to_proj_coords) { //отрисовка названий остановок
             auto route = db_.GetStopInfo(stop);
             if (route.empty()) continue;
-            renderer_.RenderBusNames(p, stop, doc);
+            render_busnames.emplace_back(p, stop);
         }
-        return doc;
+        return renderer_.RenderMap(vector_of_path_picture, route_picture, stp_coords, render_busnames);
     }
 }
