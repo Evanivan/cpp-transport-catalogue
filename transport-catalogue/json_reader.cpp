@@ -58,7 +58,7 @@ namespace json_reader {
                     break;
                 }
                 sum += geo::ComputeDistance({(*all_stops)[i]->latitude, (*all_stops)[i]->longitude},
-                                            {(*all_stops)[i + 1]->latitude, (*all_stops)[i + 1]->longitude});
+                                       {(*all_stops)[i + 1]->latitude, (*all_stops)[i + 1]->longitude});
             }
         } else {
             for (size_t i = 0; i < (*all_stops).size() + 1; ++i) {
@@ -66,7 +66,7 @@ namespace json_reader {
                     break;
                 }
                 sum += 2 * geo::ComputeDistance({(*all_stops)[i]->latitude, (*all_stops)[i]->longitude},
-                                                {(*all_stops)[i + 1]->latitude, (*all_stops)[i + 1]->longitude});
+                                           {(*all_stops)[i + 1]->latitude, (*all_stops)[i + 1]->longitude});
             }
         }
         return sum;
@@ -112,18 +112,18 @@ namespace json_reader {
         std::deque<BaseRequestTypeBus> deque_of_buses;
 
         for (const auto& el : base_input) {
-            if (el.AsMap().at("type"s) == "Stop"s) {
+            if (el.AsDict().at("type"s) == "Stop"s) {
                 BaseRequestTypeStop stop{};
                 std::stringstream strm{};
                 std::stringstream strm_2{};
 
-                stop.name = el.AsMap().at("name"s).AsString();
-                auto lat = el.AsMap().at("latitude"s).AsDouble();
-                auto longt = el.AsMap().at("longitude"s).AsDouble();
+                stop.name = el.AsDict().at("name"s).AsString();
+                auto lat = el.AsDict().at("latitude"s).AsDouble();
+                auto longt = el.AsDict().at("longitude"s).AsDouble();
                 stop.latitude = lat;
                 stop.longitude = longt;
 
-                for (const auto &[stp_name, distance]: el.AsMap().at("road_distances"s).AsMap()) {
+                for (const auto &[stp_name, distance]: el.AsDict().at("road_distances"s).AsDict()) {
                     stop.road_dist[stp_name] = distance.AsInt();
                 }
                 deque_of_stops.emplace_back(std::move(stop));
@@ -133,14 +133,14 @@ namespace json_reader {
         }
 
         for (const auto& el : base_input) {
-            if (el.AsMap().at("type"s) == "Bus"s) {
+            if (el.AsDict().at("type"s) == "Bus"s) {
                 BaseRequestTypeBus bus;
                 bus.type = RequestType::Bus;
-                bus.name = el.AsMap().at("name"s).AsString();
-                for (const auto& stp : el.AsMap().at("stops"s).AsArray()) {
+                bus.name = el.AsDict().at("name"s).AsString();
+                for (const auto& stp : el.AsDict().at("stops"s).AsArray()) {
                     bus.stops_.push_back(stp.AsString());
                 }
-                bus.is_roundtrip = el.AsMap().at("is_roundtrip"s).AsBool();
+                bus.is_roundtrip = el.AsDict().at("is_roundtrip"s).AsBool();
                 deque_of_buses.emplace_back(std::move(bus));
             } else {
                 continue;
@@ -154,17 +154,17 @@ namespace json_reader {
         for (const auto& el : reqs) {
             StatReqs req = {};
             try {
-                if (el.AsMap().at("id").IsInt()) {
-                    req.id = el.AsMap().at("id").AsInt();
+                if (el.AsDict().at("id").IsInt()) {
+                    req.id = el.AsDict().at("id").AsInt();
                 }
-                if (el.AsMap().at("type").AsString() == "Map") {
+                if (el.AsDict().at("type").AsString() == "Map") {
                     req.type = RequestType::Map;
-                } else if (el.AsMap().at("id").IsInt() && el.AsMap().at("name").IsString()) {
-                    req.name = el.AsMap().at("name").AsString();
+                } else if (el.AsDict().at("id").IsInt() && el.AsDict().at("name").IsString()) {
+                    req.name = el.AsDict().at("name").AsString();
                 }
-                if (el.AsMap().at("type").AsString() == "Stop") {
+                if (el.AsDict().at("type").AsString() == "Stop") {
                     req.type = RequestType::Stop;
-                } else if (el.AsMap().at("type").AsString() == "Bus") {
+                } else if (el.AsDict().at("type").AsString() == "Bus") {
                     req.type = RequestType::Bus;
                 }
                 processed_reqs.push_back(std::move(req));
@@ -214,11 +214,11 @@ namespace json_reader {
     }
 
     void GetJson::ReadJSON() {
-        auto input_json = json::Load(std::cin).GetRoot().AsMap();
+        auto input_json = json::Load(std::cin).GetRoot().AsDict();
         try {
             const auto base_input = input_json.at("base_requests").AsArray();
             const auto stat_reqs = input_json.at("stat_requests").AsArray();
-            const auto map_settings = input_json.at("render_settings").AsMap();
+            const auto map_settings = input_json.at("render_settings").AsDict();
             stp_n_buses = ReadBase(base_input);
             stats = ReadStat(stat_reqs);
             map_settings_ = ReadMapSettings(map_settings);
@@ -294,9 +294,12 @@ namespace json_reader {
         return {curvation, id, dist, count_stops, unique_stps};
     }
 
+    //implement new builder
     Array BuildJSON(BuildBase base, const std::vector<StatReqs>& json_stats, req_handler::RequestHandler handler){
-        json::Dict dict;
-        json::Array arr;
+//        json::Dict dict;
+//        json::Array arr;
+        json::Builder builder;
+        builder.StartArray();
 
         for (const auto& el : json_stats) {
             std::set<std::string> buses_set;
@@ -306,8 +309,12 @@ namespace json_reader {
                 try {
                     auto route = handler.GetBusesByStop(el.name);
                     if (route.empty()) {
-                        arr.emplace_back(Dict{{"buses"s, arr_busses},
-                                              {"request_id", el.id}});
+                        builder.StartDict()
+                            .Key("buses"s).Value(arr_busses)
+                            .Key("request_id").Value(el.id).EndDict();
+
+//                        arr.emplace_back(Dict{{"buses"s, arr_busses},
+//                                              {"request_id", el.id}});
                         continue;
                     }
                     const std::set<std::string>& buses = BusesInRoute(route);
@@ -316,14 +323,21 @@ namespace json_reader {
                     }
                 } catch (...) {
                     std::string str = "not found"s;
-                    arr.emplace_back(Dict{{"request_id", el.id}, {"error_message", str}});
+                    builder.StartDict()
+                            .Key("request_id").Value(el.id)
+                            .Key("error_message").Value(str).EndDict();
+//                    arr.emplace_back(Dict{{"request_id", el.id}, {"error_message", str}});
                     continue;
                 }
 
                 for (const auto& el : buses_set) {
                     arr_busses.emplace_back(el);
                 }
-                arr.emplace_back(Dict{{"buses"s, arr_busses}, {"request_id", el.id}});
+                builder.StartDict()
+                        .Key("buses"s).Value(arr_busses)
+                        .Key("request_id").Value(el.id)
+                        .EndDict();
+//                arr.emplace_back(Dict{{"buses"s, arr_busses}, {"request_id", el.id}});
                 continue;
             }
             if (el.type == RequestType::Bus) {
@@ -331,20 +345,33 @@ namespace json_reader {
                     auto route = handler.GetBusStat(el.name);
                     if (route.value().bus_name_.empty() || !route.has_value()) {
                         std::string str = "not found"s;
-                        arr.emplace_back(Dict{{"request_id",    el.id},
-                                              {"error_message", str}});
+                        builder.StartDict()
+                                .Key("request_id").Value(el.id)
+                                .Key("error_message").Value(str).EndDict();
+//                        arr.emplace_back(Dict{{"request_id",    el.id},
+//                                              {"error_message", str}});
                         continue;
                     }
                     const auto& buse_info = CollectStatRoute(base.GetCatalogue(), route, el.id);
-                    arr.emplace_back(Dict{{"curvature", buse_info.route_length / buse_info.curvature},
-                                          {"request_id", buse_info.request_id},
-                                          {"route_length",buse_info.route_length},
-                                          {"stop_count", buse_info.stop_count},
-                                          {"unique_stop_count", buse_info.unique_stop_count}});
+                    builder.StartDict()
+                            .Key("curvature").Value(buse_info.route_length / buse_info.curvature)
+                            .Key("request_id").Value(buse_info.request_id)
+                            .Key("route_length").Value(buse_info.route_length)
+                            .Key("stop_count").Value(buse_info.stop_count)
+                            .Key("unique_stop_count").Value(buse_info.unique_stop_count).EndDict();
+
+//                    arr.emplace_back(Dict{{"curvature", buse_info.route_length / buse_info.curvature},
+//                                          {"request_id", buse_info.request_id},
+//                                          {"route_length",buse_info.route_length},
+//                                          {"stop_count", buse_info.stop_count},
+//                                          {"unique_stop_count", buse_info.unique_stop_count}});
                 } catch (...) {
                     std::string str = "not found"s;
-                    arr.emplace_back(Dict{{"request_id",    el.id},
-                                          {"error_message", str}});
+                    builder.StartDict()
+                            .Key("request_id").Value(el.id)
+                            .Key("error_message").Value(str).EndDict();
+//                    arr.emplace_back(Dict{{"request_id",    el.id},
+//                                          {"error_message", str}});
                     continue;
                 }
                 continue;
@@ -355,12 +382,16 @@ namespace json_reader {
                 const auto& doc = handler.RenderMap();
 
                 doc.Render(map_os);
-                arr.emplace_back(Dict{{"request_id", el.id},
-                                      {"map", map_os.str()}});
+                builder.StartDict()
+                        .Key("request_id").Value(el.id)
+                        .Key("map").Value(map_os.str()).EndDict();
+//                arr.emplace_back(Dict{{"request_id", el.id},
+//                                      {"map", map_os.str()}});
                 continue;
             }
         }
-        return arr;
+        builder.EndArray();
+        return builder.Build().AsArray();
     }
 
     std::ostream& operator<<(std::ostream& out, const BaseRequestTypeBus& bus_request) {
