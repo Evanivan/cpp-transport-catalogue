@@ -1,52 +1,57 @@
 #include "json_builder.h"
 
 namespace json {
-    KeyContext Builder::Key(const std::string &k) {
-        KeyContext key_cont(*this);
-        if (value_.size() >= 2) throw std::logic_error("Cant End non Array object");
-        if (pure_value) {
+    Builder::KeyContext Builder::Key(const std::string &key) {
+        if (nodes_stack_.empty() && root_.has_value()) {
             throw std::logic_error("Pure value");
         }
+        KeyContext key_cont(*this);
         auto last = nodes_stack_.back();
-        if (!last->IsDict() || !tmp_str.empty()) {
+        if (!last->IsDict() || curr_str.has_value()) {
             throw std::logic_error("Cant End non Array object");
         }
-        curr_str = k;
-        tmp_str = k;
+        curr_str = key;
         Node node;
-        std::get<Dict>(nodes_stack_.back()->GetValue()).emplace(std::make_pair(curr_str, node));
-        value_.clear();
+        std::get<Dict>(nodes_stack_.back()->GetValue()).emplace(std::make_pair(curr_str.value(), node));
         return key_cont;
     }
 
-    ArrayItemContext Builder::StartArray() {
-        if (pure_value) {
-            throw std::logic_error("Pure value");
+    void Builder::EmplaceNode(const Node& item_node) {
+        if (nodes_stack_.empty() && root_.has_value()) {
+            throw std::logic_error("Pure value in StartArr");
         }
-        Node n({Array()});
-        if (root_ == nullptr) {
-            root_ = n;
-            nodes_stack_.emplace_back(&root_);
-        } else if (nodes_stack_.back()->IsArray()) {
-            std::get<Array>(nodes_stack_.back()->GetValue()).emplace_back(n);
+
+        if (!root_.has_value()) {
+            root_ = item_node;
+            nodes_stack_.emplace_back(&(root_.value()));
+            return ;
+        }
+        auto last = nodes_stack_.back();
+
+        if (last->IsArray()) {
+            std::get<Array>(nodes_stack_.back()->GetValue()).emplace_back(item_node);
             nodes_stack_.emplace_back(&std::get<Array>(nodes_stack_.back()->GetValue()).back());
-        } else if (root_.IsDict()) {
-            if (tmp_str.empty()) {
+        } else if (last->IsDict()) {
+            if (!curr_str.has_value()) {
                 throw std::logic_error("Starting Dict before closing prev");
             }
-            std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str) = n;
-            nodes_stack_.emplace_back(&std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str));
-            tmp_str.clear();
+            std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str.value()) = item_node;
+            nodes_stack_.emplace_back(&std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str.value()));
         } else {
             throw std::logic_error("Can't start an Array");
         }
-        ArrayItemContext arr(*this);
+        curr_str.reset();
+    }
 
+    Builder::ArrayItemContext Builder::StartArray() {
+        Node node({Array()});
+        EmplaceNode(node);
+        ArrayItemContext arr(*this);
         return arr;
     }
 
     Builder& Builder::EndArray() {
-        if (pure_value) {
+        if (nodes_stack_.empty() && root_.has_value()) {
             throw std::logic_error("Pure value");
         }
         if (nodes_stack_.empty()) throw std::logic_error("Cant End non-Array object");
@@ -55,61 +60,33 @@ namespace json {
             throw std::logic_error("Cant End non Array object");
         }
         nodes_stack_.pop_back();
-        value_.clear();
         return *this;
     }
 
-    DictItemContext Builder::StartDict() {
-        if (pure_value) {
-            throw std::logic_error("Pure value");
-        }
-
-        if (!value_.empty()) {
-            throw std::logic_error("Cant start a Dict");
-        }
-        Node n({Dict()});
+    Builder::DictItemContext Builder::StartDict() {
+        Node node({Dict()});
+        EmplaceNode(node);
         DictItemContext dict(*this);
-
-        if (root_ == nullptr) {
-            root_ = n;
-            nodes_stack_.emplace_back(&root_);
-            return dict;
-        }
-        auto last = nodes_stack_.back();
-
-        if (last->IsArray()) {
-            std::get<Array>(nodes_stack_.back()->GetValue()).emplace_back(n);
-            nodes_stack_.emplace_back(&std::get<Array>(nodes_stack_.back()->GetValue()).back());
-        } else if (last->IsDict()) {
-            std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str) = n;
-            nodes_stack_.emplace_back(&std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str));
-        }  else {
-            throw std::logic_error("Can't start a Dict");
-        }
-        tmp_str.clear();
         return dict;
     }
 
     Builder& Builder::EndDict() {
-        if (pure_value) throw std::logic_error("Cant End non-dict object");
+        if (nodes_stack_.empty() && root_.has_value()) throw std::logic_error("Pure value in EndDIct");
         if (nodes_stack_.empty()) throw std::logic_error("Cant End non-dict object");
         auto last = nodes_stack_.back();
         if (!last->IsDict()) {
             throw std::logic_error("Cant End non dict object");
         }
         nodes_stack_.pop_back();
-        value_.clear();
         return *this;
     }
 
-    BaseContext Builder::Value(const Node& value) {
+    Builder::BaseContext Builder::Value(const Node& value) {
         if (nodes_stack_.empty()) {
-            root_ = value;
-            pure_value = true;
-            value_.emplace_back(value);
-            if (value_.size() >= 2) {
+            if (root_.has_value()) {
                 throw std::logic_error("Inappropriate Value");
             }
+            root_ = value;
             BaseContext val_arr(*this);
             return val_arr;
         }
@@ -117,20 +94,9 @@ namespace json {
 
         if (last->IsArray()) {
             std::get<Array>(nodes_stack_.back()->GetValue()).emplace_back(value);
-
-//            json::Print(
-//                    json::Document{
-//                        *nodes_stack_.back()
-//                    },
-//                    std::cout
-//            );
         } else if (last->IsDict()) {
-            value_.emplace_back(value);
-            if (value_.size() >= 2) {
-                throw std::logic_error("Inappropriate Value");
-            }
-            std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str) = value;
-            tmp_str.clear();
+            std::get<Dict>(nodes_stack_.back()->GetValue()).at(curr_str.value()) = value;
+            curr_str.reset();
         } else {
             throw std::logic_error("Inappropriate Value");
         }
@@ -141,73 +107,73 @@ namespace json {
     Node Builder::Build() const{
         if (root_ == nullptr) throw std::logic_error("Was not build");
         if (!nodes_stack_.empty()) throw std::logic_error("Stack is not empty");
-        return root_;
+        return root_.value();
     }
 
-    ArrayItemContext BaseContext::StartArray() {
+    Builder::ArrayItemContext Builder::BaseContext::StartArray() {
         return builder_.StartArray();
     }
 
-    DictItemContext BaseContext::StartDict() {
+    Builder::DictItemContext Builder::BaseContext::StartDict() {
         return builder_.StartDict();
     }
 
-    BaseContext& BaseContext::Value(const Node &value) {
+    Builder::BaseContext& Builder::BaseContext::Value(const Node &value) {
         builder_.Value(value);
         return *this;
     }
 
-    BaseContext& BaseContext::EndArray() {
+    Builder::BaseContext& Builder::BaseContext::EndArray() {
         builder_.EndArray();
         return *this;
     }
 
-    KeyContext BaseContext::Key(const std::string &k) {
-        return builder_.Key(k);
+    Builder::KeyContext Builder::BaseContext::Key(const std::string &key) {
+        return builder_.Key(key);
     }
 
-    BaseContext& BaseContext::EndDict() {
+    Builder::BaseContext& Builder::BaseContext::EndDict() {
         builder_.EndDict();
         return *this;
     }
 
-    Node BaseContext::Build() const {
+    Node Builder::BaseContext::Build() const {
         return builder_.Build();
     }
 
-    DictValueContext KeyContext::Value(const Node &value) {
+    Builder::DictItemContext Builder::KeyContext::Value(const Node &value) {
         return base_.Value(value);
     }
 
-    DictItemContext KeyContext::StartDict() {
+    Builder::DictItemContext Builder::KeyContext::StartDict() {
         return base_.StartDict();
     }
 
-    ArrayItemContext KeyContext::StartArray() {
+    Builder::ArrayItemContext Builder::KeyContext::StartArray() {
         return base_.StartArray();
     }
 
-    KeyContext DictItemContext::Key(const std::string &k) {
-        return base_.Key(k);
+    Builder::KeyContext Builder::DictItemContext::Key(const std::string &key) {
+        return base_.Key(key);
     }
 
-    BaseContext& DictItemContext::EndDict() {
+    Builder::BaseContext& Builder::DictItemContext::EndDict() {
         return base_.EndDict();
     }
 
-    ArrayItemContext ArrayItemContext::StartArray() {
+    Builder::ArrayItemContext Builder::ArrayItemContext::StartArray() {
         return BaseContext::StartArray();
     }
 
-    DictItemContext ArrayItemContext::StartDict() {
+    Builder::DictItemContext Builder::ArrayItemContext::StartDict() {
         return BaseContext::StartDict();
     }
 
-    ArrayItemContext ArrayItemContext::Value(const Node &value) {
+    Builder::ArrayItemContext Builder::ArrayItemContext::Value(const Node &value) {
         return BaseContext::Value(value);
     }
 
-    BaseContext& ArrayItemContext::EndArray() {
+    Builder::BaseContext& Builder::ArrayItemContext::EndArray() {
         return BaseContext::EndArray();
     }
 }

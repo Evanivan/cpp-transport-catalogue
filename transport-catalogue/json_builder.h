@@ -1,29 +1,25 @@
 #pragma once
 
 #include <utility>
+#include <optional>
 
 #include "json.h"
 
 namespace json {
-    class KeyContext;
-    class DictItemContext;
-    class ArrayItemContext;
-    class BaseContext;
-    class DictValueContext;
-
     class Builder {
-        Node root_ = nullptr;
+        std::optional<Node> root_ = {};
         std::vector<Node*> nodes_stack_;
+        std::optional<std::string> curr_str;
 
-        std::string curr_str;
-        std::string tmp_str;
-        std::vector<Node> value_ = {};
-        bool pure_value = false;
-
+        void EmplaceNode(const Node& item_node);
     public:
+        class KeyContext;
+        class DictItemContext;
+        class ArrayItemContext;
+        class BaseContext;
         Builder() = default;
 
-        KeyContext Key(const std::string& k);
+        KeyContext Key(const std::string& key);
         ArrayItemContext StartArray();
         Builder& EndArray();
         DictItemContext StartDict();
@@ -33,16 +29,16 @@ namespace json {
         Node Build() const;
     };
 
-    class BaseContext {
+    class Builder::BaseContext {
     public:
         BaseContext(Builder& builder)
-            : builder_(builder){
+                : builder_(builder){
         }
         ArrayItemContext StartArray();
         DictItemContext StartDict();
         BaseContext& Value(const Node& value);
         BaseContext& EndArray();
-        KeyContext Key(const std::string& k);
+        KeyContext Key(const std::string& key);
         BaseContext& EndDict();
 
         Node Build() const;
@@ -50,52 +46,35 @@ namespace json {
         Builder& builder_;
     };
 
-    class KeyContext final : public BaseContext{
+    class Builder::KeyContext final : public BaseContext{
     public:
         KeyContext() = delete;
         KeyContext(BaseContext base)
                 : BaseContext(std::move(base)), base_(base) {
         }
 
-        DictValueContext Value(const Node& value);
-        DictItemContext StartDict();
-        ArrayItemContext StartArray();
+        Builder::DictItemContext Value(const Node& value);
+        Builder::DictItemContext StartDict();
+        Builder::ArrayItemContext StartArray();
 
         Builder& EndArray() = delete;
         BaseContext& EndDict() = delete;
         Node Build() const = delete;
-        KeyContext Key(const std::string& k) = delete;
+        KeyContext Key(const std::string& key) = delete;
     private:
         BaseContext base_;
     };
 
-    class DictValueContext final : public BaseContext{
-    public:
-        DictValueContext() = delete;
-        DictValueContext(BaseContext base)
-                : BaseContext(std::move(base)) {
-        }
-
-        KeyContext Key(const std::string& k) { return BaseContext::Key(k); };
-        BaseContext& EndDict() {return BaseContext::EndDict(); };
-
-        DictValueContext Value(const Node& value) = delete;
-        DictItemContext StartDict() = delete;
-        ArrayItemContext StartArray() = delete;
-        Builder& EndArray() = delete;
-        Node Build() const = delete;
-    };
-
-    class DictItemContext : public BaseContext {
+    class Builder::DictItemContext : public BaseContext {
     public:
         DictItemContext() = delete;
         DictItemContext(BaseContext base)
-            : BaseContext(std::move(base)), base_(base){}
+                : BaseContext(std::move(base)), base_(base){}
 
-        KeyContext Key(const std::string& k);
+        KeyContext Key(const std::string& key);
         BaseContext& EndDict();
 
-        ArrayItemContext StartArray() = delete;
+        Builder::ArrayItemContext StartArray() = delete;
         DictItemContext StartDict() = delete;
         DictItemContext Value(const Node& value) = delete;
         Builder& EndArray() = delete;
@@ -104,7 +83,7 @@ namespace json {
         BaseContext base_;
     };
 
-    class ArrayItemContext final : public BaseContext {
+    class Builder::ArrayItemContext final : public BaseContext {
     public:
         ArrayItemContext() = default;
         ArrayItemContext(BaseContext base)
@@ -116,7 +95,7 @@ namespace json {
         ArrayItemContext Value(const Node& value);
         BaseContext& EndArray();
 
-        KeyContext Key(const std::string& k) = delete;
+        KeyContext Key(const std::string& key) = delete;
         BaseContext& EndDict() = delete;
         Node Build() const = delete;
     };
