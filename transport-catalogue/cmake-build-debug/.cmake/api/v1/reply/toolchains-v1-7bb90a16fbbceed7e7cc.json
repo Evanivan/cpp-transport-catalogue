@@ -17,7 +17,7 @@
 					"linkDirectories" : 
 					[
 						"/opt/homebrew/Cellar/tbb/2021.8.0/lib",
-						"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1",
+						"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project",
 						"/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib"
 					],
 					"linkFrameworkDirectories" : 
@@ -58,7 +58,7 @@
 						"/opt/homebrew/Cellar/gcc/12.2.0/lib/gcc/current/gcc",
 						"/opt/homebrew/Cellar/tbb/2021.8.0/lib",
 						"/opt/homebrew/Cellar/gcc/12.2.0/lib/gcc/current",
-						"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1",
+						"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project",
 						"/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/lib"
 					],
 					"linkFrameworkDirectories" : 

@@ -25,7 +25,7 @@ namespace Transport {
         }
     }
 
-    const domain::Bus* Catalogue::FindBus(std::string_view bus) const {
+    const domain::Bus *Catalogue::FindBus(std::string_view bus) const {
         if (busname_to_bus_.count(bus) != 0) return busname_to_bus_.at(bus).first;
         return nullptr;
     }
@@ -35,11 +35,21 @@ namespace Transport {
         distances_[pair_of_stops] = dist;
     }
 
-    int Catalogue::GetDistance(std::string_view stop1, std::string stop2) const {
-        const domain::Stop &stp_p1 = *FindStop(stop1);
-        const domain::Stop &stp_p2 = *FindStop(stop2);
-        if (distances_.count({&stp_p1, &stp_p2}) != 0) {
-            return distances_.at({&stp_p1, &stp_p2});
+    int Catalogue::GetDistance(std::string_view stop_from, std::string stop_to) const {
+        const domain::Stop* stp_p1 = FindStop(stop_from);
+        const domain::Stop* stp_p2 = FindStop(stop_to);
+        std::pair<const domain::Stop*, const domain::Stop*> from_stop_to_stop = {stp_p1, stp_p2};
+        if (distances_.count(from_stop_to_stop) != 0) {
+            return distances_.at(from_stop_to_stop);
+        }
+
+        if (distances_.count(from_stop_to_stop)) {
+            return distances_.at(from_stop_to_stop);
+        }
+        std::pair<const domain::Stop*, const domain::Stop*> reversed_pair;
+        reversed_pair = std::make_pair(from_stop_to_stop.second, from_stop_to_stop.first);
+        if (distances_.count(reversed_pair)) {
+            return distances_.at(reversed_pair);
         }
 
         return 0;
@@ -70,7 +80,7 @@ namespace Transport {
 
     std::unordered_map<std::string, bool> Catalogue::GetRouteType() const {
         std::unordered_map<std::string, bool> map_of_types;
-        for (const auto& [name, pair_of_type]  : busname_to_bus_) {
+        for (const auto &[name, pair_of_type]: busname_to_bus_) {
             map_of_types[std::string(name)] = pair_of_type.second;
         }
         return map_of_types;

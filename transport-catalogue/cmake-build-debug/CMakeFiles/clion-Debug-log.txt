@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/g++-12 -G Ninja -S "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1" -B "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/g++-12 -G Ninja -S "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project" -B "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug"
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug
+-- Build files have been written to: /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug

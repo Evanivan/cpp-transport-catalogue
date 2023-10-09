@@ -14,33 +14,23 @@
 #include "json_builder.h"
 #include "domain.h"
 #include "map_renderer.h"
+#include "router.h"
+
 
 namespace json_reader {
-    enum class RequestType {
-        Bus,
-        Stop,
-        Map
-    };
-
     struct BaseRequestTypeBus {
-        RequestType type = RequestType::Bus;
+        domain::RequestType type = domain::RequestType::Bus;
         std::string name;
         std::vector<std::string> stops_;
         bool is_roundtrip{};
     };
 
     struct BaseRequestTypeStop {
-        RequestType type = RequestType::Stop;
+        domain::RequestType type = domain::RequestType::Stop;
         std::string name;
         double latitude = 0.0;
         double longitude = 0.0;
         std::map<std::string, int> road_dist;
-    };
-
-    struct StatReqs {
-        int id;
-        RequestType type;
-        std::string name;
     };
 
     struct StopsNBuses {
@@ -67,7 +57,7 @@ namespace json_reader {
     json::Document LoadJSON(const std::string &s);
     std::string Print(const json::Node &node);
     StopsNBuses ReadBase(const json::Array& arr);
-    std::vector<StatReqs> ReadStat(const json::Array& req);
+    std::vector<domain::StatReqs> ReadStat(const json::Array& req) ;
     renderer::MapSettings ReadMapSettings(const json::Dict & req);
     svg::Color ParseColor(const json::Node& type);
 
@@ -77,12 +67,14 @@ namespace json_reader {
 
         void ReadJSON();
         [[nodiscard]] const StopsNBuses& GetStopsNBuses() const;
-        [[nodiscard]] const std::vector<StatReqs>& GetStats() const;
+        [[nodiscard]] const std::vector<domain::StatReqs>& GetStats() const;
         [[nodiscard]] const renderer::MapSettings& GetMapSettings() const;
+        [[nodiscard]] const domain::RouteSettings& GetRouteSettings() const;
     private:
         StopsNBuses stp_n_buses;
-        std::vector<StatReqs> stats;
+        std::vector<domain::StatReqs> stats;
         renderer::MapSettings map_settings_;
+        domain::RouteSettings route_settings_;
     };
 
     class BuildBase {
@@ -94,12 +86,27 @@ namespace json_reader {
 
         void BuildStops();
         void BuildBuses();
-        [[nodiscard]] Transport::Catalogue& GetCatalogue() const;
 
+        void AddBusEdges(const domain::Bus& bus, std::vector<const domain::Stop*>::const_iterator begin,  std::vector<const domain::Stop*>::const_iterator end);
+        void AddCircleBusEdges(const domain::Bus& bus);
+        void AddLineBusEdges(const domain::Bus& bus);
+
+        void BuildGraph(const domain::RouteSettings& route_settings);
+        [[nodiscard]] Transport::Catalogue& GetCatalogue() const;
+        graph::DirectedWeightedGraph<double>& GetGraph() ;
+        const std::unordered_map<const domain::Stop*, int>& GetIds() const;
+        const std::unordered_map<size_t, domain::StopInBus>& GetStopsToId() const;
+        std::pair<const graph::Edge<double>&, const domain::ResponsRoute&> GetFullEdgeInfo(graph::EdgeId edge_id) const;
     private:
         Transport::Catalogue& catalogue_;
         const StopsNBuses& stp_n_base_stat_;
+        graph::DirectedWeightedGraph<double> graph_;
+        std::unordered_map<const domain::Stop*, int> stop_to_id_transit;
+        std::unordered_map<size_t, domain::StopInBus> id_to_stop_transit;
+
+        std::map<graph::EdgeId, domain::ResponsRoute> edge_to_info_;
+        domain::RouteSettings route_settings_{};
     };
 
-    json::Array BuildJSON(BuildBase base, const std::vector<StatReqs>& stats, req_handler::RequestHandler handler);
+    json::Array BuildJSON(BuildBase base, const std::vector<domain::StatReqs>& stats, req_handler::RequestHandler handler);
 }

@@ -8,7 +8,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Ex15_1
+# Project: Final_13_Sp_project
 # Configurations: Debug
 # =============================================================================
 
@@ -36,92 +36,98 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/cmake-build-debug/
+cmake_ninja_workdir = /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Ex15_1
+# Object build statements for EXECUTABLE target Final_13_Sp_project
 
 
 #############################################
-# Order-only phony target for Ex15_1
+# Order-only phony target for Final_13_Sp_project
 
-build cmake_object_order_depends_target_Ex15_1: phony || CMakeFiles/Ex15_1.dir
+build cmake_object_order_depends_target_Final_13_Sp_project: phony || CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/main.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/main.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/main.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/main.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/main.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/domain.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/domain.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/domain.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/domain.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/domain.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/domain.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/geo.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/geo.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/geo.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/geo.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/geo.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/geo.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/json.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/json.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/json.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/json.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/json.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/json.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/json_reader.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/json_reader.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/json_reader.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/json_builder.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/json_builder.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/json_builder.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/map_renderer.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/map_renderer.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/map_renderer.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/json_reader.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/json_reader.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/json_reader.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/request_handler.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/request_handler.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/request_handler.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/map_renderer.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/map_renderer.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/map_renderer.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/svg.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/svg.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/svg.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/request_handler.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/request_handler.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/request_handler.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
-build CMakeFiles/Ex15_1.dir/transport_catalogue.cpp.o: CXX_COMPILER__Ex15_1_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/transport_catalogue.cpp || cmake_object_order_depends_target_Ex15_1
-  DEP_FILE = CMakeFiles/Ex15_1.dir/transport_catalogue.cpp.o.d
+build CMakeFiles/Final_13_Sp_project.dir/svg.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/svg.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/svg.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
+
+build CMakeFiles/Final_13_Sp_project.dir/transport_catalogue.cpp.o: CXX_COMPILER__Final_13_Sp_project_Debug /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/transport_catalogue.cpp || cmake_object_order_depends_target_Final_13_Sp_project
+  DEP_FILE = CMakeFiles/Final_13_Sp_project.dir/transport_catalogue.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/Final_13_Sp_project.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Ex15_1
+# Link build statements for EXECUTABLE target Final_13_Sp_project
 
 
 #############################################
-# Link the executable Ex15_1
+# Link the executable Final_13_Sp_project
 
-build Ex15_1: CXX_EXECUTABLE_LINKER__Ex15_1_Debug CMakeFiles/Ex15_1.dir/main.cpp.o CMakeFiles/Ex15_1.dir/domain.cpp.o CMakeFiles/Ex15_1.dir/geo.cpp.o CMakeFiles/Ex15_1.dir/json.cpp.o CMakeFiles/Ex15_1.dir/json_reader.cpp.o CMakeFiles/Ex15_1.dir/map_renderer.cpp.o CMakeFiles/Ex15_1.dir/request_handler.cpp.o CMakeFiles/Ex15_1.dir/svg.cpp.o CMakeFiles/Ex15_1.dir/transport_catalogue.cpp.o
+build Final_13_Sp_project: CXX_EXECUTABLE_LINKER__Final_13_Sp_project_Debug CMakeFiles/Final_13_Sp_project.dir/main.cpp.o CMakeFiles/Final_13_Sp_project.dir/domain.cpp.o CMakeFiles/Final_13_Sp_project.dir/geo.cpp.o CMakeFiles/Final_13_Sp_project.dir/json.cpp.o CMakeFiles/Final_13_Sp_project.dir/json_builder.cpp.o CMakeFiles/Final_13_Sp_project.dir/json_reader.cpp.o CMakeFiles/Final_13_Sp_project.dir/map_renderer.cpp.o CMakeFiles/Final_13_Sp_project.dir/request_handler.cpp.o CMakeFiles/Final_13_Sp_project.dir/svg.cpp.o CMakeFiles/Final_13_Sp_project.dir/transport_catalogue.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
-  OBJECT_DIR = CMakeFiles/Ex15_1.dir
+  OBJECT_DIR = CMakeFiles/Final_13_Sp_project.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Ex15_1
-  TARGET_PDB = Ex15_1.dbg
+  TARGET_FILE = Final_13_Sp_project
+  TARGET_PDB = Final_13_Sp_project.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -132,7 +138,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1" -B"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
+  COMMAND = cd "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project" -B"/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -148,9 +154,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug
+# Folder: /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug
 
-build all: phony Ex15_1
+build all: phony Final_13_Sp_project
 
 # =============================================================================
 # Built-in targets
@@ -159,14 +165,14 @@ build all: phony Ex15_1
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance$ &$ polimorph/Ex15_1/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final$ 13-Sp$ project/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
 
 
 #############################################

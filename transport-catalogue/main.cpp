@@ -33,10 +33,12 @@ int main() {
     base.BuildStops();
     base.BuildBuses();
 
-    req_handler::RequestHandler render_request(base.GetCatalogue(), renderer);
+    req_handler::RequestHandler render_request(base.GetCatalogue(), renderer, base.GetGraph());
     render_request.GetAllBuses();
 
-    auto arr = BuildJSON(base, json.GetStats(), render_request);
+    base.BuildGraph(json.GetRouteSettings());
+
+    auto arr = BuildJSON(base, json.GetStats(), std::move(render_request));
 
     std::stringstream strm;
     json::Print(json::Document{arr}, strm);

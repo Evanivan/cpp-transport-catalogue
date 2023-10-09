@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -571,7 +571,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -851,7 +851,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Ex15_1"
+			"value" : "Final_13_Sp_project"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1134,7 +1134,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Ex15_1_BINARY_DIR",
+			"name" : "Final_13_Sp_project_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1143,10 +1143,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1/cmake-build-debug"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug"
 		},
 		{
-			"name" : "Ex15_1_IS_TOP_LEVEL",
+			"name" : "Final_13_Sp_project_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1158,7 +1158,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Ex15_1_SOURCE_DIR",
+			"name" : "Final_13_Sp_project_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint11/Inheritance & polimorph/Ex15_1"
+			"value" : "/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project"
 		}
 	],
 	"kind" : "cache",
