@@ -9,26 +9,6 @@
  */
 
 namespace req_handler {
-    int StopsInRange(const domain::Stop *start_, const domain::Stop *fin_, const domain::Bus *bus) {
-        auto r = bus->bus_route_;
-        auto start = std::find(r.begin(), r.end(), start_);
-        auto finish = std::find(r.begin(), r.end(), fin_);
-        auto tmp_end = r.end();
-
-        int dst = abs(std::distance(start, finish));
-
-        if (bus->is_route_round && fin_->stop_name == (*(bus->bus_route_.end() - 1))->stop_name) {
-            dst = abs(std::distance(start, tmp_end - 1));
-            return dst;
-        }
-        if (bus->is_route_round && start_->stop_name == (*(bus->bus_route_.begin() + 1))->stop_name
-            && fin_->stop_name == (*(bus->bus_route_.begin()))->stop_name && dst == 1) {
-            dst = r.size() - 2;
-        }
-
-        return dst;
-    }
-
     std::optional<domain::Bus> RequestHandler::GetBusStat(const std::string_view &bus_name) const {
         auto found_bus = db_.FindBus(bus_name);
         if (found_bus) {

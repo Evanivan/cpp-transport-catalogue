@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <map>
+#include <deque>
 
 #include "geo.h"
 
@@ -32,6 +34,26 @@ namespace domain{
         std::optional<std::string> name; // name of bus or stop
         std::optional<std::string> from;
         std::optional<std::string> to;
+    };
+
+    struct BaseRequestTypeBus {
+        RequestType type = RequestType::Bus;
+        std::string name;
+        std::vector<std::string> stops_;
+        bool is_roundtrip{};
+    };
+
+    struct BaseRequestTypeStop {
+        RequestType type = RequestType::Stop;
+        std::string name;
+        double latitude = 0.0;
+        double longitude = 0.0;
+        std::map<std::string, int> road_dist;
+    };
+
+    struct StopsNBuses {
+        std::deque<BaseRequestTypeStop> deque_of_stops;
+        std::deque<BaseRequestTypeBus> deque_of_buses;
     };
 
     struct RouteSettings {

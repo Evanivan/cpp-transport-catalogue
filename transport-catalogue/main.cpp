@@ -3,8 +3,7 @@
 #include "json_reader.h"
 #include "map_renderer.h"
 #include "request_handler.h"
-
-using namespace json_reader;
+#include "transport_router.h"
 
 int main() {
     /*
@@ -16,10 +15,6 @@ int main() {
      * с ответами.
      * Вывести в stdout ответы в виде JSON
      */
-
-    using namespace renderer::shapes;
-    using namespace std;
-
     json_reader::GetJson json;
     json.ReadJSON();
 
@@ -33,12 +28,11 @@ int main() {
     base.BuildStops();
     base.BuildBuses();
 
-    req_handler::RequestHandler render_request(base.GetCatalogue(), renderer, base.GetGraph());
+    req_handler::RequestHandler render_request(base.GetCatalogue(), renderer);
     render_request.GetAllBuses();
+    transport_router::TransportRouter router(base.GetCatalogue(), json.GetRouteSettings(), json.GetStopsNBuses());
 
-    base.BuildGraph(json.GetRouteSettings());
-
-    auto arr = BuildJSON(base, json.GetStats(), std::move(render_request));
+    auto arr = json_reader::BuildJSON(json.GetStats(), std::move(render_request), router);
 
     std::stringstream strm;
     json::Print(json::Document{arr}, strm);
