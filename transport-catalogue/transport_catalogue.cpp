@@ -85,4 +85,13 @@ namespace Transport {
         }
         return map_of_types;
     }
+
+    const std::deque<domain::Stop>& Catalogue::GetDequeStp() const {
+        return stops_;
+    }
+    const std::deque<domain::Bus>& Catalogue::GetDequeBus() const {
+        return buses_;
+    }
+
+
 }

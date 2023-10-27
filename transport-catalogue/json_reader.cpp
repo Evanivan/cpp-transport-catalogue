@@ -6,8 +6,6 @@ namespace json_reader {
     using namespace req_handler;
     using domain::RequestType;
     using domain::StatReqs;
-    using domain::BaseRequestTypeBus;
-    using domain::BaseRequestTypeStop;
 
     int Stops_Uniq(const std::vector<const domain::Stop *>& stops) {
         std::set<std::string> stops_unique;
@@ -411,7 +409,9 @@ namespace json_reader {
 
             if (el.type == RequestType::Route) {
                 try {
-                    auto build_route = transport_router.BuildRoute(el);
+                    auto find_stp_from = el.from;
+                    auto find_stp_to = el.to;
+                    auto build_route = transport_router.BuildRoute(find_stp_from.value(), find_stp_to);
 
                     if (!build_route.has_value()) {
                         std::string str = "not found"s;

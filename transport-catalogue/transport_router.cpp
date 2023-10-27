@@ -5,11 +5,9 @@
 namespace transport_router {
     using namespace std::string_literals;
 
-    TransportRouter::TransportRouter(Transport::Catalogue catalogue, const domain::RouteSettings settings,
-                                     const StopsNB &buses)
-            : db_(std::move(catalogue)),
-              route_settings_(settings),
-              stp_n_base_stat_(buses) {
+    TransportRouter::TransportRouter(const Transport::Catalogue& catalogue, const domain::RouteSettings settings)
+            : db_(catalogue),
+              route_settings_(settings) {
         BuildGraph();
     }
 
@@ -34,15 +32,15 @@ namespace transport_router {
     }
 
     void TransportRouter::BuildGraph() {
-        graph::DirectedWeightedGraph<double> tmp_graph(stp_n_base_stat_.deque_of_stops.size() * 2);
+        graph::DirectedWeightedGraph<double> tmp_graph(db_.GetDequeStp().size() * 2);
         graph_ = std::move(tmp_graph);
 
         size_t i = 0;
-        for (const auto &stp: stp_n_base_stat_.deque_of_stops) {
-            auto stop = db_.FindStop(stp.name);
+        for (const auto &stp: db_.GetDequeStp()) {
+            auto stop = db_.FindStop(stp.stop_name);
             stop_to_id_transit[stop] = (int) (i);
 
-            id_to_stop_transit.reserve(stp_n_base_stat_.deque_of_stops.size() * 2);
+            id_to_stop_transit.reserve(db_.GetDequeStp().size() * 2);
             id_to_stop_transit[i].stop_ = stop;
             auto id_edge = graph_.AddEdge({i, i + 1, route_settings_.bus_wait_time, {}});
 
@@ -53,28 +51,28 @@ namespace transport_router {
             i += 2;
         }
 
-        for (const auto &bus: stp_n_base_stat_.deque_of_buses) {
+        for (const auto &bus: db_.GetDequeBus()) {
             const domain::Stop *prev_stop_from;
-            for (size_t j = 0; j < bus.stops_.size(); ++j) {
+            for (size_t j = 0; j < bus.bus_route_.size(); ++j) {
                 int dist = 0;
                 int span_c = 0;
-                auto stop_from = db_.FindStop(bus.stops_[j]);
+                auto stop_from = db_.FindStop(bus.bus_route_[j]->stop_name);
 
                 size_t id_from_first = stop_to_id_transit[stop_from];
 
-                id_to_stop_transit[id_from_first].bus_ = db_.FindBus(bus.name);
+                id_to_stop_transit[id_from_first].bus_ = db_.FindBus(bus.bus_name_);
 
-                for (size_t k = j + 1; k < bus.stops_.size(); ++k) {
+                for (size_t k = j + 1; k < bus.bus_route_.size(); ++k) {
                     ++span_c;
                     domain::ResponsRoute edge_info;
                     edge_info.type = domain::ResponsType::Bus;
-                    edge_info.name_ = bus.name;
+                    edge_info.name_ = bus.bus_name_;
                     edge_info.span_count_ = span_c;
 
-                    auto stop_to = db_.FindStop(bus.stops_[k]);
-                    prev_stop_from = db_.FindStop(bus.stops_[k - 1]);
+                    auto stop_to = db_.FindStop(bus.bus_route_[k]->stop_name);
+                    prev_stop_from = db_.FindStop(bus.bus_route_[k - 1]->stop_name);
                     size_t id_to = stop_to_id_transit.at(stop_to);
-                    id_to_stop_transit[id_to].bus_ = db_.FindBus(bus.name);
+                    id_to_stop_transit[id_to].bus_ = db_.FindBus(bus.bus_name_);
 
                     int dist_current_range = 0;
 
@@ -82,7 +80,7 @@ namespace transport_router {
                     if (k == 1) {
                         dist = db_.GetDistance(stop_from->stop_name, stop_to->stop_name);
                         edge_id = graph_.AddEdge({id_from_first + 1, id_to,
-                                                  ((dist / route_settings_.bus_velocity) / 60), bus.name});
+                                                  ((dist / route_settings_.bus_velocity) / 60), bus.bus_name_});
                     } else {
                         dist_current_range = db_.GetDistance(prev_stop_from->stop_name, stop_to->stop_name);
                         if (dist_current_range == 0) {
@@ -90,27 +88,27 @@ namespace transport_router {
                         }
                         dist += dist_current_range;
                         edge_id = graph_.AddEdge({id_from_first + 1, id_to,
-                                                  ((dist / route_settings_.bus_velocity) / 60), bus.name});
+                                                  ((dist / route_settings_.bus_velocity) / 60), bus.bus_name_});
                     }
                     edge_to_info_[edge_id] = std::move(edge_info);
                 }
             }
-            if (!bus.is_roundtrip) {
-                for (size_t j = bus.stops_.size() - 1; j > 0; --j) {
+            if (!bus.is_route_round) {
+                for (size_t j = bus.bus_route_.size() - 1; j > 0; --j) {
                     int dist = 0;
                     int span_c = 0;
-                    auto stop_from = db_.FindStop(bus.stops_[j]);
+                    auto stop_from = db_.FindStop(bus.bus_route_[j]->stop_name);
                     size_t id_from_first = stop_to_id_transit[stop_from];
 
-                    for (size_t k = j - 1; k < bus.stops_.size(); --k) {
+                    for (size_t k = j - 1; k < bus.bus_route_.size(); --k) {
                         ++span_c;
                         domain::ResponsRoute edge_info;
                         edge_info.type = domain::ResponsType::Bus;
-                        edge_info.name_ = bus.name;
+                        edge_info.name_ = bus.bus_name_;
                         edge_info.span_count_ = span_c;
 
-                        auto stop_to = db_.FindStop(bus.stops_[k]);
-                        prev_stop_from = db_.FindStop(bus.stops_[k + 1]);
+                        auto stop_to = db_.FindStop(bus.bus_route_[k]->stop_name);
+                        prev_stop_from = db_.FindStop(bus.bus_route_[k + 1]->stop_name);
                         size_t id_to = stop_to_id_transit.at(stop_to);
                         int dist_current_range = 0;
 
@@ -121,7 +119,7 @@ namespace transport_router {
                         }
                         dist += dist_current_range;
                         edge_id = graph_.AddEdge({id_from_first + 1, id_to,
-                                                  ((dist / route_settings_.bus_velocity) / 60), bus.name});
+                                                  ((dist / route_settings_.bus_velocity) / 60), bus.bus_name_});
                         edge_to_info_[edge_id] = std::move(edge_info);
                     }
                 }
@@ -129,11 +127,13 @@ namespace transport_router {
         }
     }
 
-    std::optional<graph::Router<double>::RouteInfo> TransportRouter::BuildRoute(const domain::StatReqs &request) const {
-        auto find_stp_from = db_.FindStop(request.from.value());
-        auto find_stp_to = db_.FindStop(request.to.value());
-
-        return router_->BuildRoute(stop_to_id_transit.at(find_stp_from), stop_to_id_transit.at(find_stp_to));
+    std::optional<graph::Router<double>::RouteInfo> TransportRouter::BuildRoute(std::optional<std::string> from, std::optional<std::string> to) const {
+        if (from.has_value() && to.has_value()) {
+            auto find_stp_from = db_.FindStop(from.value());
+            auto find_stp_to = db_.FindStop(to.value());
+            return router_->BuildRoute(stop_to_id_transit.at(find_stp_from), stop_to_id_transit.at(find_stp_to));
+        }
+        return {};
     }
 
     graph::DirectedWeightedGraph<double> &TransportRouter::GetGraph() {

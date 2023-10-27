@@ -19,7 +19,7 @@
 
 
 namespace json_reader {
-    using domain::StopsNBuses;
+//    using domain::StopsNBuses;
 
     struct RouteInfo {
         double curvature = 0.0;
@@ -29,8 +29,28 @@ namespace json_reader {
         int unique_stop_count = 0;
     };
 
-    std::ostream& operator<<(std::ostream& out, const domain::BaseRequestTypeBus& bus_request);
-    std::ostream& operator<<(std::ostream& out, const domain::BaseRequestTypeStop& stop_request);
+    struct BaseRequestTypeBus {
+        domain::RequestType type = domain::RequestType::Bus;
+        std::string name;
+        std::vector<std::string> stops_;
+        bool is_roundtrip{};
+    };
+
+    struct BaseRequestTypeStop {
+        domain::RequestType type = domain::RequestType::Stop;
+        std::string name;
+        double latitude = 0.0;
+        double longitude = 0.0;
+        std::map<std::string, int> road_dist;
+    };
+
+    struct StopsNBuses {
+        std::deque<BaseRequestTypeStop> deque_of_stops;
+        std::deque<BaseRequestTypeBus> deque_of_buses;
+    };
+
+    std::ostream& operator<<(std::ostream& out, const BaseRequestTypeBus& bus_request);
+    std::ostream& operator<<(std::ostream& out, const BaseRequestTypeStop& stop_request);
 
     int Stops_Uniq(const std::vector<const domain::Stop *>& stops);
     int DistanceRouteCycle(const Transport::Catalogue& catalogue, const domain::Bus& bus);

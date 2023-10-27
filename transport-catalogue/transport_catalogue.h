@@ -51,6 +51,8 @@ namespace Transport {
         const std::vector<const domain::Stop *> *GetBusInfo(std::string_view bus) const;
         std::set<std::string> GetStopInfo(std::string_view str);
         std::unordered_map<std::string, bool> GetRouteType() const;
+        const std::deque<domain::Stop>& GetDequeStp() const;
+        const std::deque<domain::Bus>& GetDequeBus() const;
 
     private:
         std::deque<domain::Stop> stops_;

@@ -30,7 +30,7 @@ int main() {
 
     req_handler::RequestHandler render_request(base.GetCatalogue(), renderer);
     render_request.GetAllBuses();
-    transport_router::TransportRouter router(base.GetCatalogue(), json.GetRouteSettings(), json.GetStopsNBuses());
+    transport_router::TransportRouter router(base.GetCatalogue(), json.GetRouteSettings());
 
     auto arr = json_reader::BuildJSON(json.GetStats(), std::move(render_request), router);
 
