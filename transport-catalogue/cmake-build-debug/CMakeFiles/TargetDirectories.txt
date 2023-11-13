@@ -1,3 +1,0 @@
-/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug/CMakeFiles/Final_13_Sp_project.dir
-/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/jgloria/CLionProjects/Praktikum_CLion/Sprint13/Final 13-Sp project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

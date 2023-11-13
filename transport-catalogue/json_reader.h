@@ -19,8 +19,6 @@
 
 
 namespace json_reader {
-//    using domain::StopsNBuses;
-
     struct RouteInfo {
         double curvature = 0.0;
         int request_id = 1;
@@ -47,6 +45,7 @@ namespace json_reader {
     struct StopsNBuses {
         std::deque<BaseRequestTypeStop> deque_of_stops;
         std::deque<BaseRequestTypeBus> deque_of_buses;
+        std::unordered_map<std::string, int> stop_name_to_index;
     };
 
     std::ostream& operator<<(std::ostream& out, const BaseRequestTypeBus& bus_request);
@@ -73,11 +72,13 @@ namespace json_reader {
         [[nodiscard]] const std::vector<domain::StatReqs>& GetStats() const;
         [[nodiscard]] const renderer::MapSettings& GetMapSettings() const;
         [[nodiscard]] const domain::RouteSettings& GetRouteSettings() const;
+        [[nodiscard]] const std::string& GetFileName() const;
     private:
         StopsNBuses stp_n_buses;
         std::vector<domain::StatReqs> stats;
         renderer::MapSettings map_settings_;
         domain::RouteSettings route_settings_;
+        std::string file_serialize_;
     };
 
     class BuildBase {
@@ -95,5 +96,6 @@ namespace json_reader {
         const StopsNBuses& stp_n_base_stat_;
     };
 
-    json::Array BuildJSON(const std::vector<domain::StatReqs>& json_stats, req_handler::RequestHandler handler, transport_router::TransportRouter& transport_router);
+    json::Array BuildJSON(const std::vector<domain::StatReqs>& json_stats, req_handler::RequestHandler handler, const transport_router::TransportRouter& transport_router);
+//    json::Array BuildJSON(const std::vector<domain::StatReqs>& json_stats, req_handler::RequestHandler handler);
 }

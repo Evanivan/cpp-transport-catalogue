@@ -19,6 +19,7 @@ namespace req_handler {
 
 // Возвращает маршруты, проходящие через
     std::unordered_set<const domain::Bus *> RequestHandler::GetBusesByStop(const std::string_view &stop_name) {
+
         std::unordered_set<const domain::Bus *> bss;
         try {
             const std::set<std::string> routes = db_.GetStopInfo(stop_name);
@@ -31,15 +32,22 @@ namespace req_handler {
             throw ("smth wrong");
         }
 
+//        std::cout << "\n\n\t Finish GetBusesByStop \n\n\t";
         return bss;
     }
 
     void RequestHandler::GetAllBuses() {
         auto routes = db_.GetRouteType();
 
+//        std::cout << "\n\n GETTING ALL BUSES\n";
         for (auto& [name, type]: routes) {
             buses.emplace(db_.FindBus(name));
         }
+//        std::cout << "\n\n GOT ALL BUSES\n\n";
+    }
+
+    const Transport::Catalogue& RequestHandler::GetCatalogue() const {
+        return db_;
     }
 
     svg::Document RequestHandler::RenderMap() const {

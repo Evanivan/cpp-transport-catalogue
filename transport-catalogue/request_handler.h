@@ -51,9 +51,10 @@ namespace req_handler {
 
         void GetAllBuses();
         svg::Document RenderMap() const;
+        const Transport::Catalogue& GetCatalogue() const;
     private:
         // RequestHandler использует агрегацию объектов "Транспортный Справочник" и "Визуализатор Карты"
-        Transport::Catalogue &db_;
+        Transport::Catalogue& db_;
         std::unordered_set<const domain::Bus *> buses;
         renderer::MapRenderer &renderer_;
     };

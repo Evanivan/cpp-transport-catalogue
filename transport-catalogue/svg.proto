@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto_svg;
+
+message Stop {
+    string stop_name = 1;
+    double latitude = 2;
+    double longitude = 3;
+    map<string, int32> distance = 4;
+}
+
+message Bus {
+    string bus_name = 1;
+    repeated string route = 2;
+    bool is_route_round = 3;
+}

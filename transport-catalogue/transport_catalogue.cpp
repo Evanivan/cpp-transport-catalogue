@@ -1,4 +1,5 @@
 #include "transport_catalogue.h"
+#include <iostream>
 
 using namespace std::string_literals;
 
@@ -65,7 +66,9 @@ namespace Transport {
 
         for (const auto &bus: buses_) {
             if (std::count_if(bus.bus_route_.begin(), bus.bus_route_.end(),
-                              [&](const domain::Stop *stp) { return stop == stp->stop_name; }) > 0) {
+                              [&](const domain::Stop *stp) {
+                return stop == stp->stop_name;
+            }) > 0) {
                 buss.insert(bus.bus_name_);
             }
         }

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package router_proto;
+
+import "graph.proto";
+import "svg.proto";
+
+message StopsToId {
+    string stp_bus = 1;
+    int32 stop_id = 2;
+}
+//
+//message IdToStop {
+//    int32 id = 1;
+//    StopsInBus stp_to_bus = 2;
+//}
+
+enum Type {
+    TYPE_WAIT = 0;
+    TYPE_BUS = 1;
+}
+
+message ResponsRouteData {
+    Type type = 1;
+    string name = 2;
+    int32 span_count = 3;
+    double time = 4;
+}
+
+message ResponsResult {
+    int32 r_id = 1;
+    ResponsRouteData data = 2;
+}
+
+message RouteData {
+    graph_proto.DirectedWeightedGraph graph = 1;
+    repeated StopsToId stops_to_id_transit = 2;
+//    repeated IdToStop id_to_stop_transit = 3;
+    repeated ResponsResult edge_to_info = 4;
+}

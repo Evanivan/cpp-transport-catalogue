@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package map_render_serialize;
+
+message Rgb {
+  uint32 red = 1;
+  uint32 green = 2;
+  uint32 blue = 3;
+}
+
+message Rgba {
+  uint32 red = 1;
+  uint32 green = 2;
+  uint32 blue = 3;
+  double opacity = 4;
+}
+
+message Color {
+  oneof color {
+    string empty = 1;
+    Rgb rgb = 2;
+    Rgba rgba = 3;
+  }
+}
+
+message Pair {
+  double first = 1;
+  double second = 2;
+}
+
+message MapSettings {
+  double width = 1;
+  double height = 2;
+  double padding = 3;
+  double stop_radius = 4;
+  double line_width = 5;
+  int32 bus_label_font_size = 6;
+  Pair bus_label_offset = 7;
+  int32 stop_label_font_size = 8;
+  Pair stop_label_offset = 9;
+  Color underlayer_color = 10;
+  double underlayer_width = 11;
+  repeated Color color_palette = 12;
+}

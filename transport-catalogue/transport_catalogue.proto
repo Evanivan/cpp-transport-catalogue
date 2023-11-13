@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package catalogue_serialize;
+
+import "transport_router.proto";
+import "map_renderer.proto";
+import "svg.proto";
+
+message TransportCatalogue {
+    repeated proto_svg.Stop stops = 1;
+    repeated proto_svg.Bus buses = 2;
+}
+
+message FullBase {
+    TransportCatalogue transport_catalogue = 1;
+    map_render_serialize.MapSettings render_settings = 2;
+    router_proto.RouteData router = 3;
+}

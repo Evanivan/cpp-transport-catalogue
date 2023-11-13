@@ -1,11 +1,12 @@
 #include "transport_router.h"
 
 #include <utility>
+#include <iostream>
 
 namespace transport_router {
     using namespace std::string_literals;
 
-    TransportRouter::TransportRouter(const Transport::Catalogue& catalogue, const domain::RouteSettings settings)
+    TransportRouter::TransportRouter(const Transport::Catalogue& catalogue, const domain::RouteSettings& settings)
             : db_(catalogue),
               route_settings_(settings) {
         BuildGraph();
@@ -40,8 +41,6 @@ namespace transport_router {
             auto stop = db_.FindStop(stp.stop_name);
             stop_to_id_transit[stop] = (int) (i);
 
-            id_to_stop_transit.reserve(db_.GetDequeStp().size() * 2);
-            id_to_stop_transit[i].stop_ = stop;
             auto id_edge = graph_.AddEdge({i, i + 1, route_settings_.bus_wait_time, {}});
 
             domain::ResponsRoute edge_info;
@@ -59,9 +58,6 @@ namespace transport_router {
                 auto stop_from = db_.FindStop(bus.bus_route_[j]->stop_name);
 
                 size_t id_from_first = stop_to_id_transit[stop_from];
-
-                id_to_stop_transit[id_from_first].bus_ = db_.FindBus(bus.bus_name_);
-
                 for (size_t k = j + 1; k < bus.bus_route_.size(); ++k) {
                     ++span_c;
                     domain::ResponsRoute edge_info;
@@ -72,7 +68,6 @@ namespace transport_router {
                     auto stop_to = db_.FindStop(bus.bus_route_[k]->stop_name);
                     prev_stop_from = db_.FindStop(bus.bus_route_[k - 1]->stop_name);
                     size_t id_to = stop_to_id_transit.at(stop_to);
-                    id_to_stop_transit[id_to].bus_ = db_.FindBus(bus.bus_name_);
 
                     int dist_current_range = 0;
 
@@ -131,12 +126,13 @@ namespace transport_router {
         if (from.has_value() && to.has_value()) {
             auto find_stp_from = db_.FindStop(from.value());
             auto find_stp_to = db_.FindStop(to.value());
+
             return router_->BuildRoute(stop_to_id_transit.at(find_stp_from), stop_to_id_transit.at(find_stp_to));
         }
         return {};
     }
 
-    graph::DirectedWeightedGraph<double> &TransportRouter::GetGraph() {
+    const graph::DirectedWeightedGraph<double> &TransportRouter::GetGraph() const{
         return graph_;
     }
 
@@ -144,20 +140,33 @@ namespace transport_router {
         return stop_to_id_transit;
     }
 
-    const std::unordered_map<size_t, domain::StopInBus> &TransportRouter::GetStopsToId() const {
-        return id_to_stop_transit;
-    }
-
     std::pair<const graph::Edge<double> &, const domain::ResponsRoute &>
     TransportRouter::GetFullEdgeInfo(graph::EdgeId edge_id) const {
         return {graph_.GetEdge(edge_id), edge_to_info_.at(edge_id)};
     }
 
-    void TransportRouter::InitRoute() {
-        router_ = std::make_unique<graph::Router<double>>(graph_);
+    const std::map<graph::EdgeId, domain::ResponsRoute>& TransportRouter::GetEdgeToInfo() const{
+        return edge_to_info_;
     }
+
+//    void TransportRouter::InitRoute() {
+//        router_ = std::make_unique<graph::Router<double>>(graph_);
+//    }
 
     const Transport::Catalogue &TransportRouter::GetCatalogue() const {
         return db_;
+    }
+
+    void TransportRouter::SetGraph(graph::DirectedWeightedGraph<double> graph) {
+        graph_ = std::move(graph);
+        router_ = std::make_unique<graph::Router<double>>(graph_);
+    }
+
+    void TransportRouter::SetStopToId(std::unordered_map<const domain::Stop *, int> stop_to_id) {
+        stop_to_id_transit = std::move(stop_to_id);
+    }
+
+    void TransportRouter::SetEdgeIdToInfo(std::map<graph::EdgeId, domain::ResponsRoute> edge_to_info) {
+        edge_to_info_ = std::move(edge_to_info);
     }
 }

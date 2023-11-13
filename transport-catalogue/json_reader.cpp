@@ -112,6 +112,9 @@ namespace json_reader {
         std::deque<BaseRequestTypeStop> deque_of_stops;
         std::deque<BaseRequestTypeBus> deque_of_buses;
 
+        std::unordered_map<std::string, int> stop_name_to_index; //for serialization
+
+        int i = 0;
         for (const auto& el : base_input) {
             if (el.AsDict().at("type"s) == "Stop"s) {
                 BaseRequestTypeStop stop{};
@@ -127,6 +130,7 @@ namespace json_reader {
                 for (const auto &[stp_name, distance]: el.AsDict().at("road_distances"s).AsDict()) {
                     stop.road_dist[stp_name] = distance.AsInt();
                 }
+                stop_name_to_index[stop.name] = ++i;   //for serialization
                 deque_of_stops.emplace_back(std::move(stop));
             } else {
                 continue;
@@ -147,7 +151,7 @@ namespace json_reader {
                 continue;
             }
         }
-        return StopsNBuses{deque_of_stops, deque_of_buses};
+        return StopsNBuses{deque_of_stops, deque_of_buses, stop_name_to_index};
     }
 
     std::vector<StatReqs> ReadStat(const json::Array& reqs) {
@@ -244,14 +248,40 @@ namespace json_reader {
     void GetJson::ReadJSON() {
         auto input_json = json::Load(std::cin).GetRoot().AsDict();
         try {
-            const auto base_input = input_json.at("base_requests").AsArray();
-            const auto stat_reqs = input_json.at("stat_requests").AsArray();
-            const auto map_settings = input_json.at("render_settings").AsDict();
-            const auto map_route_set = input_json.at("routing_settings").AsDict();
-            stp_n_buses = ReadBase(base_input);
-            stats = ReadStat(stat_reqs);
-            map_settings_ = ReadMapSettings(map_settings);
-            route_settings_ = ReadRouteSettings(map_route_set);
+
+//            std::cout << "\n....START reading json.....\n"s;
+
+            if (input_json.count("serialization_settings") > 0) {
+                const auto serialization_file = input_json.at(
+                        "serialization_settings").AsDict(); //reading serialization file
+//                std::cout << "\n....file name reading json.....\n"s;
+                file_serialize_ = serialization_file.at("file").AsString();
+            }
+
+            if (input_json.count("base_requests") > 0) {
+                const auto base_input = input_json.at("base_requests").AsArray();
+                stp_n_buses = ReadBase(base_input);
+//                std::cout << "\n....base request request reading json.....\n"s;
+            }
+
+            if (input_json.count("stat_requests") > 0) {
+                const auto stat_reqs = input_json.at("stat_requests").AsArray();
+                stats = ReadStat(stat_reqs);
+//                std::cout << "\n....stat request reading json.....\n"s;
+            }
+
+            if (input_json.count("render_settings") > 0) {
+                const auto map_settings = input_json.at("render_settings").AsDict();
+                map_settings_ = ReadMapSettings(map_settings);
+//                std::cout << "\n....render settings reading json.....\n"s;
+            }
+
+            if (input_json.count("routing_settings") > 0) {
+                const auto map_route_set = input_json.at("routing_settings").AsDict();
+                route_settings_ = ReadRouteSettings(map_route_set);
+//                std::cout << "\n....routing settings reading json.....\n"s;
+            }
+//            std::cout << "\n....reading json.....\n"s;
         } catch (...) {
 
         }
@@ -271,6 +301,10 @@ namespace json_reader {
 
     const domain::RouteSettings& GetJson::GetRouteSettings() const {
         return route_settings_;
+    }
+
+    const std::string &GetJson::GetFileName() const {
+        return file_serialize_;
     }
 
     Transport::Catalogue& BuildBase::GetCatalogue() const {
@@ -330,10 +364,10 @@ namespace json_reader {
     }
 
     //implement new builder
-    Array BuildJSON(const std::vector<domain::StatReqs>& json_stats, req_handler::RequestHandler handler, transport_router::TransportRouter& transport_router){
+    Array BuildJSON(const std::vector<domain::StatReqs>& json_stats, req_handler::RequestHandler handler, const transport_router::TransportRouter& transport_router){
         json::Builder builder;
         builder.StartArray();
-        transport_router.InitRoute();
+//        transport_router.InitRoute();
 
         for (const auto& el : json_stats) {
             std::set<std::string> buses_set;
@@ -363,6 +397,7 @@ namespace json_reader {
                 for (const auto& bus : buses_set) {
                     arr_busses.emplace_back(bus);
                 }
+
                 builder.StartDict()
                         .Key("buses"s).Value(arr_busses)
                         .Key("request_id").Value(el.id)
@@ -372,6 +407,7 @@ namespace json_reader {
             if (el.type == RequestType::Bus) {
                 try {
                     auto route = handler.GetBusStat(el.name.value());
+
                     if (route.value().bus_name_.empty() || !route.has_value()) {
                         std::string str = "not found"s;
                         builder.StartDict()
@@ -379,7 +415,7 @@ namespace json_reader {
                                 .Key("error_message").Value(str).EndDict();
                         continue;
                     }
-                    const auto& buse_info = CollectStatRoute(transport_router.GetCatalogue(), route, el.id);
+                    const auto& buse_info = CollectStatRoute(handler.GetCatalogue(), route, el.id);
                     builder.StartDict()
                             .Key("curvature").Value(buse_info.route_length / buse_info.curvature)
                             .Key("request_id").Value(buse_info.request_id)
@@ -411,7 +447,7 @@ namespace json_reader {
                 try {
                     auto find_stp_from = el.from;
                     auto find_stp_to = el.to;
-                    auto build_route = transport_router.BuildRoute(find_stp_from.value(), find_stp_to);
+                    auto build_route = std::move(transport_router.BuildRoute(find_stp_from.value(), find_stp_to));
 
                     if (!build_route.has_value()) {
                         std::string str = "not found"s;
