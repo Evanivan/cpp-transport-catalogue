@@ -48,20 +48,577 @@ struct TableStruct_transport_5fcatalogue_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5fcatalogue_2eproto;
 namespace catalogue_serialize {
+class Bus;
+struct BusDefaultTypeInternal;
+extern BusDefaultTypeInternal _Bus_default_instance_;
+class Distances;
+struct DistancesDefaultTypeInternal;
+extern DistancesDefaultTypeInternal _Distances_default_instance_;
 class FullBase;
 struct FullBaseDefaultTypeInternal;
 extern FullBaseDefaultTypeInternal _FullBase_default_instance_;
+class Stop;
+struct StopDefaultTypeInternal;
+extern StopDefaultTypeInternal _Stop_default_instance_;
 class TransportCatalogue;
 struct TransportCatalogueDefaultTypeInternal;
 extern TransportCatalogueDefaultTypeInternal _TransportCatalogue_default_instance_;
 }  // namespace catalogue_serialize
 PROTOBUF_NAMESPACE_OPEN
+template<> ::catalogue_serialize::Bus* Arena::CreateMaybeMessage<::catalogue_serialize::Bus>(Arena*);
+template<> ::catalogue_serialize::Distances* Arena::CreateMaybeMessage<::catalogue_serialize::Distances>(Arena*);
 template<> ::catalogue_serialize::FullBase* Arena::CreateMaybeMessage<::catalogue_serialize::FullBase>(Arena*);
+template<> ::catalogue_serialize::Stop* Arena::CreateMaybeMessage<::catalogue_serialize::Stop>(Arena*);
 template<> ::catalogue_serialize::TransportCatalogue* Arena::CreateMaybeMessage<::catalogue_serialize::TransportCatalogue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace catalogue_serialize {
 
 // ===================================================================
+
+class Stop final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:catalogue_serialize.Stop) */ {
+ public:
+  inline Stop() : Stop(nullptr) {}
+  ~Stop() override;
+  explicit PROTOBUF_CONSTEXPR Stop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Stop(const Stop& from);
+  Stop(Stop&& from) noexcept
+    : Stop() {
+    *this = ::std::move(from);
+  }
+
+  inline Stop& operator=(const Stop& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Stop& operator=(Stop&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Stop& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Stop* internal_default_instance() {
+    return reinterpret_cast<const Stop*>(
+               &_Stop_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Stop& a, Stop& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Stop* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Stop* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Stop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Stop>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Stop& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Stop& from) {
+    Stop::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Stop* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "catalogue_serialize.Stop";
+  }
+  protected:
+  explicit Stop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStopNameFieldNumber = 1,
+    kLatitudeFieldNumber = 2,
+    kLongitudeFieldNumber = 3,
+  };
+  // string stop_name = 1;
+  void clear_stop_name();
+  const std::string& stop_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_stop_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_stop_name();
+  PROTOBUF_NODISCARD std::string* release_stop_name();
+  void set_allocated_stop_name(std::string* stop_name);
+  private:
+  const std::string& _internal_stop_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_stop_name(const std::string& value);
+  std::string* _internal_mutable_stop_name();
+  public:
+
+  // double latitude = 2;
+  void clear_latitude();
+  double latitude() const;
+  void set_latitude(double value);
+  private:
+  double _internal_latitude() const;
+  void _internal_set_latitude(double value);
+  public:
+
+  // double longitude = 3;
+  void clear_longitude();
+  double longitude() const;
+  void set_longitude(double value);
+  private:
+  double _internal_longitude() const;
+  void _internal_set_longitude(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:catalogue_serialize.Stop)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr stop_name_;
+    double latitude_;
+    double longitude_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_transport_5fcatalogue_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Bus final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:catalogue_serialize.Bus) */ {
+ public:
+  inline Bus() : Bus(nullptr) {}
+  ~Bus() override;
+  explicit PROTOBUF_CONSTEXPR Bus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Bus(const Bus& from);
+  Bus(Bus&& from) noexcept
+    : Bus() {
+    *this = ::std::move(from);
+  }
+
+  inline Bus& operator=(const Bus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Bus& operator=(Bus&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Bus& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Bus* internal_default_instance() {
+    return reinterpret_cast<const Bus*>(
+               &_Bus_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Bus& a, Bus& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Bus* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Bus* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Bus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Bus>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Bus& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Bus& from) {
+    Bus::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Bus* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "catalogue_serialize.Bus";
+  }
+  protected:
+  explicit Bus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRouteFieldNumber = 2,
+    kBusNameFieldNumber = 1,
+    kIsRouteRoundFieldNumber = 3,
+  };
+  // repeated string route = 2;
+  int route_size() const;
+  private:
+  int _internal_route_size() const;
+  public:
+  void clear_route();
+  const std::string& route(int index) const;
+  std::string* mutable_route(int index);
+  void set_route(int index, const std::string& value);
+  void set_route(int index, std::string&& value);
+  void set_route(int index, const char* value);
+  void set_route(int index, const char* value, size_t size);
+  std::string* add_route();
+  void add_route(const std::string& value);
+  void add_route(std::string&& value);
+  void add_route(const char* value);
+  void add_route(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& route() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_route();
+  private:
+  const std::string& _internal_route(int index) const;
+  std::string* _internal_add_route();
+  public:
+
+  // string bus_name = 1;
+  void clear_bus_name();
+  const std::string& bus_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_bus_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_bus_name();
+  PROTOBUF_NODISCARD std::string* release_bus_name();
+  void set_allocated_bus_name(std::string* bus_name);
+  private:
+  const std::string& _internal_bus_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_bus_name(const std::string& value);
+  std::string* _internal_mutable_bus_name();
+  public:
+
+  // bool is_route_round = 3;
+  void clear_is_route_round();
+  bool is_route_round() const;
+  void set_is_route_round(bool value);
+  private:
+  bool _internal_is_route_round() const;
+  void _internal_set_is_route_round(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:catalogue_serialize.Bus)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> route_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bus_name_;
+    bool is_route_round_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_transport_5fcatalogue_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Distances final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:catalogue_serialize.Distances) */ {
+ public:
+  inline Distances() : Distances(nullptr) {}
+  ~Distances() override;
+  explicit PROTOBUF_CONSTEXPR Distances(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Distances(const Distances& from);
+  Distances(Distances&& from) noexcept
+    : Distances() {
+    *this = ::std::move(from);
+  }
+
+  inline Distances& operator=(const Distances& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Distances& operator=(Distances&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Distances& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Distances* internal_default_instance() {
+    return reinterpret_cast<const Distances*>(
+               &_Distances_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Distances& a, Distances& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Distances* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Distances* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Distances* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Distances>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Distances& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Distances& from) {
+    Distances::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Distances* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "catalogue_serialize.Distances";
+  }
+  protected:
+  explicit Distances(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFromFieldNumber = 1,
+    kToFieldNumber = 2,
+    kDistFieldNumber = 3,
+  };
+  // string from = 1;
+  void clear_from();
+  const std::string& from() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from();
+  PROTOBUF_NODISCARD std::string* release_from();
+  void set_allocated_from(std::string* from);
+  private:
+  const std::string& _internal_from() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from(const std::string& value);
+  std::string* _internal_mutable_from();
+  public:
+
+  // string to = 2;
+  void clear_to();
+  const std::string& to() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to();
+  PROTOBUF_NODISCARD std::string* release_to();
+  void set_allocated_to(std::string* to);
+  private:
+  const std::string& _internal_to() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to(const std::string& value);
+  std::string* _internal_mutable_to();
+  public:
+
+  // int32 dist = 3;
+  void clear_dist();
+  int32_t dist() const;
+  void set_dist(int32_t value);
+  private:
+  int32_t _internal_dist() const;
+  void _internal_set_dist(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:catalogue_serialize.Distances)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_;
+    int32_t dist_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_transport_5fcatalogue_2eproto;
+};
+// -------------------------------------------------------------------
 
 class TransportCatalogue final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:catalogue_serialize.TransportCatalogue) */ {
@@ -111,7 +668,7 @@ class TransportCatalogue final :
                &_TransportCatalogue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    3;
 
   friend void swap(TransportCatalogue& a, TransportCatalogue& b) {
     a.Swap(&b);
@@ -186,42 +743,61 @@ class TransportCatalogue final :
   enum : int {
     kStopsFieldNumber = 1,
     kBusesFieldNumber = 2,
+    kDistanceFieldNumber = 3,
   };
-  // repeated .proto_svg.Stop stops = 1;
+  // repeated .catalogue_serialize.Stop stops = 1;
   int stops_size() const;
   private:
   int _internal_stops_size() const;
   public:
   void clear_stops();
-  ::proto_svg::Stop* mutable_stops(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Stop >*
+  ::catalogue_serialize::Stop* mutable_stops(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Stop >*
       mutable_stops();
   private:
-  const ::proto_svg::Stop& _internal_stops(int index) const;
-  ::proto_svg::Stop* _internal_add_stops();
+  const ::catalogue_serialize::Stop& _internal_stops(int index) const;
+  ::catalogue_serialize::Stop* _internal_add_stops();
   public:
-  const ::proto_svg::Stop& stops(int index) const;
-  ::proto_svg::Stop* add_stops();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Stop >&
+  const ::catalogue_serialize::Stop& stops(int index) const;
+  ::catalogue_serialize::Stop* add_stops();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Stop >&
       stops() const;
 
-  // repeated .proto_svg.Bus buses = 2;
+  // repeated .catalogue_serialize.Bus buses = 2;
   int buses_size() const;
   private:
   int _internal_buses_size() const;
   public:
   void clear_buses();
-  ::proto_svg::Bus* mutable_buses(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Bus >*
+  ::catalogue_serialize::Bus* mutable_buses(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Bus >*
       mutable_buses();
   private:
-  const ::proto_svg::Bus& _internal_buses(int index) const;
-  ::proto_svg::Bus* _internal_add_buses();
+  const ::catalogue_serialize::Bus& _internal_buses(int index) const;
+  ::catalogue_serialize::Bus* _internal_add_buses();
   public:
-  const ::proto_svg::Bus& buses(int index) const;
-  ::proto_svg::Bus* add_buses();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Bus >&
+  const ::catalogue_serialize::Bus& buses(int index) const;
+  ::catalogue_serialize::Bus* add_buses();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Bus >&
       buses() const;
+
+  // repeated .catalogue_serialize.Distances distance = 3;
+  int distance_size() const;
+  private:
+  int _internal_distance_size() const;
+  public:
+  void clear_distance();
+  ::catalogue_serialize::Distances* mutable_distance(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Distances >*
+      mutable_distance();
+  private:
+  const ::catalogue_serialize::Distances& _internal_distance(int index) const;
+  ::catalogue_serialize::Distances* _internal_add_distance();
+  public:
+  const ::catalogue_serialize::Distances& distance(int index) const;
+  ::catalogue_serialize::Distances* add_distance();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Distances >&
+      distance() const;
 
   // @@protoc_insertion_point(class_scope:catalogue_serialize.TransportCatalogue)
  private:
@@ -231,8 +807,9 @@ class TransportCatalogue final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Stop > stops_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Bus > buses_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Stop > stops_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Bus > buses_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Distances > distance_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -288,7 +865,7 @@ class FullBase final :
                &_FullBase_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    4;
 
   friend void swap(FullBase& a, FullBase& b) {
     a.Swap(&b);
@@ -444,80 +1021,493 @@ class FullBase final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Stop
+
+// string stop_name = 1;
+inline void Stop::clear_stop_name() {
+  _impl_.stop_name_.ClearToEmpty();
+}
+inline const std::string& Stop::stop_name() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Stop.stop_name)
+  return _internal_stop_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Stop::set_stop_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.stop_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Stop.stop_name)
+}
+inline std::string* Stop::mutable_stop_name() {
+  std::string* _s = _internal_mutable_stop_name();
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.Stop.stop_name)
+  return _s;
+}
+inline const std::string& Stop::_internal_stop_name() const {
+  return _impl_.stop_name_.Get();
+}
+inline void Stop::_internal_set_stop_name(const std::string& value) {
+  
+  _impl_.stop_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Stop::_internal_mutable_stop_name() {
+  
+  return _impl_.stop_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Stop::release_stop_name() {
+  // @@protoc_insertion_point(field_release:catalogue_serialize.Stop.stop_name)
+  return _impl_.stop_name_.Release();
+}
+inline void Stop::set_allocated_stop_name(std::string* stop_name) {
+  if (stop_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.stop_name_.SetAllocated(stop_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.stop_name_.IsDefault()) {
+    _impl_.stop_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:catalogue_serialize.Stop.stop_name)
+}
+
+// double latitude = 2;
+inline void Stop::clear_latitude() {
+  _impl_.latitude_ = 0;
+}
+inline double Stop::_internal_latitude() const {
+  return _impl_.latitude_;
+}
+inline double Stop::latitude() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Stop.latitude)
+  return _internal_latitude();
+}
+inline void Stop::_internal_set_latitude(double value) {
+  
+  _impl_.latitude_ = value;
+}
+inline void Stop::set_latitude(double value) {
+  _internal_set_latitude(value);
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Stop.latitude)
+}
+
+// double longitude = 3;
+inline void Stop::clear_longitude() {
+  _impl_.longitude_ = 0;
+}
+inline double Stop::_internal_longitude() const {
+  return _impl_.longitude_;
+}
+inline double Stop::longitude() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Stop.longitude)
+  return _internal_longitude();
+}
+inline void Stop::_internal_set_longitude(double value) {
+  
+  _impl_.longitude_ = value;
+}
+inline void Stop::set_longitude(double value) {
+  _internal_set_longitude(value);
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Stop.longitude)
+}
+
+// -------------------------------------------------------------------
+
+// Bus
+
+// string bus_name = 1;
+inline void Bus::clear_bus_name() {
+  _impl_.bus_name_.ClearToEmpty();
+}
+inline const std::string& Bus::bus_name() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Bus.bus_name)
+  return _internal_bus_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Bus::set_bus_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.bus_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Bus.bus_name)
+}
+inline std::string* Bus::mutable_bus_name() {
+  std::string* _s = _internal_mutable_bus_name();
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.Bus.bus_name)
+  return _s;
+}
+inline const std::string& Bus::_internal_bus_name() const {
+  return _impl_.bus_name_.Get();
+}
+inline void Bus::_internal_set_bus_name(const std::string& value) {
+  
+  _impl_.bus_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Bus::_internal_mutable_bus_name() {
+  
+  return _impl_.bus_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Bus::release_bus_name() {
+  // @@protoc_insertion_point(field_release:catalogue_serialize.Bus.bus_name)
+  return _impl_.bus_name_.Release();
+}
+inline void Bus::set_allocated_bus_name(std::string* bus_name) {
+  if (bus_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.bus_name_.SetAllocated(bus_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.bus_name_.IsDefault()) {
+    _impl_.bus_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:catalogue_serialize.Bus.bus_name)
+}
+
+// repeated string route = 2;
+inline int Bus::_internal_route_size() const {
+  return _impl_.route_.size();
+}
+inline int Bus::route_size() const {
+  return _internal_route_size();
+}
+inline void Bus::clear_route() {
+  _impl_.route_.Clear();
+}
+inline std::string* Bus::add_route() {
+  std::string* _s = _internal_add_route();
+  // @@protoc_insertion_point(field_add_mutable:catalogue_serialize.Bus.route)
+  return _s;
+}
+inline const std::string& Bus::_internal_route(int index) const {
+  return _impl_.route_.Get(index);
+}
+inline const std::string& Bus::route(int index) const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Bus.route)
+  return _internal_route(index);
+}
+inline std::string* Bus::mutable_route(int index) {
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.Bus.route)
+  return _impl_.route_.Mutable(index);
+}
+inline void Bus::set_route(int index, const std::string& value) {
+  _impl_.route_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Bus.route)
+}
+inline void Bus::set_route(int index, std::string&& value) {
+  _impl_.route_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Bus.route)
+}
+inline void Bus::set_route(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.route_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:catalogue_serialize.Bus.route)
+}
+inline void Bus::set_route(int index, const char* value, size_t size) {
+  _impl_.route_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:catalogue_serialize.Bus.route)
+}
+inline std::string* Bus::_internal_add_route() {
+  return _impl_.route_.Add();
+}
+inline void Bus::add_route(const std::string& value) {
+  _impl_.route_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:catalogue_serialize.Bus.route)
+}
+inline void Bus::add_route(std::string&& value) {
+  _impl_.route_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:catalogue_serialize.Bus.route)
+}
+inline void Bus::add_route(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.route_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:catalogue_serialize.Bus.route)
+}
+inline void Bus::add_route(const char* value, size_t size) {
+  _impl_.route_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:catalogue_serialize.Bus.route)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Bus::route() const {
+  // @@protoc_insertion_point(field_list:catalogue_serialize.Bus.route)
+  return _impl_.route_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Bus::mutable_route() {
+  // @@protoc_insertion_point(field_mutable_list:catalogue_serialize.Bus.route)
+  return &_impl_.route_;
+}
+
+// bool is_route_round = 3;
+inline void Bus::clear_is_route_round() {
+  _impl_.is_route_round_ = false;
+}
+inline bool Bus::_internal_is_route_round() const {
+  return _impl_.is_route_round_;
+}
+inline bool Bus::is_route_round() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Bus.is_route_round)
+  return _internal_is_route_round();
+}
+inline void Bus::_internal_set_is_route_round(bool value) {
+  
+  _impl_.is_route_round_ = value;
+}
+inline void Bus::set_is_route_round(bool value) {
+  _internal_set_is_route_round(value);
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Bus.is_route_round)
+}
+
+// -------------------------------------------------------------------
+
+// Distances
+
+// string from = 1;
+inline void Distances::clear_from() {
+  _impl_.from_.ClearToEmpty();
+}
+inline const std::string& Distances::from() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Distances.from)
+  return _internal_from();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Distances::set_from(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.from_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Distances.from)
+}
+inline std::string* Distances::mutable_from() {
+  std::string* _s = _internal_mutable_from();
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.Distances.from)
+  return _s;
+}
+inline const std::string& Distances::_internal_from() const {
+  return _impl_.from_.Get();
+}
+inline void Distances::_internal_set_from(const std::string& value) {
+  
+  _impl_.from_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Distances::_internal_mutable_from() {
+  
+  return _impl_.from_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Distances::release_from() {
+  // @@protoc_insertion_point(field_release:catalogue_serialize.Distances.from)
+  return _impl_.from_.Release();
+}
+inline void Distances::set_allocated_from(std::string* from) {
+  if (from != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.from_.SetAllocated(from, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_.IsDefault()) {
+    _impl_.from_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:catalogue_serialize.Distances.from)
+}
+
+// string to = 2;
+inline void Distances::clear_to() {
+  _impl_.to_.ClearToEmpty();
+}
+inline const std::string& Distances::to() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Distances.to)
+  return _internal_to();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Distances::set_to(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.to_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Distances.to)
+}
+inline std::string* Distances::mutable_to() {
+  std::string* _s = _internal_mutable_to();
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.Distances.to)
+  return _s;
+}
+inline const std::string& Distances::_internal_to() const {
+  return _impl_.to_.Get();
+}
+inline void Distances::_internal_set_to(const std::string& value) {
+  
+  _impl_.to_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Distances::_internal_mutable_to() {
+  
+  return _impl_.to_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Distances::release_to() {
+  // @@protoc_insertion_point(field_release:catalogue_serialize.Distances.to)
+  return _impl_.to_.Release();
+}
+inline void Distances::set_allocated_to(std::string* to) {
+  if (to != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.to_.SetAllocated(to, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_.IsDefault()) {
+    _impl_.to_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:catalogue_serialize.Distances.to)
+}
+
+// int32 dist = 3;
+inline void Distances::clear_dist() {
+  _impl_.dist_ = 0;
+}
+inline int32_t Distances::_internal_dist() const {
+  return _impl_.dist_;
+}
+inline int32_t Distances::dist() const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.Distances.dist)
+  return _internal_dist();
+}
+inline void Distances::_internal_set_dist(int32_t value) {
+  
+  _impl_.dist_ = value;
+}
+inline void Distances::set_dist(int32_t value) {
+  _internal_set_dist(value);
+  // @@protoc_insertion_point(field_set:catalogue_serialize.Distances.dist)
+}
+
+// -------------------------------------------------------------------
+
 // TransportCatalogue
 
-// repeated .proto_svg.Stop stops = 1;
+// repeated .catalogue_serialize.Stop stops = 1;
 inline int TransportCatalogue::_internal_stops_size() const {
   return _impl_.stops_.size();
 }
 inline int TransportCatalogue::stops_size() const {
   return _internal_stops_size();
 }
-inline ::proto_svg::Stop* TransportCatalogue::mutable_stops(int index) {
+inline void TransportCatalogue::clear_stops() {
+  _impl_.stops_.Clear();
+}
+inline ::catalogue_serialize::Stop* TransportCatalogue::mutable_stops(int index) {
   // @@protoc_insertion_point(field_mutable:catalogue_serialize.TransportCatalogue.stops)
   return _impl_.stops_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Stop >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Stop >*
 TransportCatalogue::mutable_stops() {
   // @@protoc_insertion_point(field_mutable_list:catalogue_serialize.TransportCatalogue.stops)
   return &_impl_.stops_;
 }
-inline const ::proto_svg::Stop& TransportCatalogue::_internal_stops(int index) const {
+inline const ::catalogue_serialize::Stop& TransportCatalogue::_internal_stops(int index) const {
   return _impl_.stops_.Get(index);
 }
-inline const ::proto_svg::Stop& TransportCatalogue::stops(int index) const {
+inline const ::catalogue_serialize::Stop& TransportCatalogue::stops(int index) const {
   // @@protoc_insertion_point(field_get:catalogue_serialize.TransportCatalogue.stops)
   return _internal_stops(index);
 }
-inline ::proto_svg::Stop* TransportCatalogue::_internal_add_stops() {
+inline ::catalogue_serialize::Stop* TransportCatalogue::_internal_add_stops() {
   return _impl_.stops_.Add();
 }
-inline ::proto_svg::Stop* TransportCatalogue::add_stops() {
-  ::proto_svg::Stop* _add = _internal_add_stops();
+inline ::catalogue_serialize::Stop* TransportCatalogue::add_stops() {
+  ::catalogue_serialize::Stop* _add = _internal_add_stops();
   // @@protoc_insertion_point(field_add:catalogue_serialize.TransportCatalogue.stops)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Stop >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Stop >&
 TransportCatalogue::stops() const {
   // @@protoc_insertion_point(field_list:catalogue_serialize.TransportCatalogue.stops)
   return _impl_.stops_;
 }
 
-// repeated .proto_svg.Bus buses = 2;
+// repeated .catalogue_serialize.Bus buses = 2;
 inline int TransportCatalogue::_internal_buses_size() const {
   return _impl_.buses_.size();
 }
 inline int TransportCatalogue::buses_size() const {
   return _internal_buses_size();
 }
-inline ::proto_svg::Bus* TransportCatalogue::mutable_buses(int index) {
+inline void TransportCatalogue::clear_buses() {
+  _impl_.buses_.Clear();
+}
+inline ::catalogue_serialize::Bus* TransportCatalogue::mutable_buses(int index) {
   // @@protoc_insertion_point(field_mutable:catalogue_serialize.TransportCatalogue.buses)
   return _impl_.buses_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Bus >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Bus >*
 TransportCatalogue::mutable_buses() {
   // @@protoc_insertion_point(field_mutable_list:catalogue_serialize.TransportCatalogue.buses)
   return &_impl_.buses_;
 }
-inline const ::proto_svg::Bus& TransportCatalogue::_internal_buses(int index) const {
+inline const ::catalogue_serialize::Bus& TransportCatalogue::_internal_buses(int index) const {
   return _impl_.buses_.Get(index);
 }
-inline const ::proto_svg::Bus& TransportCatalogue::buses(int index) const {
+inline const ::catalogue_serialize::Bus& TransportCatalogue::buses(int index) const {
   // @@protoc_insertion_point(field_get:catalogue_serialize.TransportCatalogue.buses)
   return _internal_buses(index);
 }
-inline ::proto_svg::Bus* TransportCatalogue::_internal_add_buses() {
+inline ::catalogue_serialize::Bus* TransportCatalogue::_internal_add_buses() {
   return _impl_.buses_.Add();
 }
-inline ::proto_svg::Bus* TransportCatalogue::add_buses() {
-  ::proto_svg::Bus* _add = _internal_add_buses();
+inline ::catalogue_serialize::Bus* TransportCatalogue::add_buses() {
+  ::catalogue_serialize::Bus* _add = _internal_add_buses();
   // @@protoc_insertion_point(field_add:catalogue_serialize.TransportCatalogue.buses)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto_svg::Bus >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Bus >&
 TransportCatalogue::buses() const {
   // @@protoc_insertion_point(field_list:catalogue_serialize.TransportCatalogue.buses)
   return _impl_.buses_;
+}
+
+// repeated .catalogue_serialize.Distances distance = 3;
+inline int TransportCatalogue::_internal_distance_size() const {
+  return _impl_.distance_.size();
+}
+inline int TransportCatalogue::distance_size() const {
+  return _internal_distance_size();
+}
+inline void TransportCatalogue::clear_distance() {
+  _impl_.distance_.Clear();
+}
+inline ::catalogue_serialize::Distances* TransportCatalogue::mutable_distance(int index) {
+  // @@protoc_insertion_point(field_mutable:catalogue_serialize.TransportCatalogue.distance)
+  return _impl_.distance_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Distances >*
+TransportCatalogue::mutable_distance() {
+  // @@protoc_insertion_point(field_mutable_list:catalogue_serialize.TransportCatalogue.distance)
+  return &_impl_.distance_;
+}
+inline const ::catalogue_serialize::Distances& TransportCatalogue::_internal_distance(int index) const {
+  return _impl_.distance_.Get(index);
+}
+inline const ::catalogue_serialize::Distances& TransportCatalogue::distance(int index) const {
+  // @@protoc_insertion_point(field_get:catalogue_serialize.TransportCatalogue.distance)
+  return _internal_distance(index);
+}
+inline ::catalogue_serialize::Distances* TransportCatalogue::_internal_add_distance() {
+  return _impl_.distance_.Add();
+}
+inline ::catalogue_serialize::Distances* TransportCatalogue::add_distance() {
+  ::catalogue_serialize::Distances* _add = _internal_add_distance();
+  // @@protoc_insertion_point(field_add:catalogue_serialize.TransportCatalogue.distance)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::catalogue_serialize::Distances >&
+TransportCatalogue::distance() const {
+  // @@protoc_insertion_point(field_list:catalogue_serialize.TransportCatalogue.distance)
+  return _impl_.distance_;
 }
 
 // -------------------------------------------------------------------
@@ -787,6 +1777,12 @@ inline void FullBase::set_allocated_router(::router_proto::RouteData* router) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

@@ -49,13 +49,11 @@ namespace req_handler {
         // Возвращает маршруты, проходящие через
         std::unordered_set<const domain::Bus *> GetBusesByStop(const std::string_view &stop_name);
 
-        void GetAllBuses();
         svg::Document RenderMap() const;
         const Transport::Catalogue& GetCatalogue() const;
     private:
         // RequestHandler использует агрегацию объектов "Транспортный Справочник" и "Визуализатор Карты"
         Transport::Catalogue& db_;
-        std::unordered_set<const domain::Bus *> buses;
         renderer::MapRenderer &renderer_;
     };
 }

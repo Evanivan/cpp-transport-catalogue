@@ -51,6 +51,10 @@ namespace domain{
         std::string bus_name_;
         std::vector<const Stop*> bus_route_;
         bool is_route_round{};
+
+        bool operator<(const Bus& other) const {
+            return bus_name_ < other.bus_name_;
+        }
     };
 
     struct StopInBus {

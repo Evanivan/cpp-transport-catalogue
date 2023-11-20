@@ -6,7 +6,7 @@
 namespace transport_router {
     using namespace std::string_literals;
 
-    TransportRouter::TransportRouter(const Transport::Catalogue& catalogue, const domain::RouteSettings& settings)
+    TransportRouter::TransportRouter(const Transport::Catalogue &catalogue, const domain::RouteSettings &settings)
             : db_(catalogue),
               route_settings_(settings) {
         BuildGraph();
@@ -122,7 +122,8 @@ namespace transport_router {
         }
     }
 
-    std::optional<graph::Router<double>::RouteInfo> TransportRouter::BuildRoute(std::optional<std::string> from, std::optional<std::string> to) const {
+    std::optional<graph::Router<double>::RouteInfo>
+    TransportRouter::BuildRoute(std::optional<std::string> from, std::optional<std::string> to) const {
         if (from.has_value() && to.has_value()) {
             auto find_stp_from = db_.FindStop(from.value());
             auto find_stp_to = db_.FindStop(to.value());
@@ -132,7 +133,7 @@ namespace transport_router {
         return {};
     }
 
-    const graph::DirectedWeightedGraph<double> &TransportRouter::GetGraph() const{
+    const graph::DirectedWeightedGraph<double> &TransportRouter::GetGraph() const {
         return graph_;
     }
 
@@ -145,7 +146,7 @@ namespace transport_router {
         return {graph_.GetEdge(edge_id), edge_to_info_.at(edge_id)};
     }
 
-    const std::map<graph::EdgeId, domain::ResponsRoute>& TransportRouter::GetEdgeToInfo() const{
+    const std::map<graph::EdgeId, domain::ResponsRoute> &TransportRouter::GetEdgeToInfo() const {
         return edge_to_info_;
     }
 

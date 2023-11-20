@@ -21,51 +21,6 @@ namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
 namespace map_render_serialize {
-PROTOBUF_CONSTEXPR Rgb::Rgb(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.red_)*/0u
-  , /*decltype(_impl_.green_)*/0u
-  , /*decltype(_impl_.blue_)*/0u
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct RgbDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RgbDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RgbDefaultTypeInternal() {}
-  union {
-    Rgb _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RgbDefaultTypeInternal _Rgb_default_instance_;
-PROTOBUF_CONSTEXPR Rgba::Rgba(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.red_)*/0u
-  , /*decltype(_impl_.green_)*/0u
-  , /*decltype(_impl_.opacity_)*/0
-  , /*decltype(_impl_.blue_)*/0u
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct RgbaDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RgbaDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RgbaDefaultTypeInternal() {}
-  union {
-    Rgba _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RgbaDefaultTypeInternal _Rgba_default_instance_;
-PROTOBUF_CONSTEXPR Color::Color(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.color_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_._oneof_case_)*/{}} {}
-struct ColorDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ColorDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ColorDefaultTypeInternal() {}
-  union {
-    Color _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ColorDefaultTypeInternal _Color_default_instance_;
 PROTOBUF_CONSTEXPR Pair::Pair(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.first_)*/0
@@ -105,40 +60,11 @@ struct MapSettingsDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MapSettingsDefaultTypeInternal _MapSettings_default_instance_;
 }  // namespace map_render_serialize
-static ::_pb::Metadata file_level_metadata_map_5frenderer_2eproto[5];
+static ::_pb::Metadata file_level_metadata_map_5frenderer_2eproto[2];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_map_5frenderer_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_map_5frenderer_2eproto = nullptr;
 
 const uint32_t TableStruct_map_5frenderer_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgb, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgb, _impl_.red_),
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgb, _impl_.green_),
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgb, _impl_.blue_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgba, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgba, _impl_.red_),
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgba, _impl_.green_),
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgba, _impl_.blue_),
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Rgba, _impl_.opacity_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Color, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Color, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::map_render_serialize::Color, _impl_.color_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::map_render_serialize::Pair, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -167,47 +93,38 @@ const uint32_t TableStruct_map_5frenderer_2eproto::offsets[] PROTOBUF_SECTION_VA
   PROTOBUF_FIELD_OFFSET(::map_render_serialize::MapSettings, _impl_.color_palette_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::map_render_serialize::Rgb)},
-  { 9, -1, -1, sizeof(::map_render_serialize::Rgba)},
-  { 19, -1, -1, sizeof(::map_render_serialize::Color)},
-  { 29, -1, -1, sizeof(::map_render_serialize::Pair)},
-  { 37, -1, -1, sizeof(::map_render_serialize::MapSettings)},
+  { 0, -1, -1, sizeof(::map_render_serialize::Pair)},
+  { 8, -1, -1, sizeof(::map_render_serialize::MapSettings)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::map_render_serialize::_Rgb_default_instance_._instance,
-  &::map_render_serialize::_Rgba_default_instance_._instance,
-  &::map_render_serialize::_Color_default_instance_._instance,
   &::map_render_serialize::_Pair_default_instance_._instance,
   &::map_render_serialize::_MapSettings_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_map_5frenderer_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022map_renderer.proto\022\024map_render_seriali"
-  "ze\"/\n\003Rgb\022\013\n\003red\030\001 \001(\r\022\r\n\005green\030\002 \001(\r\022\014\n"
-  "\004blue\030\003 \001(\r\"A\n\004Rgba\022\013\n\003red\030\001 \001(\r\022\r\n\005gree"
-  "n\030\002 \001(\r\022\014\n\004blue\030\003 \001(\r\022\017\n\007opacity\030\004 \001(\001\"w"
-  "\n\005Color\022\017\n\005empty\030\001 \001(\tH\000\022(\n\003rgb\030\002 \001(\0132\031."
-  "map_render_serialize.RgbH\000\022*\n\004rgba\030\003 \001(\013"
-  "2\032.map_render_serialize.RgbaH\000B\007\n\005color\""
-  "%\n\004Pair\022\r\n\005first\030\001 \001(\001\022\016\n\006second\030\002 \001(\001\"\223"
-  "\003\n\013MapSettings\022\r\n\005width\030\001 \001(\001\022\016\n\006height\030"
-  "\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\023\n\013stop_radius\030\004 "
-  "\001(\001\022\022\n\nline_width\030\005 \001(\001\022\033\n\023bus_label_fon"
-  "t_size\030\006 \001(\005\0224\n\020bus_label_offset\030\007 \001(\0132\032"
-  ".map_render_serialize.Pair\022\034\n\024stop_label"
-  "_font_size\030\010 \001(\005\0225\n\021stop_label_offset\030\t "
-  "\001(\0132\032.map_render_serialize.Pair\0225\n\020under"
-  "layer_color\030\n \001(\0132\033.map_render_serialize"
-  ".Color\022\030\n\020underlayer_width\030\013 \001(\001\0222\n\rcolo"
-  "r_palette\030\014 \003(\0132\033.map_render_serialize.C"
-  "olorb\006proto3"
+  "ze\032\tsvg.proto\"%\n\004Pair\022\r\n\005first\030\001 \001(\001\022\016\n\006"
+  "second\030\002 \001(\001\"\375\002\n\013MapSettings\022\r\n\005width\030\001 "
+  "\001(\001\022\016\n\006height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\023\n\013"
+  "stop_radius\030\004 \001(\001\022\022\n\nline_width\030\005 \001(\001\022\033\n"
+  "\023bus_label_font_size\030\006 \001(\005\0224\n\020bus_label_"
+  "offset\030\007 \001(\0132\032.map_render_serialize.Pair"
+  "\022\034\n\024stop_label_font_size\030\010 \001(\005\0225\n\021stop_l"
+  "abel_offset\030\t \001(\0132\032.map_render_serialize"
+  ".Pair\022*\n\020underlayer_color\030\n \001(\0132\020.proto_"
+  "svg.Color\022\030\n\020underlayer_width\030\013 \001(\001\022\'\n\rc"
+  "olor_palette\030\014 \003(\0132\020.proto_svg.Colorb\006pr"
+  "oto3"
   ;
+static const ::_pbi::DescriptorTable* const descriptor_table_map_5frenderer_2eproto_deps[1] = {
+  &::descriptor_table_svg_2eproto,
+};
 static ::_pbi::once_flag descriptor_table_map_5frenderer_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_map_5frenderer_2eproto = {
-    false, false, 732, descriptor_table_protodef_map_5frenderer_2eproto,
+    false, false, 484, descriptor_table_protodef_map_5frenderer_2eproto,
     "map_renderer.proto",
-    &descriptor_table_map_5frenderer_2eproto_once, nullptr, 0, 5,
+    &descriptor_table_map_5frenderer_2eproto_once, descriptor_table_map_5frenderer_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_map_5frenderer_2eproto::offsets,
     file_level_metadata_map_5frenderer_2eproto, file_level_enum_descriptors_map_5frenderer_2eproto,
     file_level_service_descriptors_map_5frenderer_2eproto,
@@ -219,856 +136,6 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_map_5fre
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_map_5frenderer_2eproto(&descriptor_table_map_5frenderer_2eproto);
 namespace map_render_serialize {
-
-// ===================================================================
-
-class Rgb::_Internal {
- public:
-};
-
-Rgb::Rgb(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:map_render_serialize.Rgb)
-}
-Rgb::Rgb(const Rgb& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Rgb* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.red_){}
-    , decltype(_impl_.green_){}
-    , decltype(_impl_.blue_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.red_, &from._impl_.red_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.blue_) -
-    reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
-  // @@protoc_insertion_point(copy_constructor:map_render_serialize.Rgb)
-}
-
-inline void Rgb::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.red_){0u}
-    , decltype(_impl_.green_){0u}
-    , decltype(_impl_.blue_){0u}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-Rgb::~Rgb() {
-  // @@protoc_insertion_point(destructor:map_render_serialize.Rgb)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Rgb::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void Rgb::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Rgb::Clear() {
-// @@protoc_insertion_point(message_clear_start:map_render_serialize.Rgb)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.red_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.blue_) -
-      reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Rgb::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // uint32 red = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.red_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 green = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.green_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 blue = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.blue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Rgb::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:map_render_serialize.Rgb)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 red = 1;
-  if (this->_internal_red() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_red(), target);
-  }
-
-  // uint32 green = 2;
-  if (this->_internal_green() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_green(), target);
-  }
-
-  // uint32 blue = 3;
-  if (this->_internal_blue() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_blue(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:map_render_serialize.Rgb)
-  return target;
-}
-
-size_t Rgb::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:map_render_serialize.Rgb)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // uint32 red = 1;
-  if (this->_internal_red() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_red());
-  }
-
-  // uint32 green = 2;
-  if (this->_internal_green() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_green());
-  }
-
-  // uint32 blue = 3;
-  if (this->_internal_blue() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_blue());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Rgb::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Rgb::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Rgb::GetClassData() const { return &_class_data_; }
-
-
-void Rgb::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Rgb*>(&to_msg);
-  auto& from = static_cast<const Rgb&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:map_render_serialize.Rgb)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_red() != 0) {
-    _this->_internal_set_red(from._internal_red());
-  }
-  if (from._internal_green() != 0) {
-    _this->_internal_set_green(from._internal_green());
-  }
-  if (from._internal_blue() != 0) {
-    _this->_internal_set_blue(from._internal_blue());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Rgb::CopyFrom(const Rgb& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:map_render_serialize.Rgb)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Rgb::IsInitialized() const {
-  return true;
-}
-
-void Rgb::InternalSwap(Rgb* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Rgb, _impl_.blue_)
-      + sizeof(Rgb::_impl_.blue_)
-      - PROTOBUF_FIELD_OFFSET(Rgb, _impl_.red_)>(
-          reinterpret_cast<char*>(&_impl_.red_),
-          reinterpret_cast<char*>(&other->_impl_.red_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Rgb::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_map_5frenderer_2eproto_getter, &descriptor_table_map_5frenderer_2eproto_once,
-      file_level_metadata_map_5frenderer_2eproto[0]);
-}
-
-// ===================================================================
-
-class Rgba::_Internal {
- public:
-};
-
-Rgba::Rgba(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:map_render_serialize.Rgba)
-}
-Rgba::Rgba(const Rgba& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Rgba* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.red_){}
-    , decltype(_impl_.green_){}
-    , decltype(_impl_.opacity_){}
-    , decltype(_impl_.blue_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.red_, &from._impl_.red_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.blue_) -
-    reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
-  // @@protoc_insertion_point(copy_constructor:map_render_serialize.Rgba)
-}
-
-inline void Rgba::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.red_){0u}
-    , decltype(_impl_.green_){0u}
-    , decltype(_impl_.opacity_){0}
-    , decltype(_impl_.blue_){0u}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-Rgba::~Rgba() {
-  // @@protoc_insertion_point(destructor:map_render_serialize.Rgba)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Rgba::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void Rgba::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Rgba::Clear() {
-// @@protoc_insertion_point(message_clear_start:map_render_serialize.Rgba)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.red_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.blue_) -
-      reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Rgba::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // uint32 red = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.red_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 green = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.green_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 blue = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.blue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // double opacity = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
-          _impl_.opacity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Rgba::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:map_render_serialize.Rgba)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 red = 1;
-  if (this->_internal_red() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_red(), target);
-  }
-
-  // uint32 green = 2;
-  if (this->_internal_green() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_green(), target);
-  }
-
-  // uint32 blue = 3;
-  if (this->_internal_blue() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_blue(), target);
-  }
-
-  // double opacity = 4;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_opacity = this->_internal_opacity();
-  uint64_t raw_opacity;
-  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
-  if (raw_opacity != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_opacity(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:map_render_serialize.Rgba)
-  return target;
-}
-
-size_t Rgba::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:map_render_serialize.Rgba)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // uint32 red = 1;
-  if (this->_internal_red() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_red());
-  }
-
-  // uint32 green = 2;
-  if (this->_internal_green() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_green());
-  }
-
-  // double opacity = 4;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_opacity = this->_internal_opacity();
-  uint64_t raw_opacity;
-  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
-  if (raw_opacity != 0) {
-    total_size += 1 + 8;
-  }
-
-  // uint32 blue = 3;
-  if (this->_internal_blue() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_blue());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Rgba::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Rgba::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Rgba::GetClassData() const { return &_class_data_; }
-
-
-void Rgba::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Rgba*>(&to_msg);
-  auto& from = static_cast<const Rgba&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:map_render_serialize.Rgba)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_red() != 0) {
-    _this->_internal_set_red(from._internal_red());
-  }
-  if (from._internal_green() != 0) {
-    _this->_internal_set_green(from._internal_green());
-  }
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_opacity = from._internal_opacity();
-  uint64_t raw_opacity;
-  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
-  if (raw_opacity != 0) {
-    _this->_internal_set_opacity(from._internal_opacity());
-  }
-  if (from._internal_blue() != 0) {
-    _this->_internal_set_blue(from._internal_blue());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Rgba::CopyFrom(const Rgba& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:map_render_serialize.Rgba)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Rgba::IsInitialized() const {
-  return true;
-}
-
-void Rgba::InternalSwap(Rgba* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Rgba, _impl_.blue_)
-      + sizeof(Rgba::_impl_.blue_)
-      - PROTOBUF_FIELD_OFFSET(Rgba, _impl_.red_)>(
-          reinterpret_cast<char*>(&_impl_.red_),
-          reinterpret_cast<char*>(&other->_impl_.red_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Rgba::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_map_5frenderer_2eproto_getter, &descriptor_table_map_5frenderer_2eproto_once,
-      file_level_metadata_map_5frenderer_2eproto[1]);
-}
-
-// ===================================================================
-
-class Color::_Internal {
- public:
-  static const ::map_render_serialize::Rgb& rgb(const Color* msg);
-  static const ::map_render_serialize::Rgba& rgba(const Color* msg);
-};
-
-const ::map_render_serialize::Rgb&
-Color::_Internal::rgb(const Color* msg) {
-  return *msg->_impl_.color_.rgb_;
-}
-const ::map_render_serialize::Rgba&
-Color::_Internal::rgba(const Color* msg) {
-  return *msg->_impl_.color_.rgba_;
-}
-void Color::set_allocated_rgb(::map_render_serialize::Rgb* rgb) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_color();
-  if (rgb) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(rgb);
-    if (message_arena != submessage_arena) {
-      rgb = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, rgb, submessage_arena);
-    }
-    set_has_rgb();
-    _impl_.color_.rgb_ = rgb;
-  }
-  // @@protoc_insertion_point(field_set_allocated:map_render_serialize.Color.rgb)
-}
-void Color::set_allocated_rgba(::map_render_serialize::Rgba* rgba) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_color();
-  if (rgba) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(rgba);
-    if (message_arena != submessage_arena) {
-      rgba = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, rgba, submessage_arena);
-    }
-    set_has_rgba();
-    _impl_.color_.rgba_ = rgba;
-  }
-  // @@protoc_insertion_point(field_set_allocated:map_render_serialize.Color.rgba)
-}
-Color::Color(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:map_render_serialize.Color)
-}
-Color::Color(const Color& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Color* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.color_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_color();
-  switch (from.color_case()) {
-    case kEmpty: {
-      _this->_internal_set_empty(from._internal_empty());
-      break;
-    }
-    case kRgb: {
-      _this->_internal_mutable_rgb()->::map_render_serialize::Rgb::MergeFrom(
-          from._internal_rgb());
-      break;
-    }
-    case kRgba: {
-      _this->_internal_mutable_rgba()->::map_render_serialize::Rgba::MergeFrom(
-          from._internal_rgba());
-      break;
-    }
-    case COLOR_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:map_render_serialize.Color)
-}
-
-inline void Color::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.color_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}
-  };
-  clear_has_color();
-}
-
-Color::~Color() {
-  // @@protoc_insertion_point(destructor:map_render_serialize.Color)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Color::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (has_color()) {
-    clear_color();
-  }
-}
-
-void Color::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Color::clear_color() {
-// @@protoc_insertion_point(one_of_clear_start:map_render_serialize.Color)
-  switch (color_case()) {
-    case kEmpty: {
-      _impl_.color_.empty_.Destroy();
-      break;
-    }
-    case kRgb: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.color_.rgb_;
-      }
-      break;
-    }
-    case kRgba: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.color_.rgba_;
-      }
-      break;
-    }
-    case COLOR_NOT_SET: {
-      break;
-    }
-  }
-  _impl_._oneof_case_[0] = COLOR_NOT_SET;
-}
-
-
-void Color::Clear() {
-// @@protoc_insertion_point(message_clear_start:map_render_serialize.Color)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_color();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Color::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // string empty = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_empty();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "map_render_serialize.Color.empty"));
-        } else
-          goto handle_unusual;
-        continue;
-      // .map_render_serialize.Rgb rgb = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_rgb(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .map_render_serialize.Rgba rgba = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_rgba(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Color::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:map_render_serialize.Color)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string empty = 1;
-  if (_internal_has_empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_empty().data(), static_cast<int>(this->_internal_empty().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "map_render_serialize.Color.empty");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_empty(), target);
-  }
-
-  // .map_render_serialize.Rgb rgb = 2;
-  if (_internal_has_rgb()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::rgb(this),
-        _Internal::rgb(this).GetCachedSize(), target, stream);
-  }
-
-  // .map_render_serialize.Rgba rgba = 3;
-  if (_internal_has_rgba()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::rgba(this),
-        _Internal::rgba(this).GetCachedSize(), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:map_render_serialize.Color)
-  return target;
-}
-
-size_t Color::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:map_render_serialize.Color)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (color_case()) {
-    // string empty = 1;
-    case kEmpty: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_empty());
-      break;
-    }
-    // .map_render_serialize.Rgb rgb = 2;
-    case kRgb: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.color_.rgb_);
-      break;
-    }
-    // .map_render_serialize.Rgba rgba = 3;
-    case kRgba: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.color_.rgba_);
-      break;
-    }
-    case COLOR_NOT_SET: {
-      break;
-    }
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Color::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Color::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Color::GetClassData() const { return &_class_data_; }
-
-
-void Color::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Color*>(&to_msg);
-  auto& from = static_cast<const Color&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:map_render_serialize.Color)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.color_case()) {
-    case kEmpty: {
-      _this->_internal_set_empty(from._internal_empty());
-      break;
-    }
-    case kRgb: {
-      _this->_internal_mutable_rgb()->::map_render_serialize::Rgb::MergeFrom(
-          from._internal_rgb());
-      break;
-    }
-    case kRgba: {
-      _this->_internal_mutable_rgba()->::map_render_serialize::Rgba::MergeFrom(
-          from._internal_rgba());
-      break;
-    }
-    case COLOR_NOT_SET: {
-      break;
-    }
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Color::CopyFrom(const Color& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:map_render_serialize.Color)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Color::IsInitialized() const {
-  return true;
-}
-
-void Color::InternalSwap(Color* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.color_, other->_impl_.color_);
-  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Color::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_map_5frenderer_2eproto_getter, &descriptor_table_map_5frenderer_2eproto_once,
-      file_level_metadata_map_5frenderer_2eproto[2]);
-}
 
 // ===================================================================
 
@@ -1302,7 +369,7 @@ void Pair::InternalSwap(Pair* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Pair::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_map_5frenderer_2eproto_getter, &descriptor_table_map_5frenderer_2eproto_once,
-      file_level_metadata_map_5frenderer_2eproto[3]);
+      file_level_metadata_map_5frenderer_2eproto[0]);
 }
 
 // ===================================================================
@@ -1311,7 +378,7 @@ class MapSettings::_Internal {
  public:
   static const ::map_render_serialize::Pair& bus_label_offset(const MapSettings* msg);
   static const ::map_render_serialize::Pair& stop_label_offset(const MapSettings* msg);
-  static const ::map_render_serialize::Color& underlayer_color(const MapSettings* msg);
+  static const ::proto_svg::Color& underlayer_color(const MapSettings* msg);
 };
 
 const ::map_render_serialize::Pair&
@@ -1322,9 +389,18 @@ const ::map_render_serialize::Pair&
 MapSettings::_Internal::stop_label_offset(const MapSettings* msg) {
   return *msg->_impl_.stop_label_offset_;
 }
-const ::map_render_serialize::Color&
+const ::proto_svg::Color&
 MapSettings::_Internal::underlayer_color(const MapSettings* msg) {
   return *msg->_impl_.underlayer_color_;
+}
+void MapSettings::clear_underlayer_color() {
+  if (GetArenaForAllocation() == nullptr && _impl_.underlayer_color_ != nullptr) {
+    delete _impl_.underlayer_color_;
+  }
+  _impl_.underlayer_color_ = nullptr;
+}
+void MapSettings::clear_color_palette() {
+  _impl_.color_palette_.Clear();
 }
 MapSettings::MapSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1358,7 +434,7 @@ MapSettings::MapSettings(const MapSettings& from)
     _this->_impl_.stop_label_offset_ = new ::map_render_serialize::Pair(*from._impl_.stop_label_offset_);
   }
   if (from._internal_has_underlayer_color()) {
-    _this->_impl_.underlayer_color_ = new ::map_render_serialize::Color(*from._impl_.underlayer_color_);
+    _this->_impl_.underlayer_color_ = new ::proto_svg::Color(*from._impl_.underlayer_color_);
   }
   ::memcpy(&_impl_.width_, &from._impl_.width_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.underlayer_width_) -
@@ -1511,7 +587,7 @@ const char* MapSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         } else
           goto handle_unusual;
         continue;
-      // .map_render_serialize.Color underlayer_color = 10;
+      // .proto_svg.Color underlayer_color = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_underlayer_color(), ptr);
@@ -1527,7 +603,7 @@ const char* MapSettings::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         } else
           goto handle_unusual;
         continue;
-      // repeated .map_render_serialize.Color color_palette = 12;
+      // repeated .proto_svg.Color color_palette = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
           ptr -= 1;
@@ -1645,7 +721,7 @@ uint8_t* MapSettings::_InternalSerialize(
         _Internal::stop_label_offset(this).GetCachedSize(), target, stream);
   }
 
-  // .map_render_serialize.Color underlayer_color = 10;
+  // .proto_svg.Color underlayer_color = 10;
   if (this->_internal_has_underlayer_color()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(10, _Internal::underlayer_color(this),
@@ -1662,7 +738,7 @@ uint8_t* MapSettings::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteDoubleToArray(11, this->_internal_underlayer_width(), target);
   }
 
-  // repeated .map_render_serialize.Color color_palette = 12;
+  // repeated .proto_svg.Color color_palette = 12;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_color_palette_size()); i < n; i++) {
     const auto& repfield = this->_internal_color_palette(i);
@@ -1686,7 +762,7 @@ size_t MapSettings::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .map_render_serialize.Color color_palette = 12;
+  // repeated .proto_svg.Color color_palette = 12;
   total_size += 1UL * this->_internal_color_palette_size();
   for (const auto& msg : this->_impl_.color_palette_) {
     total_size +=
@@ -1707,7 +783,7 @@ size_t MapSettings::ByteSizeLong() const {
         *_impl_.stop_label_offset_);
   }
 
-  // .map_render_serialize.Color underlayer_color = 10;
+  // .proto_svg.Color underlayer_color = 10;
   if (this->_internal_has_underlayer_color()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1806,7 +882,7 @@ void MapSettings::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
         from._internal_stop_label_offset());
   }
   if (from._internal_has_underlayer_color()) {
-    _this->_internal_mutable_underlayer_color()->::map_render_serialize::Color::MergeFrom(
+    _this->_internal_mutable_underlayer_color()->::proto_svg::Color::MergeFrom(
         from._internal_underlayer_color());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
@@ -1886,24 +962,12 @@ void MapSettings::InternalSwap(MapSettings* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MapSettings::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_map_5frenderer_2eproto_getter, &descriptor_table_map_5frenderer_2eproto_once,
-      file_level_metadata_map_5frenderer_2eproto[4]);
+      file_level_metadata_map_5frenderer_2eproto[1]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace map_render_serialize
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::map_render_serialize::Rgb*
-Arena::CreateMaybeMessage< ::map_render_serialize::Rgb >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::map_render_serialize::Rgb >(arena);
-}
-template<> PROTOBUF_NOINLINE ::map_render_serialize::Rgba*
-Arena::CreateMaybeMessage< ::map_render_serialize::Rgba >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::map_render_serialize::Rgba >(arena);
-}
-template<> PROTOBUF_NOINLINE ::map_render_serialize::Color*
-Arena::CreateMaybeMessage< ::map_render_serialize::Color >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::map_render_serialize::Color >(arena);
-}
 template<> PROTOBUF_NOINLINE ::map_render_serialize::Pair*
 Arena::CreateMaybeMessage< ::map_render_serialize::Pair >(Arena* arena) {
   return Arena::CreateMessageInternal< ::map_render_serialize::Pair >(arena);

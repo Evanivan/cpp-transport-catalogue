@@ -2829,11 +2829,6 @@ CMakeFiles/transport_catalogue.dir/main.cpp.o: /Users/jgloria/CLionProjects/Prak
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h \
@@ -2842,7 +2837,6 @@ CMakeFiles/transport_catalogue.dir/main.cpp.o: /Users/jgloria/CLionProjects/Prak
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_def.inc \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_undef.inc \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/reflection_ops.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_field.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_ptr_field.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/stubs/callback.h \
@@ -3787,6 +3781,7 @@ CMakeFiles/transport_catalogue.dir/map_renderer.pb.cc.o: map_renderer.pb.cc \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h \
   map_renderer.pb.h \
+  svg.pb.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/any.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena_impl.h \
@@ -4813,11 +4808,6 @@ CMakeFiles/transport_catalogue.dir/serialization.cpp.o: /Users/jgloria/CLionProj
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h \
@@ -4826,7 +4816,6 @@ CMakeFiles/transport_catalogue.dir/serialization.cpp.o: /Users/jgloria/CLionProj
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_def.inc \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_undef.inc \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/reflection_ops.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_field.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_ptr_field.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/stubs/callback.h \
@@ -5778,11 +5767,6 @@ CMakeFiles/transport_catalogue.dir/svg.pb.cc.o: svg.pb.cc \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h \
@@ -6760,11 +6744,6 @@ CMakeFiles/transport_catalogue.dir/transport_catalogue.pb.cc.o: transport_catalo
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h \
@@ -7722,7 +7701,6 @@ CMakeFiles/transport_catalogue.dir/transport_router.pb.cc.o: transport_router.pb
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h \
   graph.pb.h \
-  svg.pb.h \
   transport_router.pb.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/any.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena.h \
@@ -7744,11 +7722,6 @@ CMakeFiles/transport_catalogue.dir/transport_router.pb.cc.o: transport_router.pb
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h \
-  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h \
   /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h \
@@ -7782,10 +7755,6 @@ CMakeFiles/transport_catalogue.dir/transport_router.pb.cc.o: transport_router.pb
 /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint\ 15/final_15/transport_router.cpp:
 
 /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint\ 15/final_15/request_handler.cpp:
-
-/Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h:
-
-/Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h:
 
 transport_router.pb.h:
 
@@ -8085,8 +8054,6 @@ graph.pb.cc:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/wait.h:
 
-/Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h:
-
 /Users/jgloria/Desktop/Protobuf/include/google/protobuf/extension_set.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/syslimits.h:
@@ -8340,8 +8307,6 @@ svg.pb.h:
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/__algorithm/rotate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/cctype:
-
-/Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/__algorithm/clamp.h:
 
@@ -8722,8 +8687,6 @@ transport_router.pb.cc:
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/__utility/piecewise_construct.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/__functional/ranges_operations.h:
-
-/Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/__algorithm/is_sorted_until.h:
 

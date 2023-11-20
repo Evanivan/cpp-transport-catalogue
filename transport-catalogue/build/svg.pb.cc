@@ -21,108 +21,111 @@ namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
 namespace proto_svg {
-PROTOBUF_CONSTEXPR Stop_DistanceEntry_DoNotUse::Stop_DistanceEntry_DoNotUse(
-    ::_pbi::ConstantInitialized) {}
-struct Stop_DistanceEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Stop_DistanceEntry_DoNotUseDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~Stop_DistanceEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    Stop_DistanceEntry_DoNotUse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Stop_DistanceEntry_DoNotUseDefaultTypeInternal _Stop_DistanceEntry_DoNotUse_default_instance_;
-PROTOBUF_CONSTEXPR Stop::Stop(
+PROTOBUF_CONSTEXPR Rgb::Rgb(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.distance_)*/{::_pbi::ConstantInitialized()}
-  , /*decltype(_impl_.stop_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.latitude_)*/0
-  , /*decltype(_impl_.longitude_)*/0
+    /*decltype(_impl_.red_)*/0u
+  , /*decltype(_impl_.green_)*/0u
+  , /*decltype(_impl_.blue_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct StopDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR StopDefaultTypeInternal()
+struct RgbDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RgbDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~StopDefaultTypeInternal() {}
+  ~RgbDefaultTypeInternal() {}
   union {
-    Stop _instance;
+    Rgb _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StopDefaultTypeInternal _Stop_default_instance_;
-PROTOBUF_CONSTEXPR Bus::Bus(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RgbDefaultTypeInternal _Rgb_default_instance_;
+PROTOBUF_CONSTEXPR Rgba::Rgba(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.route_)*/{}
-  , /*decltype(_impl_.bus_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.is_route_round_)*/false
+    /*decltype(_impl_.red_)*/0u
+  , /*decltype(_impl_.green_)*/0u
+  , /*decltype(_impl_.opacity_)*/0
+  , /*decltype(_impl_.blue_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct BusDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR BusDefaultTypeInternal()
+struct RgbaDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RgbaDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~BusDefaultTypeInternal() {}
+  ~RgbaDefaultTypeInternal() {}
   union {
-    Bus _instance;
+    Rgba _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BusDefaultTypeInternal _Bus_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RgbaDefaultTypeInternal _Rgba_default_instance_;
+PROTOBUF_CONSTEXPR Color::Color(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.color_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct ColorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ColorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ColorDefaultTypeInternal() {}
+  union {
+    Color _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ColorDefaultTypeInternal _Color_default_instance_;
 }  // namespace proto_svg
 static ::_pb::Metadata file_level_metadata_svg_2eproto[3];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_svg_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_svg_2eproto = nullptr;
 
 const uint32_t TableStruct_svg_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop_DistanceEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop_DistanceEntry_DoNotUse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop_DistanceEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop_DistanceEntry_DoNotUse, value_),
-  0,
-  1,
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgb, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop, _impl_.stop_name_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop, _impl_.latitude_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop, _impl_.longitude_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Stop, _impl_.distance_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgb, _impl_.red_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgb, _impl_.green_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgb, _impl_.blue_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Bus, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgba, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Bus, _impl_.bus_name_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Bus, _impl_.route_),
-  PROTOBUF_FIELD_OFFSET(::proto_svg::Bus, _impl_.is_route_round_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgba, _impl_.red_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgba, _impl_.green_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgba, _impl_.blue_),
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Rgba, _impl_.opacity_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Color, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Color, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::proto_svg::Color, _impl_.color_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 8, -1, sizeof(::proto_svg::Stop_DistanceEntry_DoNotUse)},
-  { 10, -1, -1, sizeof(::proto_svg::Stop)},
-  { 20, -1, -1, sizeof(::proto_svg::Bus)},
+  { 0, -1, -1, sizeof(::proto_svg::Rgb)},
+  { 9, -1, -1, sizeof(::proto_svg::Rgba)},
+  { 19, -1, -1, sizeof(::proto_svg::Color)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::proto_svg::_Stop_DistanceEntry_DoNotUse_default_instance_._instance,
-  &::proto_svg::_Stop_default_instance_._instance,
-  &::proto_svg::_Bus_default_instance_._instance,
+  &::proto_svg::_Rgb_default_instance_._instance,
+  &::proto_svg::_Rgba_default_instance_._instance,
+  &::proto_svg::_Color_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_svg_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\tsvg.proto\022\tproto_svg\"\240\001\n\004Stop\022\021\n\tstop_"
-  "name\030\001 \001(\t\022\020\n\010latitude\030\002 \001(\001\022\021\n\tlongitud"
-  "e\030\003 \001(\001\022/\n\010distance\030\004 \003(\0132\035.proto_svg.St"
-  "op.DistanceEntry\032/\n\rDistanceEntry\022\013\n\003key"
-  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\">\n\003Bus\022\020\n\010bus_"
-  "name\030\001 \001(\t\022\r\n\005route\030\002 \003(\t\022\026\n\016is_route_ro"
-  "und\030\003 \001(\010b\006proto3"
+  "\n\tsvg.proto\022\tproto_svg\"/\n\003Rgb\022\013\n\003red\030\001 \001"
+  "(\r\022\r\n\005green\030\002 \001(\r\022\014\n\004blue\030\003 \001(\r\"A\n\004Rgba\022"
+  "\013\n\003red\030\001 \001(\r\022\r\n\005green\030\002 \001(\r\022\014\n\004blue\030\003 \001("
+  "\r\022\017\n\007opacity\030\004 \001(\001\"a\n\005Color\022\017\n\005empty\030\001 \001"
+  "(\tH\000\022\035\n\003rgb\030\002 \001(\0132\016.proto_svg.RgbH\000\022\037\n\004r"
+  "gba\030\003 \001(\0132\017.proto_svg.RgbaH\000B\007\n\005colorb\006p"
+  "roto3"
   ;
 static ::_pbi::once_flag descriptor_table_svg_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_svg_2eproto = {
-    false, false, 257, descriptor_table_protodef_svg_2eproto,
+    false, false, 245, descriptor_table_protodef_svg_2eproto,
     "svg.proto",
     &descriptor_table_svg_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_svg_2eproto::offsets,
@@ -139,13 +142,234 @@ namespace proto_svg {
 
 // ===================================================================
 
-Stop_DistanceEntry_DoNotUse::Stop_DistanceEntry_DoNotUse() {}
-Stop_DistanceEntry_DoNotUse::Stop_DistanceEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-    : SuperType(arena) {}
-void Stop_DistanceEntry_DoNotUse::MergeFrom(const Stop_DistanceEntry_DoNotUse& other) {
-  MergeFromInternal(other);
+class Rgb::_Internal {
+ public:
+};
+
+Rgb::Rgb(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:proto_svg.Rgb)
 }
-::PROTOBUF_NAMESPACE_ID::Metadata Stop_DistanceEntry_DoNotUse::GetMetadata() const {
+Rgb::Rgb(const Rgb& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Rgb* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.red_){}
+    , decltype(_impl_.green_){}
+    , decltype(_impl_.blue_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.red_, &from._impl_.red_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.blue_) -
+    reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
+  // @@protoc_insertion_point(copy_constructor:proto_svg.Rgb)
+}
+
+inline void Rgb::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.red_){0u}
+    , decltype(_impl_.green_){0u}
+    , decltype(_impl_.blue_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Rgb::~Rgb() {
+  // @@protoc_insertion_point(destructor:proto_svg.Rgb)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Rgb::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void Rgb::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Rgb::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto_svg.Rgb)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.red_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.blue_) -
+      reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Rgb::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 red = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.red_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 green = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.green_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 blue = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.blue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Rgb::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:proto_svg.Rgb)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 red = 1;
+  if (this->_internal_red() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_red(), target);
+  }
+
+  // uint32 green = 2;
+  if (this->_internal_green() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_green(), target);
+  }
+
+  // uint32 blue = 3;
+  if (this->_internal_blue() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_blue(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto_svg.Rgb)
+  return target;
+}
+
+size_t Rgb::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:proto_svg.Rgb)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 red = 1;
+  if (this->_internal_red() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_red());
+  }
+
+  // uint32 green = 2;
+  if (this->_internal_green() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_green());
+  }
+
+  // uint32 blue = 3;
+  if (this->_internal_blue() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_blue());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Rgb::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Rgb::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Rgb::GetClassData() const { return &_class_data_; }
+
+
+void Rgb::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Rgb*>(&to_msg);
+  auto& from = static_cast<const Rgb&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto_svg.Rgb)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_red() != 0) {
+    _this->_internal_set_red(from._internal_red());
+  }
+  if (from._internal_green() != 0) {
+    _this->_internal_set_green(from._internal_green());
+  }
+  if (from._internal_blue() != 0) {
+    _this->_internal_set_blue(from._internal_blue());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Rgb::CopyFrom(const Rgb& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:proto_svg.Rgb)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Rgb::IsInitialized() const {
+  return true;
+}
+
+void Rgb::InternalSwap(Rgb* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Rgb, _impl_.blue_)
+      + sizeof(Rgb::_impl_.blue_)
+      - PROTOBUF_FIELD_OFFSET(Rgb, _impl_.red_)>(
+          reinterpret_cast<char*>(&_impl_.red_),
+          reinterpret_cast<char*>(&other->_impl_.red_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Rgb::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_svg_2eproto_getter, &descriptor_table_svg_2eproto_once,
       file_level_metadata_svg_2eproto[0]);
@@ -153,143 +377,110 @@ void Stop_DistanceEntry_DoNotUse::MergeFrom(const Stop_DistanceEntry_DoNotUse& o
 
 // ===================================================================
 
-class Stop::_Internal {
+class Rgba::_Internal {
  public:
 };
 
-Stop::Stop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+Rgba::Rgba(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  if (arena != nullptr && !is_message_owned) {
-    arena->OwnCustomDestructor(this, &Stop::ArenaDtor);
-  }
-  // @@protoc_insertion_point(arena_constructor:proto_svg.Stop)
+  // @@protoc_insertion_point(arena_constructor:proto_svg.Rgba)
 }
-Stop::Stop(const Stop& from)
+Rgba::Rgba(const Rgba& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Stop* const _this = this; (void)_this;
+  Rgba* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.distance_)*/{}
-    , decltype(_impl_.stop_name_){}
-    , decltype(_impl_.latitude_){}
-    , decltype(_impl_.longitude_){}
+      decltype(_impl_.red_){}
+    , decltype(_impl_.green_){}
+    , decltype(_impl_.opacity_){}
+    , decltype(_impl_.blue_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.distance_.MergeFrom(from._impl_.distance_);
-  _impl_.stop_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.stop_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_stop_name().empty()) {
-    _this->_impl_.stop_name_.Set(from._internal_stop_name(), 
-      _this->GetArenaForAllocation());
-  }
-  ::memcpy(&_impl_.latitude_, &from._impl_.latitude_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.longitude_) -
-    reinterpret_cast<char*>(&_impl_.latitude_)) + sizeof(_impl_.longitude_));
-  // @@protoc_insertion_point(copy_constructor:proto_svg.Stop)
+  ::memcpy(&_impl_.red_, &from._impl_.red_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.blue_) -
+    reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
+  // @@protoc_insertion_point(copy_constructor:proto_svg.Rgba)
 }
 
-inline void Stop::SharedCtor(
+inline void Rgba::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      /*decltype(_impl_.distance_)*/{::_pbi::ArenaInitialized(), arena}
-    , decltype(_impl_.stop_name_){}
-    , decltype(_impl_.latitude_){0}
-    , decltype(_impl_.longitude_){0}
+      decltype(_impl_.red_){0u}
+    , decltype(_impl_.green_){0u}
+    , decltype(_impl_.opacity_){0}
+    , decltype(_impl_.blue_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.stop_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.stop_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-Stop::~Stop() {
-  // @@protoc_insertion_point(destructor:proto_svg.Stop)
+Rgba::~Rgba() {
+  // @@protoc_insertion_point(destructor:proto_svg.Rgba)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
-    ArenaDtor(this);
     return;
   }
   SharedDtor();
 }
 
-inline void Stop::SharedDtor() {
+inline void Rgba::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.distance_.Destruct();
-  _impl_.distance_.~MapField();
-  _impl_.stop_name_.Destroy();
 }
 
-void Stop::ArenaDtor(void* object) {
-  Stop* _this = reinterpret_cast< Stop* >(object);
-  _this->_impl_.distance_.Destruct();
-}
-void Stop::SetCachedSize(int size) const {
+void Rgba::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void Stop::Clear() {
-// @@protoc_insertion_point(message_clear_start:proto_svg.Stop)
+void Rgba::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto_svg.Rgba)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.distance_.Clear();
-  _impl_.stop_name_.ClearToEmpty();
-  ::memset(&_impl_.latitude_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.longitude_) -
-      reinterpret_cast<char*>(&_impl_.latitude_)) + sizeof(_impl_.longitude_));
+  ::memset(&_impl_.red_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.blue_) -
+      reinterpret_cast<char*>(&_impl_.red_)) + sizeof(_impl_.blue_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Stop::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Rgba::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string stop_name = 1;
+      // uint32 red = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_stop_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.red_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "proto_svg.Stop.stop_name"));
         } else
           goto handle_unusual;
         continue;
-      // double latitude = 2;
+      // uint32 green = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
-          _impl_.latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.green_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // double longitude = 3;
+      // uint32 blue = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          _impl_.longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.blue_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // map<string, int32> distance = 4;
+      // double opacity = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.distance_, ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          _impl_.opacity_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -316,187 +507,140 @@ failure:
 #undef CHK_
 }
 
-uint8_t* Stop::_InternalSerialize(
+uint8_t* Rgba::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:proto_svg.Stop)
+  // @@protoc_insertion_point(serialize_to_array_start:proto_svg.Rgba)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string stop_name = 1;
-  if (!this->_internal_stop_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_stop_name().data(), static_cast<int>(this->_internal_stop_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "proto_svg.Stop.stop_name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_stop_name(), target);
-  }
-
-  // double latitude = 2;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_latitude = this->_internal_latitude();
-  uint64_t raw_latitude;
-  memcpy(&raw_latitude, &tmp_latitude, sizeof(tmp_latitude));
-  if (raw_latitude != 0) {
+  // uint32 red = 1;
+  if (this->_internal_red() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_latitude(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_red(), target);
   }
 
-  // double longitude = 3;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_longitude = this->_internal_longitude();
-  uint64_t raw_longitude;
-  memcpy(&raw_longitude, &tmp_longitude, sizeof(tmp_longitude));
-  if (raw_longitude != 0) {
+  // uint32 green = 2;
+  if (this->_internal_green() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_longitude(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_green(), target);
   }
 
-  // map<string, int32> distance = 4;
-  if (!this->_internal_distance().empty()) {
-    using MapType = ::_pb::Map<std::string, int32_t>;
-    using WireHelper = Stop_DistanceEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_distance();
-    auto check_utf8 = [](const MapType::value_type& entry) {
-      (void)entry;
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-        entry.first.data(), static_cast<int>(entry.first.length()),
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "proto_svg.Stop.DistanceEntry.key");
-    };
+  // uint32 blue = 3;
+  if (this->_internal_blue() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_blue(), target);
+  }
 
-    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
-      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
-        check_utf8(entry);
-      }
-    } else {
-      for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
-        check_utf8(entry);
-      }
-    }
+  // double opacity = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_opacity = this->_internal_opacity();
+  uint64_t raw_opacity;
+  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
+  if (raw_opacity != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_opacity(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:proto_svg.Stop)
+  // @@protoc_insertion_point(serialize_to_array_end:proto_svg.Rgba)
   return target;
 }
 
-size_t Stop::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:proto_svg.Stop)
+size_t Rgba::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:proto_svg.Rgba)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, int32> distance = 4;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_distance_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >::const_iterator
-      it = this->_internal_distance().begin();
-      it != this->_internal_distance().end(); ++it) {
-    total_size += Stop_DistanceEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  // uint32 red = 1;
+  if (this->_internal_red() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_red());
   }
 
-  // string stop_name = 1;
-  if (!this->_internal_stop_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_stop_name());
+  // uint32 green = 2;
+  if (this->_internal_green() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_green());
   }
 
-  // double latitude = 2;
+  // double opacity = 4;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_latitude = this->_internal_latitude();
-  uint64_t raw_latitude;
-  memcpy(&raw_latitude, &tmp_latitude, sizeof(tmp_latitude));
-  if (raw_latitude != 0) {
+  double tmp_opacity = this->_internal_opacity();
+  uint64_t raw_opacity;
+  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
+  if (raw_opacity != 0) {
     total_size += 1 + 8;
   }
 
-  // double longitude = 3;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_longitude = this->_internal_longitude();
-  uint64_t raw_longitude;
-  memcpy(&raw_longitude, &tmp_longitude, sizeof(tmp_longitude));
-  if (raw_longitude != 0) {
-    total_size += 1 + 8;
+  // uint32 blue = 3;
+  if (this->_internal_blue() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_blue());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Stop::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Rgba::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Stop::MergeImpl
+    Rgba::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Stop::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Rgba::GetClassData() const { return &_class_data_; }
 
 
-void Stop::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Stop*>(&to_msg);
-  auto& from = static_cast<const Stop&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:proto_svg.Stop)
+void Rgba::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Rgba*>(&to_msg);
+  auto& from = static_cast<const Rgba&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto_svg.Rgba)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.distance_.MergeFrom(from._impl_.distance_);
-  if (!from._internal_stop_name().empty()) {
-    _this->_internal_set_stop_name(from._internal_stop_name());
+  if (from._internal_red() != 0) {
+    _this->_internal_set_red(from._internal_red());
+  }
+  if (from._internal_green() != 0) {
+    _this->_internal_set_green(from._internal_green());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_latitude = from._internal_latitude();
-  uint64_t raw_latitude;
-  memcpy(&raw_latitude, &tmp_latitude, sizeof(tmp_latitude));
-  if (raw_latitude != 0) {
-    _this->_internal_set_latitude(from._internal_latitude());
+  double tmp_opacity = from._internal_opacity();
+  uint64_t raw_opacity;
+  memcpy(&raw_opacity, &tmp_opacity, sizeof(tmp_opacity));
+  if (raw_opacity != 0) {
+    _this->_internal_set_opacity(from._internal_opacity());
   }
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_longitude = from._internal_longitude();
-  uint64_t raw_longitude;
-  memcpy(&raw_longitude, &tmp_longitude, sizeof(tmp_longitude));
-  if (raw_longitude != 0) {
-    _this->_internal_set_longitude(from._internal_longitude());
+  if (from._internal_blue() != 0) {
+    _this->_internal_set_blue(from._internal_blue());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void Stop::CopyFrom(const Stop& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:proto_svg.Stop)
+void Rgba::CopyFrom(const Rgba& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:proto_svg.Rgba)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Stop::IsInitialized() const {
+bool Rgba::IsInitialized() const {
   return true;
 }
 
-void Stop::InternalSwap(Stop* other) {
+void Rgba::InternalSwap(Rgba* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.distance_.InternalSwap(&other->_impl_.distance_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.stop_name_, lhs_arena,
-      &other->_impl_.stop_name_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Stop, _impl_.longitude_)
-      + sizeof(Stop::_impl_.longitude_)
-      - PROTOBUF_FIELD_OFFSET(Stop, _impl_.latitude_)>(
-          reinterpret_cast<char*>(&_impl_.latitude_),
-          reinterpret_cast<char*>(&other->_impl_.latitude_));
+      PROTOBUF_FIELD_OFFSET(Rgba, _impl_.blue_)
+      + sizeof(Rgba::_impl_.blue_)
+      - PROTOBUF_FIELD_OFFSET(Rgba, _impl_.red_)>(
+          reinterpret_cast<char*>(&_impl_.red_),
+          reinterpret_cast<char*>(&other->_impl_.red_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Stop::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Rgba::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_svg_2eproto_getter, &descriptor_table_svg_2eproto_once,
       file_level_metadata_svg_2eproto[1]);
@@ -504,56 +648,102 @@ void Stop::InternalSwap(Stop* other) {
 
 // ===================================================================
 
-class Bus::_Internal {
+class Color::_Internal {
  public:
+  static const ::proto_svg::Rgb& rgb(const Color* msg);
+  static const ::proto_svg::Rgba& rgba(const Color* msg);
 };
 
-Bus::Bus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+const ::proto_svg::Rgb&
+Color::_Internal::rgb(const Color* msg) {
+  return *msg->_impl_.color_.rgb_;
+}
+const ::proto_svg::Rgba&
+Color::_Internal::rgba(const Color* msg) {
+  return *msg->_impl_.color_.rgba_;
+}
+void Color::set_allocated_rgb(::proto_svg::Rgb* rgb) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_color();
+  if (rgb) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(rgb);
+    if (message_arena != submessage_arena) {
+      rgb = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, rgb, submessage_arena);
+    }
+    set_has_rgb();
+    _impl_.color_.rgb_ = rgb;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto_svg.Color.rgb)
+}
+void Color::set_allocated_rgba(::proto_svg::Rgba* rgba) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_color();
+  if (rgba) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(rgba);
+    if (message_arena != submessage_arena) {
+      rgba = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, rgba, submessage_arena);
+    }
+    set_has_rgba();
+    _impl_.color_.rgba_ = rgba;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto_svg.Color.rgba)
+}
+Color::Color(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:proto_svg.Bus)
+  // @@protoc_insertion_point(arena_constructor:proto_svg.Color)
 }
-Bus::Bus(const Bus& from)
+Color::Color(const Color& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Bus* const _this = this; (void)_this;
+  Color* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.route_){from._impl_.route_}
-    , decltype(_impl_.bus_name_){}
-    , decltype(_impl_.is_route_round_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_.color_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.bus_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.bus_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_bus_name().empty()) {
-    _this->_impl_.bus_name_.Set(from._internal_bus_name(), 
-      _this->GetArenaForAllocation());
+  clear_has_color();
+  switch (from.color_case()) {
+    case kEmpty: {
+      _this->_internal_set_empty(from._internal_empty());
+      break;
+    }
+    case kRgb: {
+      _this->_internal_mutable_rgb()->::proto_svg::Rgb::MergeFrom(
+          from._internal_rgb());
+      break;
+    }
+    case kRgba: {
+      _this->_internal_mutable_rgba()->::proto_svg::Rgba::MergeFrom(
+          from._internal_rgba());
+      break;
+    }
+    case COLOR_NOT_SET: {
+      break;
+    }
   }
-  _this->_impl_.is_route_round_ = from._impl_.is_route_round_;
-  // @@protoc_insertion_point(copy_constructor:proto_svg.Bus)
+  // @@protoc_insertion_point(copy_constructor:proto_svg.Color)
 }
 
-inline void Bus::SharedCtor(
+inline void Color::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.route_){arena}
-    , decltype(_impl_.bus_name_){}
-    , decltype(_impl_.is_route_round_){false}
+      decltype(_impl_.color_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
   };
-  _impl_.bus_name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.bus_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_color();
 }
 
-Bus::~Bus() {
-  // @@protoc_insertion_point(destructor:proto_svg.Bus)
+Color::~Color() {
+  // @@protoc_insertion_point(destructor:proto_svg.Color)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -561,63 +751,82 @@ Bus::~Bus() {
   SharedDtor();
 }
 
-inline void Bus::SharedDtor() {
+inline void Color::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.route_.~RepeatedPtrField();
-  _impl_.bus_name_.Destroy();
+  if (has_color()) {
+    clear_color();
+  }
 }
 
-void Bus::SetCachedSize(int size) const {
+void Color::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void Bus::Clear() {
-// @@protoc_insertion_point(message_clear_start:proto_svg.Bus)
+void Color::clear_color() {
+// @@protoc_insertion_point(one_of_clear_start:proto_svg.Color)
+  switch (color_case()) {
+    case kEmpty: {
+      _impl_.color_.empty_.Destroy();
+      break;
+    }
+    case kRgb: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.color_.rgb_;
+      }
+      break;
+    }
+    case kRgba: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.color_.rgba_;
+      }
+      break;
+    }
+    case COLOR_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = COLOR_NOT_SET;
+}
+
+
+void Color::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto_svg.Color)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.route_.Clear();
-  _impl_.bus_name_.ClearToEmpty();
-  _impl_.is_route_round_ = false;
+  clear_color();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Bus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Color::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string bus_name = 1;
+      // string empty = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_bus_name();
+          auto str = _internal_mutable_empty();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "proto_svg.Bus.bus_name"));
+          CHK_(::_pbi::VerifyUTF8(str, "proto_svg.Color.empty"));
         } else
           goto handle_unusual;
         continue;
-      // repeated string route = 2;
+      // .proto_svg.Rgb rgb = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_route();
-            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(ptr);
-            CHK_(::_pbi::VerifyUTF8(str, "proto_svg.Bus.route"));
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_rgb(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bool is_route_round = 3;
+      // .proto_svg.Rgba rgba = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.is_route_round_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rgba(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -645,127 +854,137 @@ failure:
 #undef CHK_
 }
 
-uint8_t* Bus::_InternalSerialize(
+uint8_t* Color::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:proto_svg.Bus)
+  // @@protoc_insertion_point(serialize_to_array_start:proto_svg.Color)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string bus_name = 1;
-  if (!this->_internal_bus_name().empty()) {
+  // string empty = 1;
+  if (_internal_has_empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_bus_name().data(), static_cast<int>(this->_internal_bus_name().length()),
+      this->_internal_empty().data(), static_cast<int>(this->_internal_empty().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "proto_svg.Bus.bus_name");
+      "proto_svg.Color.empty");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_bus_name(), target);
+        1, this->_internal_empty(), target);
   }
 
-  // repeated string route = 2;
-  for (int i = 0, n = this->_internal_route_size(); i < n; i++) {
-    const auto& s = this->_internal_route(i);
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "proto_svg.Bus.route");
-    target = stream->WriteString(2, s, target);
+  // .proto_svg.Rgb rgb = 2;
+  if (_internal_has_rgb()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::rgb(this),
+        _Internal::rgb(this).GetCachedSize(), target, stream);
   }
 
-  // bool is_route_round = 3;
-  if (this->_internal_is_route_round() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_is_route_round(), target);
+  // .proto_svg.Rgba rgba = 3;
+  if (_internal_has_rgba()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::rgba(this),
+        _Internal::rgba(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:proto_svg.Bus)
+  // @@protoc_insertion_point(serialize_to_array_end:proto_svg.Color)
   return target;
 }
 
-size_t Bus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:proto_svg.Bus)
+size_t Color::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:proto_svg.Color)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string route = 2;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.route_.size());
-  for (int i = 0, n = _impl_.route_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      _impl_.route_.Get(i));
+  switch (color_case()) {
+    // string empty = 1;
+    case kEmpty: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_empty());
+      break;
+    }
+    // .proto_svg.Rgb rgb = 2;
+    case kRgb: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.color_.rgb_);
+      break;
+    }
+    // .proto_svg.Rgba rgba = 3;
+    case kRgba: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.color_.rgba_);
+      break;
+    }
+    case COLOR_NOT_SET: {
+      break;
+    }
   }
-
-  // string bus_name = 1;
-  if (!this->_internal_bus_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_bus_name());
-  }
-
-  // bool is_route_round = 3;
-  if (this->_internal_is_route_round() != 0) {
-    total_size += 1 + 1;
-  }
-
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Bus::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Color::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Bus::MergeImpl
+    Color::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Bus::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Color::GetClassData() const { return &_class_data_; }
 
 
-void Bus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Bus*>(&to_msg);
-  auto& from = static_cast<const Bus&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:proto_svg.Bus)
+void Color::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Color*>(&to_msg);
+  auto& from = static_cast<const Color&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto_svg.Color)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.route_.MergeFrom(from._impl_.route_);
-  if (!from._internal_bus_name().empty()) {
-    _this->_internal_set_bus_name(from._internal_bus_name());
-  }
-  if (from._internal_is_route_round() != 0) {
-    _this->_internal_set_is_route_round(from._internal_is_route_round());
+  switch (from.color_case()) {
+    case kEmpty: {
+      _this->_internal_set_empty(from._internal_empty());
+      break;
+    }
+    case kRgb: {
+      _this->_internal_mutable_rgb()->::proto_svg::Rgb::MergeFrom(
+          from._internal_rgb());
+      break;
+    }
+    case kRgba: {
+      _this->_internal_mutable_rgba()->::proto_svg::Rgba::MergeFrom(
+          from._internal_rgba());
+      break;
+    }
+    case COLOR_NOT_SET: {
+      break;
+    }
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void Bus::CopyFrom(const Bus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:proto_svg.Bus)
+void Color::CopyFrom(const Color& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:proto_svg.Color)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Bus::IsInitialized() const {
+bool Color::IsInitialized() const {
   return true;
 }
 
-void Bus::InternalSwap(Bus* other) {
+void Color::InternalSwap(Color* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.route_.InternalSwap(&other->_impl_.route_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.bus_name_, lhs_arena,
-      &other->_impl_.bus_name_, rhs_arena
-  );
-  swap(_impl_.is_route_round_, other->_impl_.is_route_round_);
+  swap(_impl_.color_, other->_impl_.color_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Bus::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Color::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_svg_2eproto_getter, &descriptor_table_svg_2eproto_once,
       file_level_metadata_svg_2eproto[2]);
@@ -774,17 +993,17 @@ void Bus::InternalSwap(Bus* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace proto_svg
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::proto_svg::Stop_DistanceEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::proto_svg::Stop_DistanceEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::proto_svg::Stop_DistanceEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::proto_svg::Rgb*
+Arena::CreateMaybeMessage< ::proto_svg::Rgb >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::proto_svg::Rgb >(arena);
 }
-template<> PROTOBUF_NOINLINE ::proto_svg::Stop*
-Arena::CreateMaybeMessage< ::proto_svg::Stop >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::proto_svg::Stop >(arena);
+template<> PROTOBUF_NOINLINE ::proto_svg::Rgba*
+Arena::CreateMaybeMessage< ::proto_svg::Rgba >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::proto_svg::Rgba >(arena);
 }
-template<> PROTOBUF_NOINLINE ::proto_svg::Bus*
-Arena::CreateMaybeMessage< ::proto_svg::Bus >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::proto_svg::Bus >(arena);
+template<> PROTOBUF_NOINLINE ::proto_svg::Color*
+Arena::CreateMaybeMessage< ::proto_svg::Color >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::proto_svg::Color >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

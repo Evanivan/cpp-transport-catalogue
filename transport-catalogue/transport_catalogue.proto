@@ -6,9 +6,28 @@ import "transport_router.proto";
 import "map_renderer.proto";
 import "svg.proto";
 
+message Stop {
+    string stop_name = 1;
+    double latitude = 2;
+    double longitude = 3;
+}
+
+message Bus {
+    string bus_name = 1;
+    repeated string route = 2;
+    bool is_route_round = 3;
+}
+
+message Distances {
+    string from = 1;
+    string to = 2;
+    int32 dist = 3;
+}
+
 message TransportCatalogue {
-    repeated proto_svg.Stop stops = 1;
-    repeated proto_svg.Bus buses = 2;
+    repeated Stop stops = 1;
+    repeated Bus buses = 2;
+    repeated Distances distance = 3;
 }
 
 message FullBase {

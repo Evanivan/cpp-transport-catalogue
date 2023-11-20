@@ -26,24 +26,13 @@ namespace req_handler {
 
             for (auto &el: routes) {
                 bss.emplace(db_.FindBus(el));
-                buses.emplace(db_.FindBus(el));
+//                buses.emplace(db_.FindBus(el));
             }
         } catch (...) {
             throw ("smth wrong");
         }
 
-//        std::cout << "\n\n\t Finish GetBusesByStop \n\n\t";
         return bss;
-    }
-
-    void RequestHandler::GetAllBuses() {
-        auto routes = db_.GetRouteType();
-
-//        std::cout << "\n\n GETTING ALL BUSES\n";
-        for (auto& [name, type]: routes) {
-            buses.emplace(db_.FindBus(name));
-        }
-//        std::cout << "\n\n GOT ALL BUSES\n\n";
     }
 
     const Transport::Catalogue& RequestHandler::GetCatalogue() const {
@@ -52,17 +41,15 @@ namespace req_handler {
 
     svg::Document RequestHandler::RenderMap() const {
         std::vector<geo::Coordinates> points;
-        std::set<std::string> set_of_buses;
         std::vector<std::vector<svg::Point>> vector_of_path_picture;
         std::vector<renderer::RouteForRend> route_picture;
         std::vector<std::pair<const svg::Point&, const std::string&>> render_busnames;
 
-        for (auto bus : buses) {
-            set_of_buses.insert(bus->bus_name_);
-        }
+        auto deque_of_buses = const_cast<std::deque<domain::Bus>&>(db_.GetDequeBus());
+        std::sort(deque_of_buses.begin(), deque_of_buses.end());
 
-        for (const auto& bus : set_of_buses) {
-            auto route = db_.GetBusInfo(bus);
+        for (const auto& bus : deque_of_buses) {
+            auto route = db_.GetBusInfo(bus.bus_name_);
             if (route->empty()) continue;
             for (auto stp: *route) {
                 if (stp) {
@@ -77,28 +64,28 @@ namespace req_handler {
         int k = 0;
         std::map<std::string, svg::Point> stp_to_proj_coords;
 
-        for (const auto& bus : set_of_buses) {
-            auto route = db_.GetBusInfo(bus);
+        for (const auto& bus : deque_of_buses) {
+            auto route = db_.GetBusInfo(bus.bus_name_);
             if (route->empty()) continue;
             std::vector<svg::Point> tmp_vector_coords;
-            const auto type_bus = db_.GetRouteType();
+            const auto& type_bus = db_.GetRouteType();
 
             for (size_t i = 0; i < route->size(); ++i) {
                 tmp_vector_coords.emplace_back(coord[k]);
                 stp_to_proj_coords[(*route)[i]->stop_name] = coord[k];
                 ++k;
             }
-            if (!type_bus.at(bus)) {
+            if (!type_bus.at(bus.bus_name_)) {
                 for (size_t i = 0; i < route->size() - 1; ++i) {
                     tmp_vector_coords.emplace_back(coord[(k - 1) - (i + 1)]);
                 }
             }
             vector_of_path_picture.emplace_back(std::move(tmp_vector_coords));
         }
-        for (const auto& bus : set_of_buses) { //отрисовка названий маршрута
-            auto route = db_.GetBusInfo(bus);
-            const auto type_bus = db_.GetRouteType();
-            renderer::RouteForRend r_f_r({bus, type_bus, route});
+        for (const auto& bus : deque_of_buses) { //отрисовка названий маршрута
+            auto route = db_.GetBusInfo(bus.bus_name_);
+            const auto& type_bus = db_.GetRouteType();
+            renderer::RouteForRend r_f_r({bus.bus_name_, type_bus, route});
             route_picture.emplace_back(r_f_r);
         }
         std::vector<svg::Point> stp_coords;

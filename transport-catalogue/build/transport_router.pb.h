@@ -32,7 +32,6 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "graph.pb.h"
-#include "svg.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_transport_5frouter_2eproto
@@ -736,7 +735,7 @@ class RouteData final :
 
   enum : int {
     kStopsToIdTransitFieldNumber = 2,
-    kEdgeToInfoFieldNumber = 4,
+    kEdgeToInfoFieldNumber = 3,
     kGraphFieldNumber = 1,
   };
   // repeated .router_proto.StopsToId stops_to_id_transit = 2;
@@ -757,7 +756,7 @@ class RouteData final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::router_proto::StopsToId >&
       stops_to_id_transit() const;
 
-  // repeated .router_proto.ResponsResult edge_to_info = 4;
+  // repeated .router_proto.ResponsResult edge_to_info = 3;
   int edge_to_info_size() const;
   private:
   int _internal_edge_to_info_size() const;
@@ -1247,7 +1246,7 @@ RouteData::stops_to_id_transit() const {
   return _impl_.stops_to_id_transit_;
 }
 
-// repeated .router_proto.ResponsResult edge_to_info = 4;
+// repeated .router_proto.ResponsResult edge_to_info = 3;
 inline int RouteData::_internal_edge_to_info_size() const {
   return _impl_.edge_to_info_.size();
 }

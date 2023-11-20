@@ -248,40 +248,31 @@ namespace json_reader {
     void GetJson::ReadJSON() {
         auto input_json = json::Load(std::cin).GetRoot().AsDict();
         try {
-
-//            std::cout << "\n....START reading json.....\n"s;
-
             if (input_json.count("serialization_settings") > 0) {
                 const auto serialization_file = input_json.at(
                         "serialization_settings").AsDict(); //reading serialization file
-//                std::cout << "\n....file name reading json.....\n"s;
                 file_serialize_ = serialization_file.at("file").AsString();
             }
 
             if (input_json.count("base_requests") > 0) {
                 const auto base_input = input_json.at("base_requests").AsArray();
                 stp_n_buses = ReadBase(base_input);
-//                std::cout << "\n....base request request reading json.....\n"s;
             }
 
             if (input_json.count("stat_requests") > 0) {
                 const auto stat_reqs = input_json.at("stat_requests").AsArray();
                 stats = ReadStat(stat_reqs);
-//                std::cout << "\n....stat request reading json.....\n"s;
             }
 
             if (input_json.count("render_settings") > 0) {
                 const auto map_settings = input_json.at("render_settings").AsDict();
                 map_settings_ = ReadMapSettings(map_settings);
-//                std::cout << "\n....render settings reading json.....\n"s;
             }
 
             if (input_json.count("routing_settings") > 0) {
                 const auto map_route_set = input_json.at("routing_settings").AsDict();
                 route_settings_ = ReadRouteSettings(map_route_set);
-//                std::cout << "\n....routing settings reading json.....\n"s;
             }
-//            std::cout << "\n....reading json.....\n"s;
         } catch (...) {
 
         }

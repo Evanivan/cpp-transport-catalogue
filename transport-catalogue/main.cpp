@@ -40,23 +40,24 @@ int main(int argc, char* argv[]) {
 
         std::ofstream output(json.GetFileName(), std::ios::out | std::ios::binary);
         if(output.is_open()) {
-            serialize::Serialize(base.GetCatalogue(), json.GetMapSettings(), json.GetStopsNBuses(), router, output);
+            serialize::Serialize(base.GetCatalogue(), json.GetMapSettings(), router, output);
         }
     } else if (mode == "process_requests"sv) {
         // process requests here
         json_reader::GetJson json;
         json.ReadJSON();
-
         Transport::Catalogue catalogue;
 
         std::ifstream input_f(json.GetFileName(), std::ios::in | std::ios::binary);
         if(input_f) {
-            auto [deserialized_catalogue, deserialized_map, deserialized_route, deserialized_graph] = serialize::Deserialize(catalogue, input_f);
+            auto [deserialized_catalogue
+                  , deserialized_map
+                  , deserialized_route
+                  , deserialized_graph] = serialize::Deserialize(catalogue, input_f);
+
             renderer::MapRenderer renderer(deserialized_map);
 
-            req_handler::RequestHandler render_request(catalogue, renderer);
-            render_request.GetAllBuses();
-
+            req_handler::RequestHandler render_request(deserialized_catalogue, renderer);
             deserialized_route.SetGraph(deserialized_graph);
             auto arr = json_reader::BuildJSON(json.GetStats(), std::move(render_request), deserialized_route);
             //вывод JSON в поток

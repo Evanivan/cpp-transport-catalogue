@@ -29,9 +29,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/map.h>  // IWYU pragma: export
-#include <google/protobuf/map_entry.h>
-#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -48,69 +45,43 @@ struct TableStruct_svg_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_svg_2eproto;
 namespace proto_svg {
-class Bus;
-struct BusDefaultTypeInternal;
-extern BusDefaultTypeInternal _Bus_default_instance_;
-class Stop;
-struct StopDefaultTypeInternal;
-extern StopDefaultTypeInternal _Stop_default_instance_;
-class Stop_DistanceEntry_DoNotUse;
-struct Stop_DistanceEntry_DoNotUseDefaultTypeInternal;
-extern Stop_DistanceEntry_DoNotUseDefaultTypeInternal _Stop_DistanceEntry_DoNotUse_default_instance_;
+class Color;
+struct ColorDefaultTypeInternal;
+extern ColorDefaultTypeInternal _Color_default_instance_;
+class Rgb;
+struct RgbDefaultTypeInternal;
+extern RgbDefaultTypeInternal _Rgb_default_instance_;
+class Rgba;
+struct RgbaDefaultTypeInternal;
+extern RgbaDefaultTypeInternal _Rgba_default_instance_;
 }  // namespace proto_svg
 PROTOBUF_NAMESPACE_OPEN
-template<> ::proto_svg::Bus* Arena::CreateMaybeMessage<::proto_svg::Bus>(Arena*);
-template<> ::proto_svg::Stop* Arena::CreateMaybeMessage<::proto_svg::Stop>(Arena*);
-template<> ::proto_svg::Stop_DistanceEntry_DoNotUse* Arena::CreateMaybeMessage<::proto_svg::Stop_DistanceEntry_DoNotUse>(Arena*);
+template<> ::proto_svg::Color* Arena::CreateMaybeMessage<::proto_svg::Color>(Arena*);
+template<> ::proto_svg::Rgb* Arena::CreateMaybeMessage<::proto_svg::Rgb>(Arena*);
+template<> ::proto_svg::Rgba* Arena::CreateMaybeMessage<::proto_svg::Rgba>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace proto_svg {
 
 // ===================================================================
 
-class Stop_DistanceEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Stop_DistanceEntry_DoNotUse, 
-    std::string, int32_t,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Stop_DistanceEntry_DoNotUse, 
-    std::string, int32_t,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32> SuperType;
-  Stop_DistanceEntry_DoNotUse();
-  explicit PROTOBUF_CONSTEXPR Stop_DistanceEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit Stop_DistanceEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const Stop_DistanceEntry_DoNotUse& other);
-  static const Stop_DistanceEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Stop_DistanceEntry_DoNotUse*>(&_Stop_DistanceEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "proto_svg.Stop.DistanceEntry.key");
- }
-  static bool ValidateValue(void*) { return true; }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  friend struct ::TableStruct_svg_2eproto;
-};
-
-// -------------------------------------------------------------------
-
-class Stop final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto_svg.Stop) */ {
+class Rgb final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto_svg.Rgb) */ {
  public:
-  inline Stop() : Stop(nullptr) {}
-  ~Stop() override;
-  explicit PROTOBUF_CONSTEXPR Stop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Rgb() : Rgb(nullptr) {}
+  ~Rgb() override;
+  explicit PROTOBUF_CONSTEXPR Rgb(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Stop(const Stop& from);
-  Stop(Stop&& from) noexcept
-    : Stop() {
+  Rgb(const Rgb& from);
+  Rgb(Rgb&& from) noexcept
+    : Rgb() {
     *this = ::std::move(from);
   }
 
-  inline Stop& operator=(const Stop& from) {
+  inline Rgb& operator=(const Rgb& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Stop& operator=(Stop&& from) noexcept {
+  inline Rgb& operator=(Rgb&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -133,20 +104,20 @@ class Stop final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Stop& default_instance() {
+  static const Rgb& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Stop* internal_default_instance() {
-    return reinterpret_cast<const Stop*>(
-               &_Stop_default_instance_);
+  static inline const Rgb* internal_default_instance() {
+    return reinterpret_cast<const Rgb*>(
+               &_Rgb_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
-  friend void swap(Stop& a, Stop& b) {
+  friend void swap(Rgb& a, Rgb& b) {
     a.Swap(&b);
   }
-  inline void Swap(Stop* other) {
+  inline void Swap(Rgb* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -159,7 +130,7 @@ class Stop final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Stop* other) {
+  void UnsafeArenaSwap(Rgb* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -167,14 +138,14 @@ class Stop final :
 
   // implements Message ----------------------------------------------
 
-  Stop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Stop>(arena);
+  Rgb* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Rgb>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Stop& from);
+  void CopyFrom(const Rgb& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Stop& from) {
-    Stop::MergeImpl(*this, from);
+  void MergeFrom( const Rgb& from) {
+    Rgb::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -192,18 +163,16 @@ class Stop final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Stop* other);
+  void InternalSwap(Rgb* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "proto_svg.Stop";
+    return "proto_svg.Rgb";
   }
   protected:
-  explicit Stop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Rgb(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -213,65 +182,41 @@ class Stop final :
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDistanceFieldNumber = 4,
-    kStopNameFieldNumber = 1,
-    kLatitudeFieldNumber = 2,
-    kLongitudeFieldNumber = 3,
+    kRedFieldNumber = 1,
+    kGreenFieldNumber = 2,
+    kBlueFieldNumber = 3,
   };
-  // map<string, int32> distance = 4;
-  int distance_size() const;
+  // uint32 red = 1;
+  void clear_red();
+  uint32_t red() const;
+  void set_red(uint32_t value);
   private:
-  int _internal_distance_size() const;
-  public:
-  void clear_distance();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >&
-      _internal_distance() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >*
-      _internal_mutable_distance();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >&
-      distance() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >*
-      mutable_distance();
-
-  // string stop_name = 1;
-  void clear_stop_name();
-  const std::string& stop_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_stop_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_stop_name();
-  PROTOBUF_NODISCARD std::string* release_stop_name();
-  void set_allocated_stop_name(std::string* stop_name);
-  private:
-  const std::string& _internal_stop_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_stop_name(const std::string& value);
-  std::string* _internal_mutable_stop_name();
+  uint32_t _internal_red() const;
+  void _internal_set_red(uint32_t value);
   public:
 
-  // double latitude = 2;
-  void clear_latitude();
-  double latitude() const;
-  void set_latitude(double value);
+  // uint32 green = 2;
+  void clear_green();
+  uint32_t green() const;
+  void set_green(uint32_t value);
   private:
-  double _internal_latitude() const;
-  void _internal_set_latitude(double value);
+  uint32_t _internal_green() const;
+  void _internal_set_green(uint32_t value);
   public:
 
-  // double longitude = 3;
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
+  // uint32 blue = 3;
+  void clear_blue();
+  uint32_t blue() const;
+  void set_blue(uint32_t value);
   private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
+  uint32_t _internal_blue() const;
+  void _internal_set_blue(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:proto_svg.Stop)
+  // @@protoc_insertion_point(class_scope:proto_svg.Rgb)
  private:
   class _Internal;
 
@@ -279,14 +224,9 @@ class Stop final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-        Stop_DistanceEntry_DoNotUse,
-        std::string, int32_t,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32> distance_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr stop_name_;
-    double latitude_;
-    double longitude_;
+    uint32_t red_;
+    uint32_t green_;
+    uint32_t blue_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -294,24 +234,24 @@ class Stop final :
 };
 // -------------------------------------------------------------------
 
-class Bus final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto_svg.Bus) */ {
+class Rgba final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto_svg.Rgba) */ {
  public:
-  inline Bus() : Bus(nullptr) {}
-  ~Bus() override;
-  explicit PROTOBUF_CONSTEXPR Bus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Rgba() : Rgba(nullptr) {}
+  ~Rgba() override;
+  explicit PROTOBUF_CONSTEXPR Rgba(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Bus(const Bus& from);
-  Bus(Bus&& from) noexcept
-    : Bus() {
+  Rgba(const Rgba& from);
+  Rgba(Rgba&& from) noexcept
+    : Rgba() {
     *this = ::std::move(from);
   }
 
-  inline Bus& operator=(const Bus& from) {
+  inline Rgba& operator=(const Rgba& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Bus& operator=(Bus&& from) noexcept {
+  inline Rgba& operator=(Rgba&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -334,20 +274,20 @@ class Bus final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Bus& default_instance() {
+  static const Rgba& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Bus* internal_default_instance() {
-    return reinterpret_cast<const Bus*>(
-               &_Bus_default_instance_);
+  static inline const Rgba* internal_default_instance() {
+    return reinterpret_cast<const Rgba*>(
+               &_Rgba_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
-  friend void swap(Bus& a, Bus& b) {
+  friend void swap(Rgba& a, Rgba& b) {
     a.Swap(&b);
   }
-  inline void Swap(Bus* other) {
+  inline void Swap(Rgba* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -360,7 +300,7 @@ class Bus final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Bus* other) {
+  void UnsafeArenaSwap(Rgba* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -368,14 +308,14 @@ class Bus final :
 
   // implements Message ----------------------------------------------
 
-  Bus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Bus>(arena);
+  Rgba* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Rgba>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Bus& from);
+  void CopyFrom(const Rgba& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Bus& from) {
-    Bus::MergeImpl(*this, from);
+  void MergeFrom( const Rgba& from) {
+    Rgba::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -393,15 +333,15 @@ class Bus final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Bus* other);
+  void InternalSwap(Rgba* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "proto_svg.Bus";
+    return "proto_svg.Rgba";
   }
   protected:
-  explicit Bus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Rgba(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -415,58 +355,48 @@ class Bus final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRouteFieldNumber = 2,
-    kBusNameFieldNumber = 1,
-    kIsRouteRoundFieldNumber = 3,
+    kRedFieldNumber = 1,
+    kGreenFieldNumber = 2,
+    kOpacityFieldNumber = 4,
+    kBlueFieldNumber = 3,
   };
-  // repeated string route = 2;
-  int route_size() const;
+  // uint32 red = 1;
+  void clear_red();
+  uint32_t red() const;
+  void set_red(uint32_t value);
   private:
-  int _internal_route_size() const;
-  public:
-  void clear_route();
-  const std::string& route(int index) const;
-  std::string* mutable_route(int index);
-  void set_route(int index, const std::string& value);
-  void set_route(int index, std::string&& value);
-  void set_route(int index, const char* value);
-  void set_route(int index, const char* value, size_t size);
-  std::string* add_route();
-  void add_route(const std::string& value);
-  void add_route(std::string&& value);
-  void add_route(const char* value);
-  void add_route(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& route() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_route();
-  private:
-  const std::string& _internal_route(int index) const;
-  std::string* _internal_add_route();
+  uint32_t _internal_red() const;
+  void _internal_set_red(uint32_t value);
   public:
 
-  // string bus_name = 1;
-  void clear_bus_name();
-  const std::string& bus_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_bus_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_bus_name();
-  PROTOBUF_NODISCARD std::string* release_bus_name();
-  void set_allocated_bus_name(std::string* bus_name);
+  // uint32 green = 2;
+  void clear_green();
+  uint32_t green() const;
+  void set_green(uint32_t value);
   private:
-  const std::string& _internal_bus_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_bus_name(const std::string& value);
-  std::string* _internal_mutable_bus_name();
+  uint32_t _internal_green() const;
+  void _internal_set_green(uint32_t value);
   public:
 
-  // bool is_route_round = 3;
-  void clear_is_route_round();
-  bool is_route_round() const;
-  void set_is_route_round(bool value);
+  // double opacity = 4;
+  void clear_opacity();
+  double opacity() const;
+  void set_opacity(double value);
   private:
-  bool _internal_is_route_round() const;
-  void _internal_set_is_route_round(bool value);
+  double _internal_opacity() const;
+  void _internal_set_opacity(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:proto_svg.Bus)
+  // uint32 blue = 3;
+  void clear_blue();
+  uint32_t blue() const;
+  void set_blue(uint32_t value);
+  private:
+  uint32_t _internal_blue() const;
+  void _internal_set_blue(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:proto_svg.Rgba)
  private:
   class _Internal;
 
@@ -474,10 +404,229 @@ class Bus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> route_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bus_name_;
-    bool is_route_round_;
+    uint32_t red_;
+    uint32_t green_;
+    double opacity_;
+    uint32_t blue_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_svg_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Color final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto_svg.Color) */ {
+ public:
+  inline Color() : Color(nullptr) {}
+  ~Color() override;
+  explicit PROTOBUF_CONSTEXPR Color(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Color(const Color& from);
+  Color(Color&& from) noexcept
+    : Color() {
+    *this = ::std::move(from);
+  }
+
+  inline Color& operator=(const Color& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Color& operator=(Color&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Color& default_instance() {
+    return *internal_default_instance();
+  }
+  enum ColorCase {
+    kEmpty = 1,
+    kRgb = 2,
+    kRgba = 3,
+    COLOR_NOT_SET = 0,
+  };
+
+  static inline const Color* internal_default_instance() {
+    return reinterpret_cast<const Color*>(
+               &_Color_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Color& a, Color& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Color* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Color* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Color* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Color>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Color& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Color& from) {
+    Color::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Color* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "proto_svg.Color";
+  }
+  protected:
+  explicit Color(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEmptyFieldNumber = 1,
+    kRgbFieldNumber = 2,
+    kRgbaFieldNumber = 3,
+  };
+  // string empty = 1;
+  bool has_empty() const;
+  private:
+  bool _internal_has_empty() const;
+  public:
+  void clear_empty();
+  const std::string& empty() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_empty(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_empty();
+  PROTOBUF_NODISCARD std::string* release_empty();
+  void set_allocated_empty(std::string* empty);
+  private:
+  const std::string& _internal_empty() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_empty(const std::string& value);
+  std::string* _internal_mutable_empty();
+  public:
+
+  // .proto_svg.Rgb rgb = 2;
+  bool has_rgb() const;
+  private:
+  bool _internal_has_rgb() const;
+  public:
+  void clear_rgb();
+  const ::proto_svg::Rgb& rgb() const;
+  PROTOBUF_NODISCARD ::proto_svg::Rgb* release_rgb();
+  ::proto_svg::Rgb* mutable_rgb();
+  void set_allocated_rgb(::proto_svg::Rgb* rgb);
+  private:
+  const ::proto_svg::Rgb& _internal_rgb() const;
+  ::proto_svg::Rgb* _internal_mutable_rgb();
+  public:
+  void unsafe_arena_set_allocated_rgb(
+      ::proto_svg::Rgb* rgb);
+  ::proto_svg::Rgb* unsafe_arena_release_rgb();
+
+  // .proto_svg.Rgba rgba = 3;
+  bool has_rgba() const;
+  private:
+  bool _internal_has_rgba() const;
+  public:
+  void clear_rgba();
+  const ::proto_svg::Rgba& rgba() const;
+  PROTOBUF_NODISCARD ::proto_svg::Rgba* release_rgba();
+  ::proto_svg::Rgba* mutable_rgba();
+  void set_allocated_rgba(::proto_svg::Rgba* rgba);
+  private:
+  const ::proto_svg::Rgba& _internal_rgba() const;
+  ::proto_svg::Rgba* _internal_mutable_rgba();
+  public:
+  void unsafe_arena_set_allocated_rgba(
+      ::proto_svg::Rgba* rgba);
+  ::proto_svg::Rgba* unsafe_arena_release_rgba();
+
+  void clear_color();
+  ColorCase color_case() const;
+  // @@protoc_insertion_point(class_scope:proto_svg.Color)
+ private:
+  class _Internal;
+  void set_has_empty();
+  void set_has_rgb();
+  void set_has_rgba();
+
+  inline bool has_color() const;
+  inline void clear_has_color();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    union ColorUnion {
+      constexpr ColorUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr empty_;
+      ::proto_svg::Rgb* rgb_;
+      ::proto_svg::Rgba* rgba_;
+    } color_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_svg_2eproto;
@@ -491,278 +640,390 @@ class Bus final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// -------------------------------------------------------------------
+// Rgb
 
-// Stop
-
-// string stop_name = 1;
-inline void Stop::clear_stop_name() {
-  _impl_.stop_name_.ClearToEmpty();
+// uint32 red = 1;
+inline void Rgb::clear_red() {
+  _impl_.red_ = 0u;
 }
-inline const std::string& Stop::stop_name() const {
-  // @@protoc_insertion_point(field_get:proto_svg.Stop.stop_name)
-  return _internal_stop_name();
+inline uint32_t Rgb::_internal_red() const {
+  return _impl_.red_;
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Stop::set_stop_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.stop_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:proto_svg.Stop.stop_name)
+inline uint32_t Rgb::red() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgb.red)
+  return _internal_red();
 }
-inline std::string* Stop::mutable_stop_name() {
-  std::string* _s = _internal_mutable_stop_name();
-  // @@protoc_insertion_point(field_mutable:proto_svg.Stop.stop_name)
-  return _s;
-}
-inline const std::string& Stop::_internal_stop_name() const {
-  return _impl_.stop_name_.Get();
-}
-inline void Stop::_internal_set_stop_name(const std::string& value) {
+inline void Rgb::_internal_set_red(uint32_t value) {
   
-  _impl_.stop_name_.Set(value, GetArenaForAllocation());
+  _impl_.red_ = value;
 }
-inline std::string* Stop::_internal_mutable_stop_name() {
-  
-  return _impl_.stop_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* Stop::release_stop_name() {
-  // @@protoc_insertion_point(field_release:proto_svg.Stop.stop_name)
-  return _impl_.stop_name_.Release();
-}
-inline void Stop::set_allocated_stop_name(std::string* stop_name) {
-  if (stop_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.stop_name_.SetAllocated(stop_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.stop_name_.IsDefault()) {
-    _impl_.stop_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:proto_svg.Stop.stop_name)
+inline void Rgb::set_red(uint32_t value) {
+  _internal_set_red(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgb.red)
 }
 
-// double latitude = 2;
-inline void Stop::clear_latitude() {
-  _impl_.latitude_ = 0;
+// uint32 green = 2;
+inline void Rgb::clear_green() {
+  _impl_.green_ = 0u;
 }
-inline double Stop::_internal_latitude() const {
-  return _impl_.latitude_;
+inline uint32_t Rgb::_internal_green() const {
+  return _impl_.green_;
 }
-inline double Stop::latitude() const {
-  // @@protoc_insertion_point(field_get:proto_svg.Stop.latitude)
-  return _internal_latitude();
+inline uint32_t Rgb::green() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgb.green)
+  return _internal_green();
 }
-inline void Stop::_internal_set_latitude(double value) {
+inline void Rgb::_internal_set_green(uint32_t value) {
   
-  _impl_.latitude_ = value;
+  _impl_.green_ = value;
 }
-inline void Stop::set_latitude(double value) {
-  _internal_set_latitude(value);
-  // @@protoc_insertion_point(field_set:proto_svg.Stop.latitude)
+inline void Rgb::set_green(uint32_t value) {
+  _internal_set_green(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgb.green)
 }
 
-// double longitude = 3;
-inline void Stop::clear_longitude() {
-  _impl_.longitude_ = 0;
+// uint32 blue = 3;
+inline void Rgb::clear_blue() {
+  _impl_.blue_ = 0u;
 }
-inline double Stop::_internal_longitude() const {
-  return _impl_.longitude_;
+inline uint32_t Rgb::_internal_blue() const {
+  return _impl_.blue_;
 }
-inline double Stop::longitude() const {
-  // @@protoc_insertion_point(field_get:proto_svg.Stop.longitude)
-  return _internal_longitude();
+inline uint32_t Rgb::blue() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgb.blue)
+  return _internal_blue();
 }
-inline void Stop::_internal_set_longitude(double value) {
+inline void Rgb::_internal_set_blue(uint32_t value) {
   
-  _impl_.longitude_ = value;
+  _impl_.blue_ = value;
 }
-inline void Stop::set_longitude(double value) {
-  _internal_set_longitude(value);
-  // @@protoc_insertion_point(field_set:proto_svg.Stop.longitude)
-}
-
-// map<string, int32> distance = 4;
-inline int Stop::_internal_distance_size() const {
-  return _impl_.distance_.size();
-}
-inline int Stop::distance_size() const {
-  return _internal_distance_size();
-}
-inline void Stop::clear_distance() {
-  _impl_.distance_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >&
-Stop::_internal_distance() const {
-  return _impl_.distance_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >&
-Stop::distance() const {
-  // @@protoc_insertion_point(field_map:proto_svg.Stop.distance)
-  return _internal_distance();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >*
-Stop::_internal_mutable_distance() {
-  return _impl_.distance_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, int32_t >*
-Stop::mutable_distance() {
-  // @@protoc_insertion_point(field_mutable_map:proto_svg.Stop.distance)
-  return _internal_mutable_distance();
+inline void Rgb::set_blue(uint32_t value) {
+  _internal_set_blue(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgb.blue)
 }
 
 // -------------------------------------------------------------------
 
-// Bus
+// Rgba
 
-// string bus_name = 1;
-inline void Bus::clear_bus_name() {
-  _impl_.bus_name_.ClearToEmpty();
+// uint32 red = 1;
+inline void Rgba::clear_red() {
+  _impl_.red_ = 0u;
 }
-inline const std::string& Bus::bus_name() const {
-  // @@protoc_insertion_point(field_get:proto_svg.Bus.bus_name)
-  return _internal_bus_name();
+inline uint32_t Rgba::_internal_red() const {
+  return _impl_.red_;
+}
+inline uint32_t Rgba::red() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgba.red)
+  return _internal_red();
+}
+inline void Rgba::_internal_set_red(uint32_t value) {
+  
+  _impl_.red_ = value;
+}
+inline void Rgba::set_red(uint32_t value) {
+  _internal_set_red(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgba.red)
+}
+
+// uint32 green = 2;
+inline void Rgba::clear_green() {
+  _impl_.green_ = 0u;
+}
+inline uint32_t Rgba::_internal_green() const {
+  return _impl_.green_;
+}
+inline uint32_t Rgba::green() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgba.green)
+  return _internal_green();
+}
+inline void Rgba::_internal_set_green(uint32_t value) {
+  
+  _impl_.green_ = value;
+}
+inline void Rgba::set_green(uint32_t value) {
+  _internal_set_green(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgba.green)
+}
+
+// uint32 blue = 3;
+inline void Rgba::clear_blue() {
+  _impl_.blue_ = 0u;
+}
+inline uint32_t Rgba::_internal_blue() const {
+  return _impl_.blue_;
+}
+inline uint32_t Rgba::blue() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgba.blue)
+  return _internal_blue();
+}
+inline void Rgba::_internal_set_blue(uint32_t value) {
+  
+  _impl_.blue_ = value;
+}
+inline void Rgba::set_blue(uint32_t value) {
+  _internal_set_blue(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgba.blue)
+}
+
+// double opacity = 4;
+inline void Rgba::clear_opacity() {
+  _impl_.opacity_ = 0;
+}
+inline double Rgba::_internal_opacity() const {
+  return _impl_.opacity_;
+}
+inline double Rgba::opacity() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Rgba.opacity)
+  return _internal_opacity();
+}
+inline void Rgba::_internal_set_opacity(double value) {
+  
+  _impl_.opacity_ = value;
+}
+inline void Rgba::set_opacity(double value) {
+  _internal_set_opacity(value);
+  // @@protoc_insertion_point(field_set:proto_svg.Rgba.opacity)
+}
+
+// -------------------------------------------------------------------
+
+// Color
+
+// string empty = 1;
+inline bool Color::_internal_has_empty() const {
+  return color_case() == kEmpty;
+}
+inline bool Color::has_empty() const {
+  return _internal_has_empty();
+}
+inline void Color::set_has_empty() {
+  _impl_._oneof_case_[0] = kEmpty;
+}
+inline void Color::clear_empty() {
+  if (_internal_has_empty()) {
+    _impl_.color_.empty_.Destroy();
+    clear_has_color();
+  }
+}
+inline const std::string& Color::empty() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Color.empty)
+  return _internal_empty();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Bus::set_bus_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.bus_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:proto_svg.Bus.bus_name)
+inline void Color::set_empty(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_empty()) {
+    clear_color();
+    set_has_empty();
+    _impl_.color_.empty_.InitDefault();
+  }
+  _impl_.color_.empty_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:proto_svg.Color.empty)
 }
-inline std::string* Bus::mutable_bus_name() {
-  std::string* _s = _internal_mutable_bus_name();
-  // @@protoc_insertion_point(field_mutable:proto_svg.Bus.bus_name)
+inline std::string* Color::mutable_empty() {
+  std::string* _s = _internal_mutable_empty();
+  // @@protoc_insertion_point(field_mutable:proto_svg.Color.empty)
   return _s;
 }
-inline const std::string& Bus::_internal_bus_name() const {
-  return _impl_.bus_name_.Get();
+inline const std::string& Color::_internal_empty() const {
+  if (_internal_has_empty()) {
+    return _impl_.color_.empty_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void Bus::_internal_set_bus_name(const std::string& value) {
-  
-  _impl_.bus_name_.Set(value, GetArenaForAllocation());
+inline void Color::_internal_set_empty(const std::string& value) {
+  if (!_internal_has_empty()) {
+    clear_color();
+    set_has_empty();
+    _impl_.color_.empty_.InitDefault();
+  }
+  _impl_.color_.empty_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Bus::_internal_mutable_bus_name() {
-  
-  return _impl_.bus_name_.Mutable(GetArenaForAllocation());
+inline std::string* Color::_internal_mutable_empty() {
+  if (!_internal_has_empty()) {
+    clear_color();
+    set_has_empty();
+    _impl_.color_.empty_.InitDefault();
+  }
+  return _impl_.color_.empty_.Mutable(      GetArenaForAllocation());
 }
-inline std::string* Bus::release_bus_name() {
-  // @@protoc_insertion_point(field_release:proto_svg.Bus.bus_name)
-  return _impl_.bus_name_.Release();
-}
-inline void Bus::set_allocated_bus_name(std::string* bus_name) {
-  if (bus_name != nullptr) {
-    
+inline std::string* Color::release_empty() {
+  // @@protoc_insertion_point(field_release:proto_svg.Color.empty)
+  if (_internal_has_empty()) {
+    clear_has_color();
+    return _impl_.color_.empty_.Release();
   } else {
-    
+    return nullptr;
   }
-  _impl_.bus_name_.SetAllocated(bus_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.bus_name_.IsDefault()) {
-    _impl_.bus_name_.Set("", GetArenaForAllocation());
+}
+inline void Color::set_allocated_empty(std::string* empty) {
+  if (has_color()) {
+    clear_color();
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:proto_svg.Bus.bus_name)
+  if (empty != nullptr) {
+    set_has_empty();
+    _impl_.color_.empty_.InitAllocated(empty, GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto_svg.Color.empty)
 }
 
-// repeated string route = 2;
-inline int Bus::_internal_route_size() const {
-  return _impl_.route_.size();
+// .proto_svg.Rgb rgb = 2;
+inline bool Color::_internal_has_rgb() const {
+  return color_case() == kRgb;
 }
-inline int Bus::route_size() const {
-  return _internal_route_size();
+inline bool Color::has_rgb() const {
+  return _internal_has_rgb();
 }
-inline void Bus::clear_route() {
-  _impl_.route_.Clear();
+inline void Color::set_has_rgb() {
+  _impl_._oneof_case_[0] = kRgb;
 }
-inline std::string* Bus::add_route() {
-  std::string* _s = _internal_add_route();
-  // @@protoc_insertion_point(field_add_mutable:proto_svg.Bus.route)
-  return _s;
+inline void Color::clear_rgb() {
+  if (_internal_has_rgb()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.color_.rgb_;
+    }
+    clear_has_color();
+  }
 }
-inline const std::string& Bus::_internal_route(int index) const {
-  return _impl_.route_.Get(index);
+inline ::proto_svg::Rgb* Color::release_rgb() {
+  // @@protoc_insertion_point(field_release:proto_svg.Color.rgb)
+  if (_internal_has_rgb()) {
+    clear_has_color();
+    ::proto_svg::Rgb* temp = _impl_.color_.rgb_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.color_.rgb_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
 }
-inline const std::string& Bus::route(int index) const {
-  // @@protoc_insertion_point(field_get:proto_svg.Bus.route)
-  return _internal_route(index);
+inline const ::proto_svg::Rgb& Color::_internal_rgb() const {
+  return _internal_has_rgb()
+      ? *_impl_.color_.rgb_
+      : reinterpret_cast< ::proto_svg::Rgb&>(::proto_svg::_Rgb_default_instance_);
 }
-inline std::string* Bus::mutable_route(int index) {
-  // @@protoc_insertion_point(field_mutable:proto_svg.Bus.route)
-  return _impl_.route_.Mutable(index);
+inline const ::proto_svg::Rgb& Color::rgb() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Color.rgb)
+  return _internal_rgb();
 }
-inline void Bus::set_route(int index, const std::string& value) {
-  _impl_.route_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:proto_svg.Bus.route)
+inline ::proto_svg::Rgb* Color::unsafe_arena_release_rgb() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto_svg.Color.rgb)
+  if (_internal_has_rgb()) {
+    clear_has_color();
+    ::proto_svg::Rgb* temp = _impl_.color_.rgb_;
+    _impl_.color_.rgb_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
 }
-inline void Bus::set_route(int index, std::string&& value) {
-  _impl_.route_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:proto_svg.Bus.route)
+inline void Color::unsafe_arena_set_allocated_rgb(::proto_svg::Rgb* rgb) {
+  clear_color();
+  if (rgb) {
+    set_has_rgb();
+    _impl_.color_.rgb_ = rgb;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto_svg.Color.rgb)
 }
-inline void Bus::set_route(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.route_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:proto_svg.Bus.route)
+inline ::proto_svg::Rgb* Color::_internal_mutable_rgb() {
+  if (!_internal_has_rgb()) {
+    clear_color();
+    set_has_rgb();
+    _impl_.color_.rgb_ = CreateMaybeMessage< ::proto_svg::Rgb >(GetArenaForAllocation());
+  }
+  return _impl_.color_.rgb_;
 }
-inline void Bus::set_route(int index, const char* value, size_t size) {
-  _impl_.route_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:proto_svg.Bus.route)
-}
-inline std::string* Bus::_internal_add_route() {
-  return _impl_.route_.Add();
-}
-inline void Bus::add_route(const std::string& value) {
-  _impl_.route_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:proto_svg.Bus.route)
-}
-inline void Bus::add_route(std::string&& value) {
-  _impl_.route_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:proto_svg.Bus.route)
-}
-inline void Bus::add_route(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.route_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:proto_svg.Bus.route)
-}
-inline void Bus::add_route(const char* value, size_t size) {
-  _impl_.route_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:proto_svg.Bus.route)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-Bus::route() const {
-  // @@protoc_insertion_point(field_list:proto_svg.Bus.route)
-  return _impl_.route_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-Bus::mutable_route() {
-  // @@protoc_insertion_point(field_mutable_list:proto_svg.Bus.route)
-  return &_impl_.route_;
-}
-
-// bool is_route_round = 3;
-inline void Bus::clear_is_route_round() {
-  _impl_.is_route_round_ = false;
-}
-inline bool Bus::_internal_is_route_round() const {
-  return _impl_.is_route_round_;
-}
-inline bool Bus::is_route_round() const {
-  // @@protoc_insertion_point(field_get:proto_svg.Bus.is_route_round)
-  return _internal_is_route_round();
-}
-inline void Bus::_internal_set_is_route_round(bool value) {
-  
-  _impl_.is_route_round_ = value;
-}
-inline void Bus::set_is_route_round(bool value) {
-  _internal_set_is_route_round(value);
-  // @@protoc_insertion_point(field_set:proto_svg.Bus.is_route_round)
+inline ::proto_svg::Rgb* Color::mutable_rgb() {
+  ::proto_svg::Rgb* _msg = _internal_mutable_rgb();
+  // @@protoc_insertion_point(field_mutable:proto_svg.Color.rgb)
+  return _msg;
 }
 
+// .proto_svg.Rgba rgba = 3;
+inline bool Color::_internal_has_rgba() const {
+  return color_case() == kRgba;
+}
+inline bool Color::has_rgba() const {
+  return _internal_has_rgba();
+}
+inline void Color::set_has_rgba() {
+  _impl_._oneof_case_[0] = kRgba;
+}
+inline void Color::clear_rgba() {
+  if (_internal_has_rgba()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.color_.rgba_;
+    }
+    clear_has_color();
+  }
+}
+inline ::proto_svg::Rgba* Color::release_rgba() {
+  // @@protoc_insertion_point(field_release:proto_svg.Color.rgba)
+  if (_internal_has_rgba()) {
+    clear_has_color();
+    ::proto_svg::Rgba* temp = _impl_.color_.rgba_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.color_.rgba_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto_svg::Rgba& Color::_internal_rgba() const {
+  return _internal_has_rgba()
+      ? *_impl_.color_.rgba_
+      : reinterpret_cast< ::proto_svg::Rgba&>(::proto_svg::_Rgba_default_instance_);
+}
+inline const ::proto_svg::Rgba& Color::rgba() const {
+  // @@protoc_insertion_point(field_get:proto_svg.Color.rgba)
+  return _internal_rgba();
+}
+inline ::proto_svg::Rgba* Color::unsafe_arena_release_rgba() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto_svg.Color.rgba)
+  if (_internal_has_rgba()) {
+    clear_has_color();
+    ::proto_svg::Rgba* temp = _impl_.color_.rgba_;
+    _impl_.color_.rgba_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Color::unsafe_arena_set_allocated_rgba(::proto_svg::Rgba* rgba) {
+  clear_color();
+  if (rgba) {
+    set_has_rgba();
+    _impl_.color_.rgba_ = rgba;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto_svg.Color.rgba)
+}
+inline ::proto_svg::Rgba* Color::_internal_mutable_rgba() {
+  if (!_internal_has_rgba()) {
+    clear_color();
+    set_has_rgba();
+    _impl_.color_.rgba_ = CreateMaybeMessage< ::proto_svg::Rgba >(GetArenaForAllocation());
+  }
+  return _impl_.color_.rgba_;
+}
+inline ::proto_svg::Rgba* Color::mutable_rgba() {
+  ::proto_svg::Rgba* _msg = _internal_mutable_rgba();
+  // @@protoc_insertion_point(field_mutable:proto_svg.Color.rgba)
+  return _msg;
+}
+
+inline bool Color::has_color() const {
+  return color_case() != COLOR_NOT_SET;
+}
+inline void Color::clear_has_color() {
+  _impl_._oneof_case_[0] = COLOR_NOT_SET;
+}
+inline Color::ColorCase Color::color_case() const {
+  return Color::ColorCase(_impl_._oneof_case_[0]);
+}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__

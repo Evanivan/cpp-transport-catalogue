@@ -2836,11 +2836,6 @@ CMakeFiles/transport_catalogue.dir/main.cpp.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h
@@ -2849,7 +2844,6 @@ CMakeFiles/transport_catalogue.dir/main.cpp.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_def.inc
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_undef.inc
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/reflection_ops.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_field.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_ptr_field.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/stubs/callback.h
@@ -3796,6 +3790,7 @@ CMakeFiles/transport_catalogue.dir/map_renderer.pb.cc.o
  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h
  /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint 15/final_15/build/map_renderer.pb.h
+ /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint 15/final_15/build/svg.pb.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/any.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena_impl.h
@@ -4824,11 +4819,6 @@ CMakeFiles/transport_catalogue.dir/serialization.cpp.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h
@@ -4837,7 +4827,6 @@ CMakeFiles/transport_catalogue.dir/serialization.cpp.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_def.inc
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/port_undef.inc
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/reflection_ops.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_field.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/repeated_ptr_field.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/stubs/callback.h
@@ -5791,11 +5780,6 @@ CMakeFiles/transport_catalogue.dir/svg.pb.cc.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h
@@ -6775,11 +6759,6 @@ CMakeFiles/transport_catalogue.dir/transport_catalogue.pb.cc.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h
@@ -7739,7 +7718,6 @@ CMakeFiles/transport_catalogue.dir/transport_router.pb.cc.o
  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h
  /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint 15/final_15/build/graph.pb.h
- /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint 15/final_15/build/svg.pb.h
  /Users/jgloria/CLionProjects/Praktikum_CLion/Sprint 15/final_15/build/transport_router.pb.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/any.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/arena.h
@@ -7761,11 +7739,6 @@ CMakeFiles/transport_catalogue.dir/transport_router.pb.cc.o
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/io/zero_copy_stream_impl_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_entry_lite.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_inl.h
- /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_field_lite.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/map_type_handler.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message.h
  /Users/jgloria/Desktop/Protobuf/include/google/protobuf/message_lite.h

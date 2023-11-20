@@ -138,28 +138,27 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_transport_5frouter_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026transport_router.proto\022\014router_proto\032\013"
-  "graph.proto\032\tsvg.proto\"-\n\tStopsToId\022\017\n\007s"
-  "tp_bus\030\001 \001(\t\022\017\n\007stop_id\030\002 \001(\005\"d\n\020Respons"
-  "RouteData\022 \n\004type\030\001 \001(\0162\022.router_proto.T"
-  "ype\022\014\n\004name\030\002 \001(\t\022\022\n\nspan_count\030\003 \001(\005\022\014\n"
-  "\004time\030\004 \001(\001\"K\n\rResponsResult\022\014\n\004r_id\030\001 \001"
-  "(\005\022,\n\004data\030\002 \001(\0132\036.router_proto.ResponsR"
-  "outeData\"\247\001\n\tRouteData\0221\n\005graph\030\001 \001(\0132\"."
-  "graph_proto.DirectedWeightedGraph\0224\n\023sto"
-  "ps_to_id_transit\030\002 \003(\0132\027.router_proto.St"
-  "opsToId\0221\n\014edge_to_info\030\004 \003(\0132\033.router_p"
-  "roto.ResponsResult*#\n\004Type\022\r\n\tTYPE_WAIT\020"
-  "\000\022\014\n\010TYPE_BUS\020\001b\006proto3"
+  "graph.proto\"-\n\tStopsToId\022\017\n\007stp_bus\030\001 \001("
+  "\t\022\017\n\007stop_id\030\002 \001(\005\"d\n\020ResponsRouteData\022 "
+  "\n\004type\030\001 \001(\0162\022.router_proto.Type\022\014\n\004name"
+  "\030\002 \001(\t\022\022\n\nspan_count\030\003 \001(\005\022\014\n\004time\030\004 \001(\001"
+  "\"K\n\rResponsResult\022\014\n\004r_id\030\001 \001(\005\022,\n\004data\030"
+  "\002 \001(\0132\036.router_proto.ResponsRouteData\"\247\001"
+  "\n\tRouteData\0221\n\005graph\030\001 \001(\0132\".graph_proto"
+  ".DirectedWeightedGraph\0224\n\023stops_to_id_tr"
+  "ansit\030\002 \003(\0132\027.router_proto.StopsToId\0221\n\014"
+  "edge_to_info\030\003 \003(\0132\033.router_proto.Respon"
+  "sResult*#\n\004Type\022\r\n\tTYPE_WAIT\020\000\022\014\n\010TYPE_B"
+  "US\020\001b\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_transport_5frouter_2eproto_deps[2] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_transport_5frouter_2eproto_deps[1] = {
   &::descriptor_table_graph_2eproto,
-  &::descriptor_table_svg_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_transport_5frouter_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_transport_5frouter_2eproto = {
-    false, false, 503, descriptor_table_protodef_transport_5frouter_2eproto,
+    false, false, 492, descriptor_table_protodef_transport_5frouter_2eproto,
     "transport_router.proto",
-    &descriptor_table_transport_5frouter_2eproto_once, descriptor_table_transport_5frouter_2eproto_deps, 2, 4,
+    &descriptor_table_transport_5frouter_2eproto_once, descriptor_table_transport_5frouter_2eproto_deps, 1, 4,
     schemas, file_default_instances, TableStruct_transport_5frouter_2eproto::offsets,
     file_level_metadata_transport_5frouter_2eproto, file_level_enum_descriptors_transport_5frouter_2eproto,
     file_level_service_descriptors_transport_5frouter_2eproto,
@@ -1055,16 +1054,16 @@ const char* RouteData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // repeated .router_proto.ResponsResult edge_to_info = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // repeated .router_proto.ResponsResult edge_to_info = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_edge_to_info(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1112,12 +1111,12 @@ uint8_t* RouteData::_InternalSerialize(
         InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .router_proto.ResponsResult edge_to_info = 4;
+  // repeated .router_proto.ResponsResult edge_to_info = 3;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_edge_to_info_size()); i < n; i++) {
     const auto& repfield = this->_internal_edge_to_info(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1143,7 +1142,7 @@ size_t RouteData::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .router_proto.ResponsResult edge_to_info = 4;
+  // repeated .router_proto.ResponsResult edge_to_info = 3;
   total_size += 1UL * this->_internal_edge_to_info_size();
   for (const auto& msg : this->_impl_.edge_to_info_) {
     total_size +=

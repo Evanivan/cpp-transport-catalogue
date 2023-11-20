@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(TransportCatalogue CXX)
 set(CMAKE_CXX_STANDARD 17)
 
-set(-DCMAKE_PREFIX_PATH "/Users/jgloria/Desktop/Protobuf")
+set(CMAKE_PREFIX_PATH "/Users/jgloria/Desktop/Protobuf")
 set(CMAKE_OSX_ARCHITECTURES "arm64")
 
 find_package(Protobuf REQUIRED)
